@@ -20,7 +20,7 @@ const techs: Tech[] = [
 
 const TechStack: React.FC = () => {
   return (
-    <section className="py-20 bg-white text-center">
+    <section className="py-24 text-white text-center bg-gray-900 bg-opacity-30 min-h-screen flex flex-col justify-center">
       <h2 className="text-3xl font-bold mb-8">💡 Tech Stack</h2>
       <div className="flex flex-wrap justify-center items-center gap-6">
         {techs.map((tech, i) => (
@@ -28,7 +28,7 @@ const TechStack: React.FC = () => {
             key={i}
             src={tech.src}
             alt={tech.alt}
-            className="h-12 hover:scale-110 transition-transform"
+            className="h-12 hover:scale-110 transition-transform opacity-80 hover:opacity-100"
           />
         ))}
       </div>

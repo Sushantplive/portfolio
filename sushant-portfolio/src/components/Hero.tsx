@@ -2,23 +2,30 @@ import React from "react";
 
 const Hero: React.FC = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center bg-gray-50 text-center px-4">
-      <h1 className="text-5xl font-bold">
-        Hi, I'm <span className="text-blue-600">Sushant Paikrao</span>
-      </h1>
-      <p className="mt-4 text-xl">Senior Frontend Developer | React Specialist</p>
-      <div className="mt-6 flex space-x-4">
+    <section className="relative w-full h-screen py-20 flex flex-col justify-center items-center text-center text-white px-4">
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl">
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          hello, I&apos;m <span className="text-cyan-400">Sushant.</span>
+        </h1>
+        <p className="text-xl md:text-2xl mb-6 text-gray-300">
+          Senior Frontend Engineer based in <span className="text-cyan-400">Pune, India</span>
+        </p>
+        <p className="text-gray-400 mb-8 leading-relaxed text-lg">
+          With over 9 years of experience, I specialize in building scalable and high-performance web applications. 
+          I'm passionate about working with modern JavaScript frameworks and designing clean, maintainable UI architectures 
+          that create smooth and intuitive user experiences.
+        </p>
+        <p className="text-gray-400 mb-8 leading-relaxed text-lg">
+          I care deeply about code quality, performance, and long-term maintainability. I work closely with designers, 
+          backend engineers, and product teams to transform complex ideas into reliable, user-friendly products that 
+          make a real impact.
+        </p>
         <a
           href="#contact"
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          className="inline-block bg-cyan-400 text-gray-900 font-semibold px-8 py-4 rounded-lg hover:bg-cyan-500 transition"
         >
-          Hire Me
-        </a>
-        <a
-          href="/resume.pdf"
-          className="bg-gray-200 text-black px-6 py-3 rounded-lg hover:bg-gray-300 transition"
-        >
-          View Resume
+          📫 Connect with me!
         </a>
       </div>
     </section>
