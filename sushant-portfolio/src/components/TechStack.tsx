@@ -1,36 +1,91 @@
 import React from "react";
 
-interface Tech {
-  src: string;
-  alt: string;
-}
-
-const techs: Tech[] = [
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg", alt: "HTML5" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg", alt: "CSS3" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", alt: "JavaScript" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg", alt: "React" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg", alt: "Redux" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg", alt: "Node.js" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg", alt: "Git" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg", alt: "Tailwind CSS" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original-wordmark.svg", alt: "REST APIs" },
+const techIcons = [
+  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+ { name: "ES6", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" },
+  { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+  { name: "Waypoint", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "REST APIs", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original-wordmark.svg" },
+  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "Styled Components", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/styledcomponents/styledcomponents-original.svg" },
+  { name: "jQuery", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" },
+  
+  
 ];
 
 const TechStack: React.FC = () => {
+  // Generate random positions for icons
+  const getRandomPosition = (index: number) => {
+    const seed = index;
+    const x = Math.sin(seed) * 150 + 200;
+    const y = Math.cos(seed * 1.5) * 150 + 200;
+    return { x, y };
+  };
+
   return (
-    <section className="py-24 text-white text-center bg-gray-900 bg-opacity-30 min-h-screen flex flex-col justify-center">
-      <h2 className="text-3xl font-bold mb-8">💡 Tech Stack</h2>
-      <div className="flex flex-wrap justify-center items-center gap-6">
-        {techs.map((tech, i) => (
-          <img
-            key={i}
-            src={tech.src}
-            alt={tech.alt}
-            className="h-12 hover:scale-110 transition-transform opacity-80 hover:opacity-100"
-          />
-        ))}
+    <section id="tech-stack" className="py-16 text-white text-center bg-gray-900 bg-opacity-30 min-h-screen flex flex-col justify-center items-center">
+      <div className="w-full max-w-6xl mx-auto px-6">
+      <h2 className="text-4xl font-bold mb-16">💡 Tech Stack</h2>
+      
+      {/* Floating Tech Icons Container */}
+      <div className="flex justify-center items-center relative mx-auto" style={{ width: "500px", height: "500px" }}>
+
+        {/* Tech icons floating randomly */}
+        {techIcons.map((tech, index) => {
+          const { x, y } = getRandomPosition(index);
+
+          return (
+            <div
+              key={tech.name}
+              className="absolute group"
+              style={{
+                left: `${x}px`,
+                top: `${y}px`,
+                transform: "translate(-50%, -50%)",
+                animation: `randomMove ${5 + (index % 4) * 1}s ease-in-out infinite`,
+                animationDelay: `${index * 0.2}s`,
+              }}
+            >
+              <img
+                src={tech.icon}
+                alt={tech.name}
+                className="h-12 w-12 object-contain hover:scale-125 transition-transform duration-300 drop-shadow-lg"
+              />
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-cyan-400 text-gray-900 text-xs font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                {tech.name}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <style>{`
+        @keyframes randomMove {
+          0% {
+            transform: translate(-50%, -50%) translateX(0) translateY(0);
+          }
+          25% {
+            transform: translate(-50%, -50%) translateX(20px) translateY(-20px);
+          }
+          50% {
+            transform: translate(-50%, -50%) translateX(-15px) translateY(20px);
+          }
+          75% {
+            transform: translate(-50%, -50%) translateX(15px) translateY(-15px);
+          }
+          100% {
+            transform: translate(-50%, -50%) translateX(0) translateY(0);
+          }
+        }
+      `}</style>
       </div>
     </section>
   );

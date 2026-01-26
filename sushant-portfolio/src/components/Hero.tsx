@@ -2,9 +2,9 @@ import React from "react";
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative w-full h-screen py-20 flex flex-col justify-center items-center text-center text-white px-4">
+    <section id="hero" className="relative w-full h-screen py-20 flex flex-col justify-center items-center text-center text-white">
       {/* Content */}
-      <div className="relative z-10 max-w-3xl">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <h1 className="text-5xl md:text-6xl font-bold mb-4">
           hello, I&apos;m <span className="text-cyan-400">Sushant.</span>
         </h1>

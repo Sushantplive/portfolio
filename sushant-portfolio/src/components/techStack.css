@@ -1,0 +1,64 @@
+.tech-section {
+  background: #020617;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.orbit {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  animation: rotateOrbit 40s linear infinite;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+}
+
+.orbit-item img {
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 0 8px rgba(56,189,248,0.35));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes rotateOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.orbit-item img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 14px #38bdf8);
+}
+
+.orbit-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5f0ff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
