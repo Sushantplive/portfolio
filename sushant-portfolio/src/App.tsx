@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <div className="App relative z-10 w-full text-white space-y-16 pt-8">
+      <div className="App relative z-10 w-full text-white pt-8">
         <div id="hero" className="transition-all duration-300 py-12 relative overflow-hidden">
           <Hero />
         </div>

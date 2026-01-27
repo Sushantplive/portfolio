@@ -6,8 +6,12 @@ const Hero: React.FC = () => {
     <section
       id="hero"
       className="relative w-full h-screen py-20 flex flex-col justify-center items-center text-center text-white bg-transparent overflow-hidden"
+      style={{ position: "relative", height: "100vh" }}
     >
-      <div className="absolute inset-0 -z-20">
+      <div
+        className="absolute inset-0 -z-20"
+        style={{ width: "100%", height: "100%", overflow: "hidden" }}
+      >
         <ParticleBackground />
       </div>
       {/* Content */}
