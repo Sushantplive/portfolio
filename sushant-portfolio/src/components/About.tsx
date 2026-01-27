@@ -4,7 +4,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-16 bg-gray-900 bg-opacity-30 text-white min-h-screen flex flex-col justify-center">
       <div className="w-full max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold text-cyan-400">
@@ -71,7 +71,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end mt-20">
             <div className="w-full max-w-sm">
               <img
                 src="/profile.png"
