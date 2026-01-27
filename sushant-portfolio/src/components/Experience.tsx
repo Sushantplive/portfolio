@@ -5,7 +5,7 @@ const Experience: React.FC = () => {
     {
       id: "hsbc",
       company: "HSBC",
-      role: "Frontend Developer",
+      role: "Frontend Lead",
       duration: "Jan 2023 - Present",
       responsibilities: [
         "Developed and maintained enterprise-grade web applications.",
@@ -17,7 +17,7 @@ const Experience: React.FC = () => {
       id: "synechron",
       company: "Synechron",
       role: "Software Engineer",
-      duration: "Jul 2020 - Dec 2022",
+      duration: "Jul 2021 - Present",
       responsibilities: [
         "Designed and developed scalable front-end solutions.",
         "Enhanced user experience through innovative UI/UX designs.",
@@ -28,7 +28,7 @@ const Experience: React.FC = () => {
       id: "agiliad",
       company: "Agiliad",
       role: "Software Engineer",
-      duration: "Jul 2016 - Jun 2020",
+      duration: "Jul 2018 - Jun 2021",
       responsibilities: [
         "Developed scalable front-end solutions for enterprise applications.",
         "Collaborated with cross-functional teams to deliver high-quality software.",

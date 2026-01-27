@@ -40,17 +40,16 @@ const Hero: React.FC = () => {
           )}
         </h1>
         <p className="text-lg md:text-xl mb-4 text-gray-300 leading-relaxed">
-          Senior Frontend Engineer based in <span className="text-cyan-400">Pune, India</span>.
-        </p>
-        <p className="text-gray-400 mb-6 leading-relaxed text-lg">
-          With over 8 years of experience, I specialize in building scalable and high-performance web applications. I’m
-          passionate about working with modern JavaScript frameworks and designing clean, maintainable UI architectures
-          that create smooth and intuitive user experiences.
+          I am a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> based in <span className="text-cyan-400">Pune, India</span>, with over 8 years of experience in developing scalable, high-performance web applications. My expertise lies in modern JavaScript frameworks and crafting clean, maintainable UI architectures that deliver seamless user experiences.
         </p>
         <p className="text-gray-400 mb-6 leading-relaxed text-lg">
           I care deeply about code quality, performance, and long-term maintainability. I collaborate closely with
           designers, backend engineers, and product teams to transform complex ideas into reliable, user-friendly
           products that make a real impact.
+        </p>
+        <p className="text-gray-400 mb-6 leading-relaxed text-lg">
+          I am passionate about building user-centric, high-performance web applications and solving complex
+          challenges with elegant, scalable solutions.
         </p>
         <a
           href="#contact"

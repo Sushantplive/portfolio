@@ -1,0 +1,10 @@
+/* Custom styles for react-slick arrows */
+
+.slick-prev:before, .slick-next:before {
+  color: #22d3ee; /* Cyan color to match the theme */
+  font-size: 24px;
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+  color: #06b6d4; /* Slightly darker cyan on hover */
+}
