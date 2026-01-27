@@ -80,11 +80,98 @@ const Projects: React.FC = () => {
         </h2>
         <p className="text-gray-400 text-lg mb-12">Featured works and impactful solutions</p>
 
-        <div className="space-y-8">
-          {projects.map((proj, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* First Row: Omnia and Global Trade */}
+          {projects.slice(0, 2).map((proj, i) => (
             <div
               key={i}
               className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 hover:border-opacity-60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20"
+            >
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                <div>
+                  <h3 className="text-3xl font-bold text-cyan-400 mb-2">{proj.name}</h3>
+                  <p className="text-gray-300 text-lg font-semibold">{proj.company}</p>
+                </div>
+                <div className="mt-4 md:mt-0 px-4 py-2 bg-cyan-400 bg-opacity-10 border border-cyan-400 border-opacity-30 rounded text-cyan-400 text-sm font-semibold">
+                  Enterprise Platform
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-300 text-base leading-relaxed mb-6">
+                {proj.desc}
+              </p>
+
+              {/* Impact KPI */}
+              <div className="mb-6 p-4 bg-cyan-400 bg-opacity-10 border-l-4 border-cyan-400 rounded">
+                <p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-1">Impact</p>
+                <p className="text-gray-200 text-lg">{proj.impact}</p>
+              </div>
+
+              {/* Technologies */}
+              <div className="mb-6">
+                <p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">Technologies</p>
+                <div className="flex flex-wrap gap-2">
+                  {proj.tech.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 bg-gray-700 text-cyan-300 rounded-full text-sm font-mono border border-gray-600"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Highlights */}
+              <div className="mb-6">
+                <p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">Key Highlights</p>
+                <ul className="grid md:grid-cols-2 gap-3">
+                  {proj.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex items-start space-x-3 text-gray-300">
+                      <span className="text-cyan-400 font-bold mt-1">✓</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Links */}
+              {(proj.github || proj.live) && (
+                <div className="flex gap-4 pt-6 border-t border-gray-700">
+                  {proj.github && proj.github !== "#" && (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 px-4 py-2 bg-cyan-400 bg-opacity-10 text-cyan-400 rounded hover:bg-opacity-20 transition font-semibold"
+                    >
+                      <span>🐙</span>
+                      <span>GitHub</span>
+                    </a>
+                  )}
+                  {proj.live && proj.live !== "#" && (
+                    <a
+                      href={proj.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 px-4 py-2 bg-cyan-400 bg-opacity-10 text-cyan-400 rounded hover:bg-opacity-20 transition font-semibold"
+                    >
+                      <span>🔗</span>
+                      <span>Live Demo</span>
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Second Row: InfoSight Integration */}
+          {projects.slice(2, 3).map((proj, i) => (
+            <div
+              key={i}
+              className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 hover:border-opacity-60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20 md:col-span-2"
             >
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
