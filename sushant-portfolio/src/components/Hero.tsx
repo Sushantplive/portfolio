@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
           Senior Frontend Engineer based in <span className="text-cyan-400">Pune, India</span>.
         </p>
         <p className="text-gray-400 mb-6 leading-relaxed text-lg">
-          With over 9 years of experience, I specialize in building scalable and high-performance web applications. I’m
+          With over 8 years of experience, I specialize in building scalable and high-performance web applications. I’m
           passionate about working with modern JavaScript frameworks and designing clean, maintainable UI architectures
           that create smooth and intuitive user experiences.
         </p>
