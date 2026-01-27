@@ -8,13 +8,13 @@ const Navigation: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ["hero", "about", "tech-stack", "projects", "contact"];
+      const sections = ["hero", "about", "experience", "tech-stack", "projects", "contact"];
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
             setActiveSection(sectionId);
             break;
           }
