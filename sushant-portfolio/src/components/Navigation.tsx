@@ -7,9 +7,9 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       const sections = ["hero", "about", "tech-stack", "projects", "contact"];
-      
+
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -42,78 +42,84 @@ const Navigation: React.FC = () => {
     { id: "experience", label: "Experience" },
     { id: "tech-stack", label: "Tech Stack" },
     { id: "projects", label: "Projects" },
-    { id: "contact", label: "Contact" }, 
+    { id: "contact", label: "Contact" },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
-      isScrolled
-        ? "bg-gray-900 bg-opacity-95 backdrop-blur-md border-b border-gray-700 shadow-lg shadow-cyan-500/10"
-        : "bg-gray-900 bg-opacity-60 backdrop-blur-sm border-b border-gray-700/50"
-    }`}>
-      <div className="w-full px-6 py-4">
-        <div className="flex items-center justify-center">
-          {/* Name - Left of Center */}
-          <div className="flex-shrink-0 group cursor-pointer mr-12" onClick={() => scrollToSection("hero")}>
-            <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:to-blue-400 transition duration-300">
-              Sushant
-            </span>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
+        isScrolled
+          ? "bg-gray-900 bg-opacity-95 backdrop-blur-md border-b border-gray-700 shadow-lg shadow-cyan-500/10"
+          : "bg-gray-900 bg-opacity-60 backdrop-blur-sm border-b border-gray-700/50"
+      }`}
+    >
+      <div className="w-full px-6 py-4 flex items-center justify-center space-x-6">
+        {/* Logo and Name */}
+        <div
+          className="flex items-center flex-shrink-0 group cursor-pointer"
+          onClick={() => scrollToSection("hero")}
+        >
+          <div className="bg-cyan-400 text-gray-900 font-bold text-xl w-10 h-10 flex items-center justify-center rounded-full mr-2">
+            SP
           </div>
+          <span className="ml-2 text-3xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:to-blue-400 transition duration-300">
+            Sushant
+          </span>
+        </div>
 
-          {/* Center - Nav Links */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 group ${
-                  isActive(link.id)
-                    ? "text-cyan-400"
-                    : "text-gray-400 hover:text-cyan-400"
+        {/* Nav Links */}
+        <div className="flex items-center space-x-3 mr-12">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className={`relative px-4 py-2 text-base font-semibold transition-all duration-300 group flex items-center ${
+                isActive(link.id)
+                  ? "text-cyan-400"
+                  : "text-gray-400 hover:text-cyan-400"
+              }`}
+            >
+              {link.label}
+
+              {/* Animated underline */}
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ${
+                  isActive(link.id) ? "w-full" : "w-0 group-hover:w-full"
                 }`}
-              >
-                {link.label}
-                
-                {/* Animated underline */}
-                <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ${
-                    isActive(link.id) ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
-                />
-              </button>
-            ))}
-          </div>
+              />
+            </button>
+          ))}
+        </div>
 
-          {/* Social Icons - Right of Center */}
-          <div className="flex items-center space-x-5 ml-12">
-            <a
-              href="mailto:sushant.paikrao.dev@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-lg hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
-              title="Email"
-            >
-              ✉️
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sushantpaikarao/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-lg font-bold hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
-              title="LinkedIn"
-            >
-              in
-            </a>
-            <a
-              href="https://github.com/Sushantplive"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-lg hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
-              title="GitHub"
-            >
-              🐙
-            </a>
-          </div>
+        {/* Social Icons */}
+        <div className="flex items-center space-x-6">
+          <a
+            href="mailto:sushant.paikrao.dev@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-2xl hover:scale-125 transform hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+            title="Email"
+          >
+            ✉️
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sushantpaikarao/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-2xl font-extrabold hover:scale-125 transform hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+            title="LinkedIn"
+          >
+            in
+          </a>
+          <a
+            href="https://github.com/Sushantplive"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-2xl hover:scale-125 transform hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+            title="GitHub"
+          >
+            🐙
+          </a>
         </div>
       </div>
     </nav>
