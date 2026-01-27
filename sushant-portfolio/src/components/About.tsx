@@ -16,7 +16,7 @@ const About: React.FC = () => {
               <span className="text-cyan-400 font-semibold">
                 Senior Frontend Engineer
               </span>{" "}
-              based in Pune, India, with over8 years of experience building
+              based in Pune, India, with over 8 years of experience building
               scalable and high-performance web applications. I specialize in
               modern JavaScript frameworks and clean UI architecture for
               enterprise-grade products.

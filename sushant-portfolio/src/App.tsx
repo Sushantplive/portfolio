@@ -1,4 +1,3 @@
-
 import './App.css'
 import Contact from './components/Contact'
 import Hero from './components/Hero'
@@ -7,6 +6,7 @@ import TechStack from './components/TechStack'
 import About from './components/About'
 import ParticleBackground from './components/ParticleBackground'
 import Navigation from './components/Navigation'
+import Experience from './components/Experience'
 
 function App() {
 
@@ -21,6 +21,9 @@ function App() {
         <div id="about" className="transition-all duration-300">
           <About />
         </div>
+        <div id="experience" className="transition-all duration-300">
+          <Experience />
+        </div>
         <div id="tech-stack" className="transition-all duration-300">
           <TechStack />
         </div>
@@ -30,6 +33,7 @@ function App() {
         <div id="contact" className="transition-all duration-300">
           <Contact />
         </div>
+        
       </div>
     </>
   )

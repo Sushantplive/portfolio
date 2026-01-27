@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Slab:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
 @import "tailwindcss";
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto Slab', serif;
   background-color: #0f172a; /* Tailwind slate-900 fallback */
   color: #ffffff; /* default text color */
 }
- 
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Mono', monospace;
+}
+
+p, span, a, button {
+  font-family: 'Inter', sans-serif;
+}
