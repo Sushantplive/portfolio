@@ -104,7 +104,7 @@ const Navigation: React.FC = () => {
               in
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/Sushantplive"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-lg hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
