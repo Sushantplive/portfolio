@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
           {projects.slice(0, 2).map((proj, i) => (
             <div
               key={i}
-              className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 hover:border-opacity-60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20"
+              className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 hover:border-opacity-60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/30 hover:scale-105"
             >
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
@@ -171,7 +171,7 @@ const Projects: React.FC = () => {
           {projects.slice(2, 3).map((proj, i) => (
             <div
               key={i}
-              className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 hover:border-opacity-60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/20 md:col-span-2"
+              className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 hover:border-opacity-60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/30 hover:scale-105 md:col-span-2"
             >
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">

@@ -24,19 +24,27 @@ const techIcons = [
 const TechStack: React.FC = () => {
   // Generate random positions for icons
   const getRandomPosition = (index: number) => {
-    const seed = index;
-    const x = Math.sin(seed) * 150 + 200;
-    const y = Math.cos(seed * 1.5) * 150 + 200;
+    const angle = (index / techIcons.length) * 2 * Math.PI;
+    const radius = 250; // Adjust radius to fit within the circle
+    const x = Math.cos(angle) * radius + 300; // Centered within the 600px container
+    const y = Math.sin(angle) * radius + 300;
     return { x, y };
   };
 
   return (
     <section id="tech-stack" className="py-16 text-white text-center bg-gray-900 bg-opacity-30 min-h-screen flex flex-col justify-center items-center">
       <div className="w-full max-w-6xl mx-auto px-6">
-      <h2 className="text-4xl font-bold mb-16">💡 Tech Stack</h2>
+      <h2 className="text-5xl font-extrabold text-cyan-400 mb-16">💡 Tech Stack</h2>
       
       {/* Floating Tech Icons Container */}
-      <div className="flex justify-center items-center relative mx-auto" style={{ width: "500px", height: "500px" }}>
+      <div className="flex justify-center items-center relative mx-auto bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 rounded-full shadow-lg" style={{ width: "600px", height: "600px" }}>
+
+        {/* Center Content */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-cyan-400 text-4xl md:text-5xl font-extrabold animate-pulse">
+            Tech Stack
+          </div>
+        </div>
 
         {/* Tech icons floating randomly */}
         {techIcons.map((tech, index) => {
@@ -57,9 +65,9 @@ const TechStack: React.FC = () => {
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="h-12 w-12 object-contain hover:scale-125 transition-transform duration-300 drop-shadow-lg"
+                className="h-14 w-14 object-contain hover:scale-150 transition-transform duration-300 drop-shadow-xl"
               />
-              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-cyan-400 text-gray-900 text-xs font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-cyan-400 text-gray-900 text-sm font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 {tech.name}
               </div>
             </div>

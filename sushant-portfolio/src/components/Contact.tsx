@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-16 bg-gray-900 bg-opacity-30 text-white text-center min-h-screen flex flex-col justify-center">
+    <section id="contact" className="py-8 bg-gray-900 bg-opacity-30 text-white text-center flex flex-col justify-center">
       <div className="w-full max-w-6xl mx-auto px-6">
       <h2 className="text-3xl font-bold mb-6">📫 Connect with me</h2>
       <div className="flex justify-center space-x-6">
