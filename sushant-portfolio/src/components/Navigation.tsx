@@ -47,13 +47,13 @@ const Navigation: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-20 flex items-center justify-center transition-all duration-300 ${
         isScrolled
           ? "bg-gray-900 bg-opacity-95 backdrop-blur-md border-b border-gray-700 shadow-lg shadow-cyan-500/10"
           : "bg-gray-900 bg-opacity-60 backdrop-blur-sm border-b border-gray-700/50"
       }`}
     >
-      <div className="w-full px-6 py-4 flex items-center justify-center space-x-6">
+      <div className="w-full max-w-6xl px-6 py-4 flex items-center justify-between">
         {/* Logo and Name */}
         <div
           className="flex items-center flex-shrink-0 group cursor-pointer"
@@ -68,12 +68,12 @@ const Navigation: React.FC = () => {
         </div>
 
         {/* Nav Links */}
-        <div className="flex items-center space-x-3 mr-12">
+        <div className="flex items-center space-x-4">
           {navLinks.map((link) => (
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
-              className={`relative px-4 py-2 text-base font-semibold transition-all duration-300 group flex items-center ${
+              className={`relative px-3 py-1 text-sm font-medium transition-all duration-300 group flex items-center ${
                 isActive(link.id)
                   ? "text-cyan-400"
                   : "text-gray-400 hover:text-cyan-400"
@@ -97,7 +97,7 @@ const Navigation: React.FC = () => {
             href="mailto:sushant.paikrao.dev@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-2xl hover:scale-125 transform hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+            className="text-gray-300 hover:text-cyan-400 transition-all duration-300 text-3xl hover:scale-150 transform hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]"
             title="Email"
           >
             ✉️
@@ -106,7 +106,7 @@ const Navigation: React.FC = () => {
             href="https://www.linkedin.com/in/sushantpaikarao/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-2xl font-extrabold hover:scale-125 transform hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+            className="text-gray-300 hover:text-cyan-400 transition-all duration-300 text-3xl font-extrabold hover:scale-150 transform hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]"
             title="LinkedIn"
           >
             in
@@ -115,7 +115,7 @@ const Navigation: React.FC = () => {
             href="https://github.com/Sushantplive"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-cyan-400 transition-all duration-300 text-2xl hover:scale-125 transform hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]"
+            className="text-gray-300 hover:text-cyan-400 transition-all duration-300 text-3xl hover:scale-150 transform hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]"
             title="GitHub"
           >
             🐙

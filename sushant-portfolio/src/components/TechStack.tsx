@@ -83,13 +83,15 @@ const TechStack: React.FC = () => {
       className="py-16 text-white text-center bg-gray-900 bg-opacity-30 min-h-screen flex flex-col justify-center items-center"
     >
       <div className="w-full max-w-6xl mx-auto px-6">
-        <h2 className="text-5xl md:text-6xl font-bold text-cyan-400 mb-12 mt-8 text-left">
-          &lt;💡 Tech Stack /&gt;
-        </h2>
+        {/* <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 mb-6">
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            &lt;💡 Tech Stack /&gt;
+          </span>
+        </h2> */}
 
         {/* Floating Tech Icons Container */}
         <div
-          className="flex justify-center items-center relative mx-auto bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 rounded-full shadow-lg"
+          className="flex justify-center items-center relative mx-auto bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 rounded-full shadow-lg mt-[-150px]"
           style={{ width: "600px", height: "600px" }}
         >
           {/* Center Content */}
