@@ -1,9 +1,10 @@
 import React from "react";
-import { FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-16 bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center">
+    <section id="contact" className="py-8 bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center">
       <div className="w-full max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 mb-8">
           Get in Touch
@@ -30,19 +31,10 @@ const Contact: React.FC = () => {
             <h3 className="text-xl font-semibold text-cyan-400 mb-4">Connect with Me</h3>
             <div className="flex justify-center space-x-6">
               <a
-                href="https://www.linkedin.com/in/sushantpaikarao/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 text-2xl transition-transform transform hover:scale-125"
-                title="LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-              <a
                 href="https://www.instagram.com/sushantpaikrao/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 text-2xl transition-transform transform hover:scale-125"
+                className="text-gray-400 hover:text-cyan-400 text-4xl transition-transform transform hover:scale-125"
                 title="Instagram"
               >
                 <FaInstagram />
@@ -51,10 +43,10 @@ const Contact: React.FC = () => {
                 href="https://twitter.com/sushantpaikrao"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 text-2xl transition-transform transform hover:scale-125"
-                title="Twitter"
+                className="text-gray-400 hover:text-cyan-400 text-4xl transition-transform transform hover:scale-125"
+                title="X"
               >
-                <FaTwitter />
+                <FaXTwitter />
               </a>
             </div>
           </div>
@@ -63,5 +55,6 @@ const Contact: React.FC = () => {
     </section>
   );
 };
+
 
 export default Contact;

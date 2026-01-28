@@ -121,7 +121,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="py-16 bg-gray-900 bg-opacity-30 text-white min-h-screen flex flex-col justify-center"
+      className="py-12 bg-gray-900 bg-opacity-30 text-white min-h-screen flex flex-col justify-center"
     >
       <div className="w-full max-w-6xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-extrabold text-cyan-400 mb-4">

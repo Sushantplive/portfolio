@@ -40,7 +40,7 @@ const Experience: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState(experiences[0]);
 
   return (
-    <section id="experience" className="py-16 bg-gray-900 bg-opacity-30 text-white min-h-screen flex flex-col justify-center">
+    <section id="experience" className="py-4 bg-gray-900 bg-opacity-30 text-white min-h-screen flex flex-col justify-center">
       <div className="w-full max-w-6xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 mb-4">&lt;Experience /&gt;</h2>
         <p className="text-gray-400 text-lg mb-12">Professional roles and contributions</p>

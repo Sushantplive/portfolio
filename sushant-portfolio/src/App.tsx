@@ -5,6 +5,7 @@ import Projects from './components/Projects'
 // import TechStack from './components/TechStack'
 import About from './components/About'
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
 // import Experience from './components/Experience'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Contact />
         </div>
       </div>
+      <Footer />
     </>
   )
 }
