@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const techIcons = [
   {
@@ -67,15 +67,20 @@ const techIcons = [
   },
 ];
 
+
 const TechStack: React.FC = () => {
-  // Generate random positions for icons
-  const getRandomPosition = (index: number) => {
-    const angle = (index / techIcons.length) * 2 * Math.PI;
-    const radius = 250; // Adjust radius to fit within the circle
-    const x = Math.cos(angle) * radius + 300; // Centered within the 600px container
-    const y = Math.sin(angle) * radius + 300;
-    return { x, y };
-  };
+  const [containerSize, setContainerSize] = useState(350);
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (window.innerWidth >= 768) setContainerSize(600);
+      else if (window.innerWidth >= 640) setContainerSize(450);
+      else setContainerSize(320);
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
 
   return (
     <section
@@ -91,27 +96,37 @@ const TechStack: React.FC = () => {
 
         {/* Floating Tech Icons Container */}
         <div
-          className="flex justify-center items-center relative mx-auto bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 rounded-full shadow-lg mt-[-150px] md:mt-0"
-          style={{ width: "90%", maxWidth: "600px", height: "auto", aspectRatio: "1" }}
+          className="flex justify-center items-center relative mx-auto bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 rounded-full shadow-lg md:mt-[-150px] mt-8"
+          style={{
+            width: containerSize,
+            height: containerSize,
+            maxWidth: '100vw',
+            aspectRatio: '1',
+            minWidth: 220,
+            minHeight: 220,
+          }}
         >
           {/* Center Content */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-cyan-400 text-4xl md:text-5xl font-extrabold animate-pulse">
+            <div className="text-cyan-400 text-lg sm:text-2xl md:text-4xl font-extrabold animate-pulse">
               Tech Stack
             </div>
           </div>
 
           {/* Tech icons floating randomly */}
           {techIcons.map((tech, index) => {
-            const { x, y } = getRandomPosition(index);
+            const angle = (index / techIcons.length) * 2 * Math.PI;
+            const radius = containerSize / 2 - 40;
+            const xPos = Math.cos(angle) * radius + containerSize / 2;
+            const yPos = Math.sin(angle) * radius + containerSize / 2;
 
             return (
               <div
                 key={tech.name}
                 className="absolute group"
                 style={{
-                  left: `${x}px`,
-                  top: `${y}px`,
+                  left: `${xPos}px`,
+                  top: `${yPos}px`,
                   transform: "translate(-50%, -50%)",
                   animation: `randomMove ${5 + (index % 4) * 1}s ease-in-out infinite`,
                   animationDelay: `${index * 0.2}s`,
@@ -120,9 +135,9 @@ const TechStack: React.FC = () => {
                 <img
                   src={tech.icon}
                   alt={tech.name}
-                  className="h-14 w-14 object-contain hover:scale-150 transition-transform duration-300 drop-shadow-xl"
+                  className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14 object-contain hover:scale-150 transition-transform duration-300 drop-shadow-xl"
                 />
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-cyan-400 text-gray-900 text-sm font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-cyan-400 text-gray-900 text-xs md:text-sm font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                   {tech.name}
                 </div>
               </div>

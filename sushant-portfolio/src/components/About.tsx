@@ -68,7 +68,9 @@ const About: React.FC = () => {
         </div>
 
         {/* Tech Stack Section */}
-        <TechStack />
+        <div className="mt-20 md:mt-40 lg:mt-56">
+          <TechStack />
+        </div>
       </div>
     </section>
   );
