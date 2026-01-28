@@ -1,0 +1,43 @@
+/* Responsive Navigation Styles */
+
+@media (max-width: 900px) {
+  .custom-nav {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0.5rem 0.5rem !important;
+  }
+  .custom-nav .custom-nav-links {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+  }
+  .custom-nav .custom-nav-social {
+    justify-content: center !important;
+    margin-top: 0.5rem !important;
+  }
+  .custom-nav .custom-logo {
+    justify-content: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .custom-nav {
+    padding: 0.25rem 0.25rem !important;
+  }
+  .custom-nav .custom-logo span {
+    font-size: 1.5rem !important;
+  }
+  .custom-nav .custom-logo div {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 1rem !important;
+  }
+  .custom-nav .custom-nav-links button {
+    font-size: 0.9rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+  .custom-nav .custom-nav-social a {
+    font-size: 1.5rem !important;
+  }
+}
