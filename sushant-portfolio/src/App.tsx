@@ -2,10 +2,10 @@ import './App.css'
 import Contact from './components/Contact'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
-import TechStack from './components/TechStack'
+// import TechStack from './components/TechStack'
 import About from './components/About'
 import Navigation from './components/Navigation'
-import Experience from './components/Experience'
+// import Experience from './components/Experience'
 
 function App() {
 
@@ -19,12 +19,12 @@ function App() {
         <div id="about" className="transition-all duration-300 relative">
           <About />
         </div>
-        <div id="experience" className="transition-all duration-300 relative">
+        {/* <div id="experience" className="transition-all duration-300 relative">
           <Experience />
-        </div>
-        <div id="tech-stack" className="transition-all duration-300 relative">
+        </div> */}
+        {/* <div id="tech-stack" className="transition-all duration-300 relative">
           <TechStack />
-        </div>
+        </div> */}
         <div id="projects" className="transition-all duration-300 relative">
           <Projects />
         </div>

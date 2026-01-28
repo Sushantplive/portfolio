@@ -1,4 +1,5 @@
 import React from "react";
+import TechStack from "./TechStack";
 
 const About: React.FC = () => {
   return (
@@ -48,22 +49,6 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <p className="text-cyan-400 font-semibold text-lg pt-4">
-              Here are some technologies I've been working with:
-            </p>
-
-            <ul className="grid grid-cols-2 gap-4 text-gray-300">
-              {["JavaScript (ES6+)", "TypeScript", "React.js", "Next.js", "Redux / Zustand", "Tailwind CSS", "Styled Components", "REST APIs", "Git & CI/CD"].map((tech, index) => (
-                <li
-                  key={index}
-                  className="text-lg flex items-center space-x-2 bg-gray-800 bg-opacity-50 p-3 rounded-lg shadow-md hover:shadow-cyan-500/20 transition-shadow duration-300"
-                >
-                  <span className="text-cyan-400 font-bold">▸</span>
-                  <span>{tech}</span>
-                </li>
-              ))}
-            </ul>
-
             <p className="text-gray-300 text-lg leading-relaxed pt-4">
               Outside of work, I enjoy exploring new frontend trends, improving
               my technical skills, and spending quality time away from screens.
@@ -81,6 +66,9 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Tech Stack Section */}
+        <TechStack />
       </div>
     </section>
   );
