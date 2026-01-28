@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[60vh] h-auto py-2 pt-12 sm:pt-20 flex flex-col justify-center items-center text-center text-white bg-transparent overflow-hidden"
+      className="relative w-full min-h-screen h-screen py-0 pt-0 flex flex-col justify-center items-center text-center text-white bg-transparent overflow-hidden"
     >
       <div className="absolute inset-0 -z-20">
         <ParticleBackground />
