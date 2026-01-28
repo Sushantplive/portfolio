@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ParticleBackground from "./ParticleBackground";
 
 const Hero: React.FC = () => {
-  const [text, setText] = useState("");
-  const fullText = "hello, I’m Sushant.";
+  // const [text, setText] = useState("");
+  // const fullText = "hello, I’m Sushant.";
 
-  useEffect(() => {
-    let index = 0;
-    const typingInterval = setInterval(() => {
-      if (index < fullText.length) {
-        setText(fullText.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 150); // Adjust typing speed here
+  // useEffect(() => {
+  //   let index = 0;
+  //   const typingInterval = setInterval(() => {
+  //     if (index < fullText.length) {
+  //       setText(fullText.slice(0, index + 1));
+  //       index++;
+  //     } else {
+  //       clearInterval(typingInterval);
+  //     }
+  //   }, 150); // Adjust typing speed here
 
-    return () => clearInterval(typingInterval);
-  }, []);
+  //   return () => clearInterval(typingInterval);
+  // }, []);
 
   return (
     <section
@@ -30,14 +30,15 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-          {text.includes("Sushant") ? (
+          hello, I’m <span className="text-cyan-400">Sushant.</span>
+          {/* {text.includes("Sushant") ? (
             <>
               {text.replace("Sushant.", "")}
               <span className="text-cyan-400">Sushant</span>.
             </>
           ) : (
             text
-          )}
+          )} */}
         </h1>
         <p className="text-lg md:text-xl mb-4 text-gray-300 leading-relaxed">
           I am a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> based in <span className="text-cyan-400">Pune, India</span>, with over 8 years of experience in developing scalable, high-performance web applications. My expertise lies in modern JavaScript frameworks and crafting clean, maintainable UI architectures that deliver seamless user experiences.
