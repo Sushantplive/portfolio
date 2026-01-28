@@ -70,7 +70,7 @@ const Navigation: React.FC = () => {
         </div>
 
         {/* Nav Links */}
-        <div className="custom-nav-links flex items-center space-x-4">
+        <div className="custom-nav-links flex items-center space-x-4 hidden md:flex flex-nowrap">
           {navLinks.map((link) => (
             <button
               key={link.id}

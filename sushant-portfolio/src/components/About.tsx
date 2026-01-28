@@ -3,7 +3,7 @@ import TechStack from "./TechStack";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="pt-24 bg-gray-900 text-gray-900 min-h-screen flex flex-col justify-center">
+  <section id="about" className="pt-24 sm:pt-28 bg-gray-900 text-gray-900 min-h-screen flex flex-col justify-center">
       <div className="w-full max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Content */}

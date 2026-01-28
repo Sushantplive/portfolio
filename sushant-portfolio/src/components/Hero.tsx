@@ -22,14 +22,14 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-full h-[90vh] py-12 flex flex-col justify-center items-center text-center text-white bg-transparent overflow-hidden"
+      className="relative w-full min-h-[60vh] h-auto py-4 pt-24 sm:pt-28 flex flex-col justify-center items-center text-center text-white bg-transparent overflow-hidden"
     >
       <div className="absolute inset-0 -z-20">
         <ParticleBackground />
       </div>
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
           hello, I’m <span className="text-cyan-400">Sushant.</span>
           {/* {text.includes("Sushant") ? (
             <>
@@ -40,21 +40,21 @@ const Hero: React.FC = () => {
             text
           )} */}
         </h1>
-        <p className="text-lg md:text-xl mb-4 text-gray-300 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl mb-3 sm:mb-4 text-gray-300 leading-relaxed">
           I am a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> based in <span className="text-cyan-400">Pune, India</span>, with over 8 years of experience in developing scalable, high-performance web applications. My expertise lies in modern JavaScript frameworks and crafting clean, maintainable UI architectures that deliver seamless user experiences.
         </p>
-        <p className="text-gray-400 mb-6 leading-relaxed text-lg">
+        <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-base sm:text-lg">
           I care deeply about code quality, performance, and long-term maintainability. I collaborate closely with
           designers, backend engineers, and product teams to transform complex ideas into reliable, user-friendly
           products that make a real impact.
         </p>
-        <p className="text-gray-400 mb-6 leading-relaxed text-lg">
+        <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-base sm:text-lg">
           I am passionate about building user-centric, high-performance web applications and solving complex
           challenges with elegant, scalable solutions.
         </p>
         <a
           href="#contact"
-          className="inline-block bg-cyan-400 text-gray-900 font-semibold px-8 py-4 rounded-lg hover:bg-cyan-500 transition shadow-lg"
+          className="inline-block bg-cyan-400 text-gray-900 font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-cyan-500 transition shadow-lg text-base sm:text-lg"
         >
           📫 Connect with me!
         </a>

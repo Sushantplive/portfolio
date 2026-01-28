@@ -14,7 +14,7 @@ function App() {
     <>
       <Navigation />
       <div className="App relative z-10 w-full text-white pt-8">
-        <div id="hero" className="transition-all duration-300 py-12 relative overflow-hidden">
+        <div id="hero" className="transition-all duration-300 relative overflow-hidden">
           <Hero />
         </div>
         <div id="about" className="transition-all duration-300 relative">
@@ -29,7 +29,7 @@ function App() {
         <div id="projects" className="transition-all duration-300 relative">
           <Projects />
         </div>
-        <div id="contact" className="transition-all duration-300 relative">
+        <div id="contact" className="transition-all duration-300 relative bg-cyan-950/80">
           <Contact />
         </div>
       </div>
