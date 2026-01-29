@@ -13,21 +13,15 @@ const About: React.FC = () => {
             </h2>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a{" "}
-              <span className="text-cyan-400 font-semibold">
-                Senior Frontend Engineer
-              </span>{" "}
-              based in Pune, India, with over 8 years of experience building
-              scalable and high-performance web applications. I specialize in
-              modern JavaScript frameworks and clean UI architecture for
-              enterprise-grade products.
+              I'm a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> based in Pune, India,<br />
+              with over 8 years of experience building scalable and high-performance web applications.<br />
+              I specialize in modern JavaScript frameworks and clean UI architecture for enterprise-grade products.
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              I've worked on complex, business-critical applications and enjoy
-              collaborating with cross-functional teams to transform ideas into
-              reliable, user-centric solutions. My focus is always on
-              performance, maintainability, and clean code.
+              I've worked on complex, business-critical applications and enjoy collaborating with cross-functional teams<br />
+              to transform ideas into reliable, user-centric solutions. My focus is always on performance,<br />
+              maintainability, and clean code.
             </p>
 
             <div className="pt-6 border-t border-gray-700">
@@ -59,9 +53,9 @@ const About: React.FC = () => {
           <div className="flex justify-center md:justify-end mt-20">
             <div className="w-full max-w-sm">
               <img
-                src="/profile.png"
+                src="/profile3.jpeg"
                 alt="Profile"
-                className="w-full h-auto rounded-lg shadow-lg border border-cyan-400 border-opacity-30"
+                className="w-full h-auto rounded-lg shadow-lg border border-cyan-400 border-opacity-30 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-cyan-300"
               />
             </div>
           </div>
