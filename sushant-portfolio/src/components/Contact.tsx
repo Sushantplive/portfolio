@@ -17,9 +17,9 @@ const Contact: React.FC = () => {
           {/* Email Section */}
           <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md hover:shadow-cyan-500/20 transition-shadow duration-300">
             <h3 className="text-xl font-semibold text-cyan-400 mb-4">Email</h3>
-            <p className="text-gray-300 mb-4">sushant.paikrao.dev@gmail.com</p>
+            <p className="text-gray-300 mb-4">sushant.paikarao.dev@gmail.com</p>
             <a
-              href="mailto:sushant.paikrao.dev@gmail.com"
+              href="mailto:sushant.paikarao.dev@gmail.com"
               className="inline-block px-6 py-2 bg-cyan-400 text-gray-900 font-semibold rounded-lg shadow hover:bg-cyan-300 transition-colors duration-300"
             >
               Send an Email

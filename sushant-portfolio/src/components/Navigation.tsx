@@ -96,7 +96,7 @@ const Navigation: React.FC = () => {
         {/* Social Icons */}
         <div className="custom-nav-social flex items-center space-x-6">
           <a
-            href="mailto:sushant.paikrao.dev@gmail.com"
+            href="mailto:sushant.paikarao.dev@gmail.com"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-cyan-400 transition-all duration-300 text-3xl hover:scale-150 transform hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]"
             title="Email"
