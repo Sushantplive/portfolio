@@ -45,7 +45,7 @@ const About: React.FC = () => {
 
             <p className="text-gray-300 text-lg leading-relaxed pt-4">
               Outside of work, I enjoy exploring new frontend trends, improving
-              my technical skills, and spending quality time away from screens.
+              my technical skills, and spending quality time away from screens. I also love <span className="text-cyan-400 font-semibold">watching movies</span>, <span className="text-cyan-400 font-semibold">relaxing in nature</span>, and finding peace in quiet moments outdoors.
             </p>
           </div>
 
