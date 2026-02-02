@@ -56,10 +56,12 @@
     font-size: 1rem;
   }
   .hero-link {
-    min-width: 90vw;
-    font-size: 1rem;
-    padding: 0.75rem 0.5rem;
-    margin-top: 1.25rem;
+    min-width: 60vw;
+    max-width: 90vw;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 }
 .hero-link:hover {
