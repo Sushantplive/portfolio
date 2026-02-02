@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 py-4 text-center">
       <p className="text-sm">
-        Made with <FaHeart className="inline text-red-500" /> by Sushant
+        Made with <FaHeart className="inline text-cyan-400" /> by Sushant
       </p>
     </footer>
   );

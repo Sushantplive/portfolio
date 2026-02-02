@@ -13,9 +13,10 @@ const About: React.FC = () => {
             </h2>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> based in Pune, India,<br />
-              with over 8 years of experience building scalable and high-performance web applications.<br />
-              I specialize in modern JavaScript frameworks and clean UI architecture for enterprise-grade products.
+              Hi, I'm a passionate <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> from Pune, India.<br />
+              I thrive on crafting visually stunning, lightning-fast web experiences that delight users and drive business success.<br />
+              My expertise lies in modern JavaScript frameworks and building clean, scalable UI architectures for enterprise-grade products.<br />
+              Let's turn ideas into impactful digital solutions together!
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
