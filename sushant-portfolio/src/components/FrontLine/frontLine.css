@@ -68,3 +68,41 @@
   background: linear-gradient(90deg, #38bdf8 0%, #22d3ee 100%);
   color: #0e7490;
 }
+.hero-cta-group {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.hero-link-secondary {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  background: transparent;
+  color: #22d3ee;
+  border: 2px solid #22d3ee;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(34,211,238,0.10);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  padding: 0.75rem 2rem;
+}
+.hero-link-secondary:hover {
+  background: rgba(34,211,238,0.10);
+  color: #38bdf8;
+  box-shadow: 0 4px 16px rgba(34,211,238,0.20);
+}
+@media (max-width: 640px) {
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .hero-link-secondary {
+    min-width: 60vw;
+    max-width: 90vw;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.5rem;
+  }
+}

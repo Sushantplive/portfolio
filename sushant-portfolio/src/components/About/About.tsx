@@ -1,5 +1,5 @@
 import React from "react";
-import TechStack from "./TechStack";
+import TechStack from "../TechStack/TechStack";
 
 const About: React.FC = () => {
   return (

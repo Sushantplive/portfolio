@@ -1,8 +1,8 @@
 import React from "react";
-import ParticleBackground from "./ParticleBackground";
-import "../styles/hero.css";
+import ParticleBackground from "../ParticleBackground/ParticleBackground";
+import "./frontLine.css";
 
-const Hero: React.FC = () => {
+const FrontLine: React.FC = () => {
   // const [text, setText] = useState("");
   // const fullText = "hello, I’m Sushant.";
 
@@ -28,7 +28,6 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 -z-20">
         <ParticleBackground />
       </div>
-      {/* Content */}
       <div className="relative z-10 hero-section">
         <h1 className="hero-title mb-4 sm:mb-6">
           hello, I’m <span className="text-cyan-400 font-bold">Sushant.</span>
@@ -43,15 +42,24 @@ const Hero: React.FC = () => {
         <p className="hero-desc mb-4 sm:mb-6">
           I am passionate about building user-centric, high-performance web applications and solving complex challenges with elegant, scalable solutions.
         </p>
-        <a
-          href="#contact"
-          className="hero-link px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
-        >
-          📫 Connect with me!
-        </a>
+        <div className="hero-cta-group">
+          <a
+            href="/Sushant_Paikarao_Resume.pdf"
+            download="Sushant_Paikarao_Resume.pdf"
+            className="hero-link-secondary text-base sm:text-lg"
+          >
+            💼 Hire Me
+          </a>
+          <a
+            href="#contact"
+            className="hero-link-secondary text-base sm:text-lg"
+          >
+            📫 Connect with me!
+          </a>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Hero;
+export default FrontLine;

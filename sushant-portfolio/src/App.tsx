@@ -1,12 +1,12 @@
 import './App.css'
-import Contact from './components/Contact'
-import Hero from './components/Hero'
-import Projects from './components/Projects'
-// import TechStack from './components/TechStack'
-import About from './components/About'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
-// import Experience from './components/Experience'
+import Contact from './components/Contact/Contact'
+import FrontLine from './components/FrontLine/FrontLine'
+import Projects from './components/Projects/Projects'
+// import TechStack from './components/TechStack/TechStack'
+import About from './components/About/About'
+import Navigation from './components/Navigation/Navigation'
+import Footer from './components/Footer/Footer'
+// import Experience from './components/Experience/Experience'
 
 function App() {
 
@@ -15,7 +15,7 @@ function App() {
       <Navigation />
       <div className="App relative z-10 w-full text-white pt-8">
         <div id="hero" className="transition-all duration-300 relative overflow-hidden">
-          <Hero />
+          <FrontLine />
         </div>
         <div id="about" className="transition-all duration-300 relative">
           <About />

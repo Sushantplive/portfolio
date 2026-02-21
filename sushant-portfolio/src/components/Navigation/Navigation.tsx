@@ -92,7 +92,6 @@ const Navigation: React.FC = () => {
             </button>
           ))}
         </div>
-
         {/* Social Icons */}
         <div className="custom-nav-social flex items-center space-x-6">
           <a

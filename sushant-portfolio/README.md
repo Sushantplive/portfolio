@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+﻿# Sushant Paikarao — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal developer portfolio built with **React 19**, **TypeScript**, **Vite 7**, and **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+>  **Copyright Notice:** This code is proprietary. Viewing is permitted for reference and hiring evaluation only. Copying, reusing, or distributing any part of this code is strictly prohibited. See [LICENSE](./LICENSE) for details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Available Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server with Hot Module Replacement |
+| `npm run build` | Type-check + production build (outputs to `dist/`) |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Lint with ESLint |
+
+## Project Structure
+
+Each component lives in its own folder alongside any CSS it owns:
+
 ```
+src/
+ App.tsx
+ components/
+    About/                About.tsx
+    Contact/              Contact.tsx
+    Experience/           Experience.tsx
+    Footer/               Footer.tsx
+    FrontLine/            FrontLine.tsx  hero.css
+    Navigation/           Navigation.tsx  navigation-responsive.css
+    ParticleBackground/   ParticleBackground.tsx
+    Projects/             Projects.tsx  slider.css
+    TechStack/            TechStack.tsx  techStack.css
+ assets/
+```
+
+## Key Dependencies
+
+| Package | Purpose |
+|---|---|
+| `react` + `react-dom` | UI framework |
+| `typescript` | Type safety |
+| `vite` | Build tool with HMR |
+| `tailwindcss` v4 | Utility-first CSS |
+| `react-slick` + `slick-carousel` | Projects carousel |
+| `react-icons` | SVG icon library |
+
+## Resume Download
+
+Place your resume at `public/Sushant_Paikarao_Resume.pdf`.
+The **Hire Me** button (navbar + hero) will trigger a direct browser download.
+
+## License
+
+Copyright (c) 2026 Sushant Paikarao. All Rights Reserved.
+
+This source code is **not open source**. You may view it for personal reference or hiring evaluation only. Any copying, redistribution, or reuse without explicit written permission is strictly prohibited.
+
+See the full [LICENSE](./LICENSE) file for terms.
