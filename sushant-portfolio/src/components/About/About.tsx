@@ -12,7 +12,7 @@ const About: React.FC = () => {
               &lt;About Me /&gt;
             </h2>
 
-            <p className="text-gray-300 text-lg leading-relaxed">
+            {/* <p className="text-gray-300 text-lg leading-relaxed">
               Hi, I'm a passionate <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> from Pune, India.<br />
               I thrive on crafting visually stunning, lightning-fast web experiences that delight users and drive business success.<br />
               My expertise lies in modern JavaScript frameworks and building clean, scalable UI architectures for enterprise-grade products.<br />
@@ -23,13 +23,26 @@ const About: React.FC = () => {
               I've worked on complex, business-critical applications and enjoy collaborating with cross-functional teams<br />
               to transform ideas into reliable, user-centric solutions. My focus is always on performance,<br />
               maintainability, and clean code.
+            </p> */}
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Hi, I'm a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> from Pune, India,
+              specializing in building scalable, high-performance web applications for enterprise environments.
+              I design maintainable UI architectures that support long-term product growth, with a strong focus on
+              performance optimization, clean code practices, and delivering seamless user experiences across complex systems.
+              I collaborate closely with cross-functional teams to translate business requirements into reliable, production-ready solutions.
             </p>
+{/* 
+            I’m a Senior Frontend Engineer based in Pune, India, specializing in building scalable, high-performance web applications for enterprise environments.
+
+My expertise lies in React and modern JavaScript ecosystems, where I design maintainable UI architectures that support long-term product growth. I focus on performance optimization, clean code practices, and delivering seamless user experiences across complex systems.
+
+I collaborate closely with cross-functional teams to translate business requirements into reliable, production-ready solutions. */}
 
             <div className="pt-6 border-t border-gray-700">
               <p className="text-cyan-400 font-semibold text-lg mb-4">
                 Where I've Worked:
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              {/* <p className="text-gray-300 text-lg leading-relaxed">
                 I've had the privilege of working with notable organizations
                 such as
                 <span className="text-cyan-400 font-semibold"> Agiliad</span>,
@@ -41,7 +54,20 @@ const About: React.FC = () => {
                 </span>
                 , where I've contributed to building scalable solutions and
                 driving innovation across diverse teams.
+              </p> */}
+
+              <p className="text-gray-300 text-lg leading-relaxed">
+                I have contributed to large-scale enterprise systems at
+                <span className="text-cyan-400 font-semibold"> Agiliad</span>,
+                <span className="text-cyan-400 font-semibold"> Synechron</span>,
+                and
+                <span className="text-cyan-400 font-semibold">
+                  {" "}
+                  Hong Kong & Shanghai Banking Corporation (HSBC)
+                </span>
+                , working on high-performance, business-critical applications used across global teams.
               </p>
+              {/* I have contributed to large-scale enterprise systems at Agiliad, Synechron, and HSBC, working on high-performance, business-critical applications used across global teams. */}
             </div>
 
             <p className="text-gray-300 text-lg leading-relaxed pt-4">

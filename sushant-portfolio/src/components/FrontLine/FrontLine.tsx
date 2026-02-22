@@ -48,13 +48,13 @@ const FrontLine: React.FC = () => {
             download="Sushant_Paikarao_Resume.pdf"
             className="hero-link-secondary text-base sm:text-lg"
           >
-            💼 Hire Me
+            💼 Download Resume
           </a>
           <a
             href="#contact"
             className="hero-link-secondary text-base sm:text-lg"
           >
-            📫 Connect with me!
+            📫 Let’s Work Together
           </a>
         </div>
       </div>
