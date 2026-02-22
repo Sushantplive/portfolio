@@ -22,6 +22,34 @@ body {
   cursor: none;
 }
 
+a,
+button,
+[role="button"],
+label,
+select {
+  cursor: pointer;
+}
+
+input,
+textarea,
+[contenteditable="true"],
+p,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+code,
+pre,
+blockquote,
+td,
+th,
+.selectable-text {
+  cursor: text;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Mono', monospace;
 }

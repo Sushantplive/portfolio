@@ -4,6 +4,7 @@ const CustomCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [haloPosition, setHaloPosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
+  const [isTextZone, setIsTextZone] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cursorTargetRef = useRef({ x: 0, y: 0 });
   const haloRef = useRef({ x: 0, y: 0 });
@@ -21,10 +22,15 @@ const CustomCursor: React.FC = () => {
       const target = event.target as HTMLElement | null;
       if (!target) {
         setIsPointer(false);
+        setIsTextZone(false);
         return;
       }
       const clickable = target.closest("a, button, [role='button'], input, textarea, select, label");
+      const textZone = target.closest(
+        "p, span, li, h1, h2, h3, h4, h5, h6, code, pre, blockquote, td, th, .selectable-text",
+      );
       setIsPointer(Boolean(clickable));
+      setIsTextZone(!clickable && Boolean(textZone));
       setIsVisible(true);
     };
 
@@ -56,19 +62,19 @@ const CustomCursor: React.FC = () => {
     <>
       <div
         className={`custom-cursor-diamond ${isPointer ? "custom-cursor-diamond--active" : ""} ${
-          isVisible ? "custom-cursor-diamond--visible" : ""
+          isVisible && !isTextZone ? "custom-cursor-diamond--visible" : ""
         }`}
         style={{ left: position.x, top: position.y }}
       />
       <div
         className={`custom-cursor-cross ${isPointer ? "custom-cursor-cross--active" : ""} ${
-          isVisible ? "custom-cursor-cross--visible" : ""
+          isVisible && !isTextZone ? "custom-cursor-cross--visible" : ""
         }`}
         style={{ left: position.x, top: position.y }}
       />
       <div
         className={`custom-cursor-ripple ${isPointer ? "custom-cursor-ripple--active" : ""} ${
-          isVisible ? "custom-cursor-ripple--visible" : ""
+          isVisible && !isTextZone ? "custom-cursor-ripple--visible" : ""
         }`}
         style={{ left: haloPosition.x, top: haloPosition.y }}
       />

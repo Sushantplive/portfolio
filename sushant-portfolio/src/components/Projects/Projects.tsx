@@ -15,11 +15,85 @@ interface Project {
   live?: string;
 }
 
+const categoryOrder = [
+  "Frontend",
+  "State Management",
+  "Testing",
+  "APIs & Data",
+  "DevOps",
+  "Tooling",
+  "Other",
+] as const;
+
+const detectTechCategory = (tech: string): (typeof categoryOrder)[number] => {
+  const normalizedTech = tech.toLowerCase();
+
+  if (normalizedTech.includes("jest") || normalizedTech.includes("testing")) {
+    return "Testing";
+  }
+
+  if (
+    normalizedTech.includes("redux") ||
+    normalizedTech.includes("redux toolkit") ||
+    normalizedTech.includes("context")
+  ) {
+    return "State Management";
+  }
+
+  if (
+    normalizedTech.includes("react") ||
+    normalizedTech.includes("typescript") ||
+    normalizedTech.includes("javascript") ||
+    normalizedTech.includes("d3") ||
+    normalizedTech.includes("component") ||
+    normalizedTech.includes("styled")
+  ) {
+    return "Frontend";
+  }
+
+  if (normalizedTech.includes("api") || normalizedTech.includes("analytics")) {
+    return "APIs & Data";
+  }
+
+  if (normalizedTech.includes("jenkins") || normalizedTech.includes("ci/cd")) {
+    return "DevOps";
+  }
+
+  if (
+    normalizedTech.includes("git") ||
+    normalizedTech.includes("webpack") ||
+    normalizedTech.includes("jira") ||
+    normalizedTech.includes("sonarqube")
+  ) {
+    return "Tooling";
+  }
+
+  return "Other";
+};
+
+const groupTechByCategory = (techList: string[]) => {
+  const grouped = techList.reduce<Record<string, string[]>>((accumulator, tech) => {
+    const category = detectTechCategory(tech);
+    if (!accumulator[category]) {
+      accumulator[category] = [];
+    }
+    accumulator[category].push(tech);
+    return accumulator;
+  }, {});
+
+  return categoryOrder
+    .filter((category) => grouped[category]?.length)
+    .map((category) => ({
+      category,
+      items: grouped[category],
+    }));
+};
+
 const projects: Project[] = [
   {
     name: "Omnia",
     company: "HSBC",
-    desc: "A strategic platform designed to provide client analytics for HSBC's Commercial Banking operations (CIB, UK, HK). Key functions included understanding client value, informing client engagement, and aiding investor disclosure through a unified view of domestic and global client relationships.",
+    desc: "Contributed to the development of OMNIA, a strategic analytics platform supporting HSBC’s Commercial Banking operations across UK and Hong Kong markets. The platform provided unified client insights, enabling data-driven engagement strategies and improved investor transparency across global portfolios.",
     impact:
       "Delivered enterprise-grade analytics platform serving multiple markets",
     tech: [
@@ -31,6 +105,7 @@ const projects: Project[] = [
       "react-testing-library",
       "OMNIA-UI-Library",
       "React Context API",
+      "Redux",
       "Git",
       "Webpack",
       "Jenkins CI/CD",
@@ -89,7 +164,7 @@ const projects: Project[] = [
       "Jest",
       "react-testing-library",
       "Git",
-      "Redux",
+      "Redux (State Management Library)",
       "REST APIs",
       "Predictive Analytics",
     ],
@@ -116,6 +191,7 @@ const Projects: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    draggable: false,
   };
 
   return (
@@ -161,18 +237,23 @@ const Projects: React.FC = () => {
                 </p>
               </div>
 
-              <div className="mb-6">
+              <div className="mb-2">
                 <p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">
                   Technologies
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {proj.tech.map((t, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-gray-700 text-cyan-300 rounded-full text-sm font-mono border border-gray-600"
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {groupTechByCategory(proj.tech).map(({ category, items }) => (
+                    <div
+                      key={category}
+                      className="rounded-lg border border-cyan-400/20 bg-gradient-to-br from-cyan-900/25 to-blue-900/20 px-4 py-3"
                     >
-                      {t}
-                    </span>
+                      <p className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1">
+                        {category}
+                      </p>
+                      <p className="text-gray-200 text-sm leading-relaxed">
+                        {items.join(", ")}
+                      </p>
+                    </div>
                   ))}
                 </div>
               </div>

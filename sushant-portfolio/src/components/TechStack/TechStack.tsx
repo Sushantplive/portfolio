@@ -12,95 +12,98 @@ const techIcons: Skill[] = [
     name: "JavaScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     description:
-      "Modern JavaScript (ES6+) - Modular, maintainable code practices",
+      "Leverage modern JavaScript (ES6+) to build modular, maintainable, and performance-optimized applications for production environments.",
   },
-  
   {
     name: "TypeScript",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
     description:
-      "React.js & TypeScript - Scalable component architecture and type-safe development",
+      "Use TypeScript to enforce strong typing, improve scalability, and enhance long-term maintainability across complex codebases.",
   },
- 
   {
     name: "React",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     description:
-      "React.js & TypeScript - Scalable component architecture and type-safe development",
+      "Design scalable, component-driven architectures in React with optimized rendering strategies and reusable UI systems.",
   },
   {
     name: "Next.js",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     description:
-      "Next.js - SSR/CSR optimization and performance-focused rendering strategies",
+      "Build high-performance applications using SSR, SSG, and optimized routing strategies to improve SEO and user experience.",
   },
   {
     name: "Node.js",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     description:
-      "Server-side JavaScript runtime for scalable backend services and APIs",
+      "Develop lightweight, scalable backend services and APIs that integrate seamlessly with frontend systems.",
   },
   {
     name: "Tailwind CSS",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg",
     description:
-      "Utility-first CSS framework for rapid, consistent UI development",
+      "Implement scalable design systems and responsive UI architectures using utility-first CSS strategies.",
   },
   {
     name: "Redux",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
-    description: "State Management - Redux Toolkit, Context API",
+    description:
+      "Manage complex application state using predictable data flows and scalable state management patterns.",
   },
-   {
+  {
     name: "ES6",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     description:
-      "Modern JavaScript (ES6+) - Modular, maintainable code practices",
+      "Apply modern ES6+ features to write concise, modular, and performance-efficient code.",
   },
   {
     name: "jQuery",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
-    description: "DOM manipulation and legacy front-end scripting",
+    description:
+      "Maintain and enhance legacy systems with stable, efficient DOM manipulation where required.",
   },
   {
     name: "Styled Components",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/styledcomponents/styledcomponents-original.svg",
-    description: "CSS-in-JS for scoped, dynamic component-level styling",
+    description:
+      "Create dynamic, component-scoped styling solutions that improve reusability and maintainability.",
   },
   {
     name: "REST APIs",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original-wordmark.svg",
-    description: "RESTful API design, integration, and testing with Postman",
+    description:
+      "Integrate and optimize RESTful APIs with robust error handling, authentication, and abstraction layers.",
   },
   {
     name: "Git",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     description:
-      "Version control, branching strategies, and collaborative workflows",
+      "Follow structured version control workflows and collaborative branching strategies for team-based development.",
   },
   {
     name: "AWS",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     description:
-      "Cloud deployment, S3, CloudFront, and serverless architecture",
+      "Deploy and manage scalable cloud-based applications with a focus on performance, reliability, and security.",
   },
   {
     name: "HTML5",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     description:
-      "Semantic markup, accessibility standards, and SEO best practices",
+      "Build semantic, accessible, and SEO-friendly foundations aligned with modern web standards.",
   },
   {
     name: "Waypoint",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    description: "Scroll-based animation and intersection observer utility",
+    description:
+      "Implement performance-conscious scroll-triggered interactions while maintaining smooth user experiences.",
   },
   {
     name: "CSS3",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    description: "Responsive layouts, animations, Flexbox, and CSS Grid",
+    description:
+      "Develop responsive, cross-browser UI systems with modern layout techniques and optimized styling strategies.",
   },
-  
 ];
 
 const softSkills: Skill[] = [
@@ -113,28 +116,28 @@ const softSkills: Skill[] = [
   },
   {
     name: "Communication",
-    icon: "speech",
+    icon: "message",
     description:
       "Articulating technical concepts clearly to both technical and non-technical stakeholders",
     isEmoji: false,
   },
   {
     name: "Team Collaboration",
-    icon: "handshake",
+    icon: "users",
     description:
       "Working closely with designers, PMs, and backend engineers to deliver cohesive products",
     isEmoji: false,
   },
   {
     name: "Adaptability",
-    icon: "refresh",
+    icon: "arrows",
     description:
       "Quickly embracing new technologies, frameworks, and shifting project requirements",
     isEmoji: false,
   },
   {
     name: "Critical Thinking",
-    icon: "brain",
+    icon: "idea",
     description:
       "Evaluating trade-offs and making informed architectural decisions under pressure",
     isEmoji: false,
@@ -148,28 +151,28 @@ const softSkills: Skill[] = [
   },
   {
     name: "Attention to Detail",
-    icon: "search",
+    icon: "target",
     description:
       "Ensuring pixel-perfect UI, clean code, and thorough code reviews",
     isEmoji: false,
   },
   {
     name: "Leadership",
-    icon: "rocket",
+    icon: "flag",
     description:
       "Mentoring junior developers and driving technical direction within the team",
     isEmoji: false,
   },
   {
     name: "Ownership",
-    icon: "trophy",
+    icon: "shield",
     description:
       "Taking end-to-end responsibility for features from design to production",
     isEmoji: false,
   },
   {
     name: "Empathy",
-    icon: "lightbulb",
+    icon: "heart",
     description:
       "Understanding user needs and translating them into intuitive, accessible experiences",
     isEmoji: false,
@@ -178,127 +181,69 @@ const softSkills: Skill[] = [
 
 const softSkillSvgs: Record<string, React.ReactNode> = {
   puzzle: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <path d="M20.5 14.5c0 1.1-.9 2-2 2s-2-.9-2-2v-1h-3v3h-1c-1.1 0-2-.9-2-2s.9-2 2-2h1V9h-3V8c0-1.1.9-2 2-2s2 .9 2 2v1h3V6a2 2 0 012 2v6.5z" />
-      <rect x="3" y="9" width="7" height="7" rx="1" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M20 13.5V18a2 2 0 0 1-2 2h-4.5v-2a1.5 1.5 0 1 0-3 0v2H6a2 2 0 0 1-2-2v-4.5h2a1.5 1.5 0 1 0 0-3H4V6a2 2 0 0 1 2-2h4.5v2a1.5 1.5 0 1 0 3 0V4H18a2 2 0 0 1 2 2v4.5h-2a1.5 1.5 0 1 0 0 3H20Z" />
     </svg>
   ),
-  speech: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+  message: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v7A2.5 2.5 0 0 1 17.5 15H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 12.5v-7Z" />
+      <circle cx="9" cy="9" r="1" />
+      <circle cx="12" cy="9" r="1" />
+      <circle cx="15" cy="9" r="1" />
     </svg>
   ),
-  handshake: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <path d="M9 11l3 3L22 4" />
-      <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+  users: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <circle cx="9" cy="8" r="2.5" />
+      <circle cx="16" cy="9" r="2" />
+      <path d="M4 18c0-2.5 2.2-4 5-4s5 1.5 5 4" />
+      <path d="M14 18c.2-1.7 1.6-2.8 3.5-2.8S21 16.3 21 18" />
     </svg>
   ),
-  refresh: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <polyline points="23 4 23 10 17 10" />
-      <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10" />
+  arrows: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M4 7h11" />
+      <path d="m12 3 4 4-4 4" />
+      <path d="M20 17H9" />
+      <path d="m12 13-4 4 4 4" />
     </svg>
   ),
-  brain: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <path d="M12 3c-1.5 0-3 .9-3.5 2.2A3.5 3.5 0 005 9c0 .8.2 1.5.6 2.1A3.5 3.5 0 007 17.5V20h10v-2.5a3.5 3.5 0 001.4-5.4c.4-.6.6-1.3.6-2.1a3.5 3.5 0 00-3.5-3.8C15 4.9 13.5 3 12 3z" />
+  idea: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M12 3a6 6 0 0 0-3.7 10.7c.9.7 1.5 1.7 1.7 2.8h4c.2-1.1.8-2.1 1.7-2.8A6 6 0 0 0 12 3Z" />
+      <path d="M10 20h4" />
+      <path d="M10.5 17.5h3" />
     </svg>
   ),
   clock: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 8v4l3 2" />
     </svg>
   ),
-  search: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  target: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   ),
-  rocket: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" />
-      <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" />
-      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+  flag: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M6 21V4" />
+      <path d="M6 5h10l-2 3 2 3H6" />
     </svg>
   ),
-  trophy: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <polyline points="8 21 12 21 16 21" />
-      <line x1="12" y1="17" x2="12" y2="21" />
-      <path d="M7 4H17v6a5 5 0 01-10 0V4z" />
-      <path d="M17 6h3v3a3 3 0 01-3 3" />
-      <path d="M7 6H4v3a3 3 0 003 3" />
+  shield: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M12 3 5 6v6c0 4.8 3 7.7 7 9 4-1.3 7-4.2 7-9V6l-7-3Z" />
+      <path d="m9.5 12 2 2 3-3" />
     </svg>
   ),
-  lightbulb: (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="w-full h-full"
-    >
-      <line x1="9" y1="18" x2="15" y2="18" />
-      <line x1="10" y1="22" x2="14" y2="22" />
-      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0018 8 6 6 0 006 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 018.91 14" />
+  heart: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="w-full h-full">
+      <path d="M12 20s-6.5-4.5-8.5-8A4.8 4.8 0 0 1 12 6a4.8 4.8 0 0 1 8.5 6c-2 3.5-8.5 8-8.5 8Z" />
     </svg>
   ),
 };
@@ -317,6 +262,7 @@ const SkillCircle: React.FC<SkillCircleProps> = ({
   size,
 }) => {
   const [selected, setSelected] = useState<Skill | null>(null);
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const accent =
     accentColor === "purple"
@@ -422,6 +368,7 @@ const SkillCircle: React.FC<SkillCircleProps> = ({
           const xPos = Math.cos(angle) * radius + size / 2;
           const yPos = Math.sin(angle) * radius + size / 2;
           const isActive = selected?.name === skill.name;
+          const isHovered = hoveredSkill === skill.name;
 
           return (
             <div
@@ -434,9 +381,12 @@ const SkillCircle: React.FC<SkillCircleProps> = ({
                 animation: isActive
                   ? "none"
                   : `randomMove ${5 + (index % 4)}s ease-in-out infinite`,
+                animationPlayState: isHovered ? "paused" : "running",
                 animationDelay: `${index * 0.2}s`,
                 zIndex: isActive ? 20 : 1,
               }}
+              onMouseEnter={() => setHoveredSkill(skill.name)}
+              onMouseLeave={() => setHoveredSkill(null)}
               onClick={() =>
                 setSelected((prev) =>
                   prev?.name === skill.name ? null : skill,

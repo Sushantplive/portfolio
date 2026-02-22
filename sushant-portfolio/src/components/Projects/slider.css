@@ -8,3 +8,12 @@
 .slick-prev:hover:before, .slick-next:hover:before {
   color: #06b6d4; /* Slightly darker cyan on hover */
 }
+
+#projects .slick-slider,
+#projects .slick-list,
+#projects .slick-track,
+#projects .slick-slide,
+#projects .slick-slide * {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
