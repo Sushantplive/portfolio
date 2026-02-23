@@ -25,7 +25,7 @@ const About: React.FC = () => {
               maintainability, and clean code.
             </p> */}
             <p className="text-gray-300 text-lg leading-relaxed">
-              Hi, I'm a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> from Pune, India,
+              Hi, I'm a <span className="text-cyan-400 font-semibold">Lead Software Engineer</span> from Pune, India,
               specializing in building scalable, high-performance web applications for enterprise environments.
               I design maintainable UI architectures that support long-term product growth, with a strong focus on
               performance optimization, clean code practices, and delivering seamless user experiences across complex systems.

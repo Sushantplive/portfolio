@@ -33,7 +33,7 @@ const FrontLine: React.FC = () => {
           hello, I’m <span className="text-cyan-400 font-bold">Sushant.</span>
         </h1>
         <p className="hero-desc mb-3 sm:mb-4">
-          I am a <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> based in <span className="text-cyan-400 font-semibold">Pune, India</span>, with a proven track record of delivering scalable, high-performance web applications. My expertise lies in modern JavaScript frameworks and crafting clean, maintainable UI architectures that deliver seamless user experiences.
+          I am a <span className="text-cyan-400 font-semibold">Lead Software Engineer</span> based in <span className="text-cyan-400 font-semibold">Pune, India</span>, with a proven track record of delivering scalable, high-performance web applications. My expertise lies in modern JavaScript frameworks and crafting clean, maintainable UI architectures that deliver seamless user experiences.
         </p>
         <p className="hero-desc mb-4 sm:mb-6">
           I care deeply about code quality, performance, and long-term maintainability. I collaborate closely with
