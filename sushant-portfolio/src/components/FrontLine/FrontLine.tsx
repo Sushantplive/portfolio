@@ -43,13 +43,13 @@ const FrontLine: React.FC = () => {
           I am passionate about building user-centric, high-performance web applications and solving complex challenges with elegant, scalable solutions.
         </p>
         <div className="hero-cta-group">
-          <a
+          {/* <a
             href="/Sushant_Paikarao_Resume.pdf"
             download="Sushant_Paikarao_Resume.pdf"
             className="hero-link-secondary text-base sm:text-lg"
           >
             💼 Download Resume
-          </a>
+          </a> */}
           <a
             href="#contact"
             className="hero-link-secondary text-base sm:text-lg"
