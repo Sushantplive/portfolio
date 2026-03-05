@@ -1,21 +1,23 @@
 /* Hero component specific styles for improved readability */
 .hero-section {
-  /* Removed background and blur for original background visibility */
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  box-shadow: 0 20px 45px rgba(8, 47, 73, 0.3);
+  border: 1px solid rgba(34, 211, 238, 0.24);
+  background: linear-gradient(155deg, rgba(17, 24, 39, 0.72), rgba(15, 23, 42, 0.92));
   border-radius: 1.5rem;
-  padding: 2.5rem 1.5rem;
+  padding: 2.4rem 2rem;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-  max-width: 48rem;
+  max-width: 52rem;
   position: relative;
+  backdrop-filter: blur(4px);
 }
 .hero-title {
   font-family: 'Space Mono', monospace;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4.8vw, 3.35rem);
   font-weight: 700;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   color: #fff;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  text-shadow: 0 4px 18px rgba(2, 6, 23, 0.45);
 }
 .hero-highlight {
   color: #22d3ee;
@@ -23,9 +25,23 @@
 }
 .hero-desc {
   font-family: 'Inter', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #e0e7ef;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.10);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.14);
+  line-height: 1.72;
+}
+
+.hero-tagline {
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  background: linear-gradient(90deg, rgba(8, 145, 178, 0.22), rgba(30, 64, 175, 0.18));
+  color: #d9f7ff;
+  font-size: clamp(1rem, 2.3vw, 1.18rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 14px rgba(34, 211, 238, 0.3);
 }
 .hero-link {
   font-family: 'Inter', sans-serif;
@@ -42,6 +58,24 @@
   max-width: 100%;
   word-break: break-word;
 }
+
+.hero-skill-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.hero-skill-badges span {
+  border: 1px solid rgba(103, 232, 249, 0.4);
+  background: rgba(8, 145, 178, 0.14);
+  color: rgba(186, 230, 253, 0.98);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.38rem 0.78rem;
+}
 @media (max-width: 640px) {
   .hero-section {
     padding: 1.25rem 0.5rem;
@@ -54,6 +88,9 @@
   }
   .hero-desc {
     font-size: 1rem;
+  }
+  .hero-tagline {
+    padding: 0.4rem 0.75rem;
   }
   .hero-link {
     min-width: 60vw;
@@ -79,25 +116,29 @@
 }
 .hero-link-secondary {
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  background: transparent;
-  color: #22d3ee;
-  border: 2px solid #22d3ee;
+  font-weight: 700;
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.16), rgba(56, 189, 248, 0.08));
+  color: #9beefc;
+  border: 1px solid rgba(34, 211, 238, 0.68);
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(34,211,238,0.10);
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 18px rgba(8, 145, 178, 0.18);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
   display: inline-block;
   padding: 0.75rem 2rem;
 }
 .hero-link-secondary:hover {
-  background: rgba(34,211,238,0.10);
-  color: #38bdf8;
-  box-shadow: 0 4px 16px rgba(34,211,238,0.20);
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.24), rgba(56, 189, 248, 0.16));
+  color: #cffafe;
+  box-shadow: 0 12px 24px rgba(14, 116, 144, 0.28);
+  transform: translateY(-1px);
 }
 @media (max-width: 640px) {
   .hero-cta-group {
     flex-direction: column;
     gap: 0.75rem;
+  }
+  .hero-skill-badges span {
+    font-size: 0.72rem;
   }
   .hero-link-secondary {
     min-width: 60vw;

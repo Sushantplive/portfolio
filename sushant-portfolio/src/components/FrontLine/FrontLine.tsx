@@ -28,7 +28,7 @@ const FrontLine: React.FC = () => {
         <h1 className="hero-title mb-4 sm:mb-6">
           hello, I’m <span className="text-cyan-400 font-bold">Sushant.</span>
         </h1>
-        <p className="hero-desc mb-3 sm:mb-4 text-cyan-300 font-semibold text-xl">
+        <p className="hero-desc hero-tagline mb-3 sm:mb-4 text-cyan-300 font-semibold text-xl">
           Senior Frontend Engineer specializing in React and Data Visualization
         </p>
         <p className="hero-desc mb-4 sm:mb-6">
@@ -37,6 +37,11 @@ const FrontLine: React.FC = () => {
         <p className="hero-desc mb-4 sm:mb-6">
           Focused on <span className="text-cyan-400 font-semibold">React, TypeScript, Highcharts, and D3.js</span>, I design fast, scalable interfaces and reusable component systems for performance-critical applications.
         </p>
+        <div className="hero-skill-badges mb-6" aria-label="Core highlights">
+          <span>8+ Years Experience</span>
+          <span>Enterprise Dashboards</span>
+          <span>Data Visualization</span>
+        </div>
         <div className="hero-cta-group">
           {/* <a
             href="/Sushant_Paikarao_Resume.pdf"
