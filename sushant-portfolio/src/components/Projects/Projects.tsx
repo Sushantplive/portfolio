@@ -1,8 +1,5 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./slider.css"; // Custom styles for arrows
+import React, { useMemo, useState } from "react";
+import "./slider.css";
 
 interface Project {
   name: string;
@@ -93,7 +90,7 @@ const projects: Project[] = [
   {
     name: "Omnia",
     company: "HSBC",
-    desc: "Contributed to the development of OMNIA, a strategic analytics platform supporting HSBC’s Commercial Banking operations across UK and Hong Kong markets. The platform provided unified client insights, enabling data-driven engagement strategies and improved investor transparency across global portfolios.",
+    desc: "Contributed to the development of OMNIA, a strategic analytics platform supporting HSBC's Commercial Banking operations across UK and Hong Kong markets. The platform provided unified client insights, enabling data-driven engagement strategies and improved investor transparency across global portfolios.",
     impact:
       "Delivered enterprise-grade analytics platform serving multiple markets",
     tech: [
@@ -114,7 +111,7 @@ const projects: Project[] = [
       "Spearheaded end-to-end development of complex web application",
       "Engineered highly interactive data visualizations with D3.js",
       "Managed state efficiently using React Context API",
-      "Owned complete feature delivery lifecycle (analysis → deployment)",
+      "Owned complete feature delivery lifecycle (analysis -> deployment)",
       "Developed comprehensive unit tests with Jest framework",
       "Led frontend development team with technical mentorship",
       "Diagnosed and resolved critical 'cyberflow' issues",
@@ -184,82 +181,109 @@ const projects: Project[] = [
 ];
 
 const Projects: React.FC = () => {
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    draggable: false,
-  };
+  const [selectedProjectName, setSelectedProjectName] = useState(
+    projects[0]?.name ?? ""
+  );
+
+  const selectedProject = useMemo(
+    () =>
+      projects.find((project) => project.name === selectedProjectName) ?? projects[0],
+    [selectedProjectName]
+  );
+
+  if (!selectedProject) {
+    return null;
+  }
 
   return (
     <section
       id="projects"
-      className="py-2 pt-12 sm:pt-20 bg-gray-900 bg-opacity-30 text-white min-h-screen flex flex-col justify-center"
+      className="projects-section py-2 pt-12 sm:pt-20 text-white min-h-screen flex flex-col justify-center"
     >
       <div className="w-full max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-cyan-400 mb-4">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-cyan-300 mb-4">
           &lt;Projects /&gt;
         </h2>
-        <p className="text-gray-400 text-lg mb-12">
-          Featured works and impactful solutions
+        <p className="text-cyan-100/80 text-lg mb-10 max-w-2xl">
+          A curated view of enterprise projects, their business impact, and the
+          technologies used to ship reliable products.
         </p>
 
-        <Slider {...sliderSettings}>
-          {projects.map((proj, i) => (
-            <div
-              key={i}
-              className="p-8 bg-gray-800 bg-opacity-50 rounded-lg border border-cyan-400 border-opacity-30 shadow-lg"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                <div>
-                  <h3 className="text-3xl font-bold text-cyan-400 mb-2">
-                    {proj.name}
-                  </h3>
-                  <p className="text-gray-300 text-lg font-semibold">
-                    {proj.company}
-                  </p>
-                </div>
+        <div className="projects-layout">
+          <aside className="projects-list" aria-label="Project list">
+            {projects.map((project) => {
+              const isActive = project.name === selectedProject.name;
+
+              return (
+                <button
+                  key={project.name}
+                  type="button"
+                  className={`project-list-item ${
+                    isActive ? "project-list-item--active" : ""
+                  }`}
+                  onClick={() => setSelectedProjectName(project.name)}
+                  aria-pressed={isActive}
+                >
+                  <p className="project-list-item__name">{project.name}</p>
+                  <p className="project-list-item__company">{project.company}</p>
+                  <p className="project-list-item__impact">{project.impact}</p>
+                </button>
+              );
+            })}
+          </aside>
+
+          <article className="project-detail-card">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
+              <div>
+                <p className="project-detail-card__eyebrow">Selected Project</p>
+                <h3 className="text-3xl font-bold text-cyan-200 mb-2">
+                  {selectedProject.name}
+                </h3>
+                <p className="text-cyan-50/90 text-lg font-semibold">
+                  {selectedProject.company}
+                </p>
               </div>
+              <span className="project-pill">Enterprise Delivery</span>
+            </div>
 
-              <p className="text-gray-300 text-base leading-relaxed mb-6">
-                {proj.desc}
-              </p>
+            <p className="text-cyan-50/90 text-base leading-relaxed mb-6">
+              {selectedProject.desc}
+            </p>
 
-              <div className="mb-6 p-6 bg-gradient-to-r from-cyan-500 to-blue-500 bg-opacity-20 border-l-8 border-cyan-400 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <p className="text-cyan-100 font-bold text-sm uppercase tracking-wider mb-2">
-                  Impact
-                </p>
-                <p className="text-white text-lg font-medium leading-relaxed">
-                  {proj.impact}
-                </p>
-              </div>
+            <div className="project-impact">
+              <p className="project-impact__label">Impact</p>
+              <p className="project-impact__text">{selectedProject.impact}</p>
+            </div>
 
-              <div className="mb-2">
-                <p className="text-cyan-400 font-semibold text-sm uppercase tracking-wider mb-3">
-                  Technologies
-                </p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {groupTechByCategory(proj.tech).map(({ category, items }) => (
-                    <div
-                      key={category}
-                      className="rounded-lg border border-cyan-400/20 bg-gradient-to-br from-cyan-900/25 to-blue-900/20 px-4 py-3"
-                    >
-                      <p className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1">
-                        {category}
-                      </p>
-                      <p className="text-gray-200 text-sm leading-relaxed">
-                        {items.join(", ")}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            <div className="mb-6">
+              <p className="project-subtitle">Highlights</p>
+              <ul className="project-highlights" role="list">
+                {selectedProject.highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="project-subtitle">Technologies</p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {groupTechByCategory(selectedProject.tech).map(({ category, items }) => (
+                  <div
+                    key={category}
+                    className="rounded-lg border border-cyan-400/20 bg-gradient-to-br from-cyan-900/25 to-blue-900/20 px-4 py-3"
+                  >
+                    <p className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1">
+                      {category}
+                    </p>
+                    <p className="text-cyan-50/90 text-sm leading-relaxed">
+                      {items.join(", ")}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </Slider>
+          </article>
+        </div>
       </div>
     </section>
   );
