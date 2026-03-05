@@ -1,4 +1,5 @@
 import React from "react";
+import ParticleBackground from "../ParticleBackground/ParticleBackground";
 import "./frontLine.css";
 
 const FrontLine: React.FC = () => {
@@ -24,6 +25,9 @@ const FrontLine: React.FC = () => {
       id="hero"
       className="relative w-full min-h-screen h-screen py-0 pt-0 flex flex-col justify-center items-center text-center text-white bg-gray-900 overflow-hidden"
     >
+      <div className="absolute inset-0 -z-0" aria-hidden="true">
+        <ParticleBackground />
+      </div>
       <div className="relative z-10 hero-section">
         <h1 className="hero-title mb-4 sm:mb-6">
           hello, I’m <span className="text-cyan-400 font-bold">Sushant.</span>
