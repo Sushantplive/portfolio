@@ -27,6 +27,18 @@ const techIcons: Skill[] = [
       "Design scalable, component-driven architectures in React with optimized rendering strategies and reusable UI systems.",
   },
   {
+    name: "Highcharts",
+    icon: "/icons/highcharts.svg",
+    description:
+      "Build interactive, high-volume analytics visualizations with configurable chart systems and reusable dashboard patterns.",
+  },
+  {
+    name: "D3.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/d3js/d3js-original.svg",
+    description:
+      "Develop custom, data-driven visualizations for complex analytical use cases where precise rendering control is required.",
+  },
+  {
     name: "Next.js",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     description:
@@ -79,12 +91,6 @@ const techIcons: Skill[] = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     description:
       "Follow structured version control workflows and collaborative branching strategies for team-based development.",
-  },
-  {
-    name: "AWS",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-    description:
-      "Deploy and manage scalable cloud-based applications with a focus on performance, reliability, and security.",
   },
   {
     name: "HTML5",
@@ -444,14 +450,15 @@ const SkillCircle: React.FC<SkillCircleProps> = ({
 };
 
 const TechStack: React.FC = () => {
-  const [circleSize, setCircleSize] = useState(320);
+  const [circleSize, setCircleSize] = useState(360);
 
   useEffect(() => {
     const updateSize = () => {
-      if (window.innerWidth >= 1024) setCircleSize(380);
-      else if (window.innerWidth >= 768) setCircleSize(320);
-      else if (window.innerWidth >= 640) setCircleSize(280);
-      else setCircleSize(250);
+      if (window.innerWidth >= 1280) setCircleSize(460);
+      else if (window.innerWidth >= 1024) setCircleSize(420);
+      else if (window.innerWidth >= 768) setCircleSize(360);
+      else if (window.innerWidth >= 640) setCircleSize(320);
+      else setCircleSize(280);
     };
     updateSize();
     window.addEventListener("resize", updateSize);

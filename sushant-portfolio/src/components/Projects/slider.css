@@ -2,6 +2,21 @@
   position: relative;
 }
 
+.projects-title {
+  position: relative;
+  display: inline-block;
+}
+
+.projects-title::after {
+  content: "";
+  display: block;
+  width: 78px;
+  height: 4px;
+  margin-top: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.95), rgba(56, 189, 248, 0.42));
+}
+
 .projects-layout {
   display: grid;
   grid-template-columns: minmax(260px, 320px) 1fr;
@@ -162,6 +177,10 @@
 }
 
 @media (max-width: 640px) {
+  .projects-title::after {
+    width: 62px;
+  }
+
   .project-detail-card {
     padding: 1.1rem;
   }

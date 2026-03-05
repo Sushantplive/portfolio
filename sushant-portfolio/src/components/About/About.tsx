@@ -1,88 +1,57 @@
 import React from "react";
 import TechStack from "../TechStack/TechStack";
+import "./about.css";
 
 const About: React.FC = () => {
   return (
-  <section id="about" className="pt-12 sm:pt-20 bg-gray-900 text-gray-900 min-h-screen flex flex-col justify-center">
-      <div className="w-full max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+  <section id="about" className="about-section pt-12 sm:pt-20 bg-gray-900 text-white min-h-screen flex flex-col justify-center">
+      <div className="w-full max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-[1.2fr_0.95fr] gap-8 lg:gap-10 items-start">
           {/* Left Content */}
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-cyan-400">
+          <div className="space-y-4 about-copy-panel">
+            <h2 className="about-title text-4xl md:text-5xl font-bold text-cyan-400">
               &lt;About Me /&gt;
             </h2>
-
-            {/* <p className="text-gray-300 text-lg leading-relaxed">
-              Hi, I'm a passionate <span className="text-cyan-400 font-semibold">Senior Frontend Engineer</span> from Pune, India.<br />
-              I thrive on crafting visually stunning, lightning-fast web experiences that delight users and drive business success.<br />
-              My expertise lies in modern JavaScript frameworks and building clean, scalable UI architectures for enterprise-grade products.<br />
-              Let's turn ideas into impactful digital solutions together!
+            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+              Hi, I'm Sushant, a <span className="about-highlight">Senior Frontend Engineer</span> based in <span className="about-highlight-soft">Pune, India</span> with over <span className="about-highlight-soft">8 years of experience</span> building scalable, high-performance web applications for enterprise environments.
             </p>
 
-            <p className="text-gray-300 text-lg leading-relaxed">
-              I've worked on complex, business-critical applications and enjoy collaborating with cross-functional teams<br />
-              to transform ideas into reliable, user-centric solutions. My focus is always on performance,<br />
-              maintainability, and clean code.
-            </p> */}
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Hi, I'm a <span className="text-cyan-400 font-semibold">Lead Software Engineer</span> from Pune, India,
-              specializing in building scalable, high-performance web applications for enterprise environments.
-              I design maintainable UI architectures that support long-term product growth, with a strong focus on
-              performance optimization, clean code practices, and delivering seamless user experiences across complex systems.
-              I collaborate closely with cross-functional teams to translate business requirements into reliable, production-ready solutions.
+            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+              I specialize in developing <span className="about-highlight-soft">data-driven platforms</span> and analytics dashboards using <span className="about-highlight">React</span>, <span className="about-highlight">TypeScript</span>, <span className="about-highlight">Highcharts</span>, and modern frontend architectures. My work focuses on transforming complex data into intuitive, interactive user interfaces that help organizations make better decisions.
             </p>
-{/* 
-            I’m a Senior Frontend Engineer based in Pune, India, specializing in building scalable, high-performance web applications for enterprise environments.
 
-My expertise lies in React and modern JavaScript ecosystems, where I design maintainable UI architectures that support long-term product growth. I focus on performance optimization, clean code practices, and delivering seamless user experiences across complex systems.
+            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+              Over the years, I have contributed to large-scale systems used by global teams, including projects for <span className="about-highlight-soft">HSBC</span> and <span className="about-highlight-soft">HPE</span>. These platforms involve high-volume data visualization, enterprise analytics dashboards, and performance-critical applications where reliability and scalability are essential.
+            </p>
 
-I collaborate closely with cross-functional teams to translate business requirements into reliable, production-ready solutions. */}
+            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+              I enjoy designing <span className="about-highlight-soft">clean UI architectures</span>, <span className="about-highlight-soft">reusable component systems</span>, and optimized frontend solutions that handle complex business logic while maintaining excellent user experience.
+            </p>
 
-            <div className="pt-6 border-t border-gray-700">
-              <p className="text-cyan-400 font-semibold text-lg mb-4">
+            <div className="about-subsection pt-4 border-t border-gray-700">
+              <p className="text-cyan-400 font-semibold text-lg mb-3">
                 Where I've Worked:
               </p>
-              {/* <p className="text-gray-300 text-lg leading-relaxed">
-                I've had the privilege of working with notable organizations
-                such as
-                <span className="text-cyan-400 font-semibold"> Agiliad</span>,
-                <span className="text-cyan-400 font-semibold"> Synechron</span>,
-                and
-                <span className="text-cyan-400 font-semibold">
-                  {" "}
-                  Hong Kong & Shanghai Banking Corporation (HSBC)
-                </span>
-                , where I've contributed to building scalable solutions and
-                driving innovation across diverse teams.
-              </p> */}
-
-              <p className="text-gray-300 text-lg leading-relaxed">
-                I have contributed to large-scale enterprise systems at
-                <span className="text-cyan-400 font-semibold"> Agiliad</span>,
-                <span className="text-cyan-400 font-semibold"> Synechron</span>,
-                and
-                <span className="text-cyan-400 font-semibold">
-                  {" "}
-                  Hong Kong & Shanghai Banking Corporation (HSBC)
-                </span>
-                , working on high-performance, business-critical applications used across global teams.
+              <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+                I have contributed to enterprise systems at <span className="about-highlight-soft">Agiliad</span>, <span className="about-highlight-soft">Synechron</span>, and <span className="about-highlight-soft">HSBC</span>, building applications used by global teams for analytics, monitoring, and business decision-making.
               </p>
-              {/* I have contributed to large-scale enterprise systems at Agiliad, Synechron, and HSBC, working on high-performance, business-critical applications used across global teams. */}
             </div>
 
-            <p className="text-gray-300 text-lg leading-relaxed pt-4">
-              Outside of work, I enjoy exploring new frontend trends, improving
-              my technical skills, and spending quality time away from screens. I also love <span className="text-cyan-400 font-semibold">watching movies</span>, <span className="text-cyan-400 font-semibold">relaxing in nature</span>, and finding peace in quiet moments outdoors.
-            </p>
+            {/* <div className="about-subsection pt-2">
+              <p className="text-cyan-400 font-semibold text-lg mb-4">Beyond Work</p>
+              <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+                Outside of work, I enjoy exploring new frontend technologies, improving my technical skills, and learning about <span className="about-highlight-soft">system design</span> and <span className="about-highlight-soft">performance engineering</span>. I also enjoy movies, nature, and spending time away from screens to recharge and stay creative.
+              </p>
+            </div> */}
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center md:justify-end mt-20">
-            <div className="w-full max-w-sm">
+          <div className="flex justify-center md:justify-center mt-8 md:mt-2">
+            <div className="about-image-wrap w-full max-w-md">
               <img
                 src="/profile3.jpeg"
                 alt="Profile"
-                className="w-full h-auto rounded-lg shadow-lg border border-cyan-400 border-opacity-30 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-cyan-300"
+                className="about-image w-full h-auto rounded-lg shadow-lg border border-cyan-400 border-opacity-30 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-cyan-300"
               />
             </div>
           </div>
