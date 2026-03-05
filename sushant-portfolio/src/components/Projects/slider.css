@@ -1,17 +1,5 @@
 #projects .projects-section {
   position: relative;
-  isolation: isolate;
-}
-
-#projects .projects-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(34, 211, 238, 0.14), transparent 36%),
-    radial-gradient(circle at 82% 84%, rgba(56, 189, 248, 0.16), transparent 40%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 .projects-layout {
