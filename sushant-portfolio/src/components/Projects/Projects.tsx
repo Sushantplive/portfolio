@@ -12,83 +12,6 @@ interface Project {
   live?: string;
 }
 
-const categoryOrder = [
-  "Frontend",
-  "State Management",
-  "Testing",
-  "APIs & Data",
-  "DevOps",
-  "Tooling",
-  "Other",
-] as const;
-
-const detectTechCategory = (tech: string): (typeof categoryOrder)[number] => {
-  const normalizedTech = tech.toLowerCase();
-
-  if (normalizedTech.includes("jest") || normalizedTech.includes("testing")) {
-    return "Testing";
-  }
-
-  if (
-    normalizedTech.includes("redux") ||
-    normalizedTech.includes("redux toolkit") ||
-    normalizedTech.includes("context")
-  ) {
-    return "State Management";
-  }
-
-  if (
-    normalizedTech.includes("react") ||
-    normalizedTech.includes("typescript") ||
-    normalizedTech.includes("javascript") ||
-    normalizedTech.includes("d3") ||
-    normalizedTech.includes("component") ||
-    normalizedTech.includes("styled")
-  ) {
-    return "Frontend";
-  }
-
-  if (normalizedTech.includes("api") || normalizedTech.includes("analytics")) {
-    return "APIs & Data";
-  }
-
-  if (normalizedTech.includes("jenkins") || normalizedTech.includes("ci/cd")) {
-    return "DevOps";
-  }
-
-  if (
-    normalizedTech.includes("git") ||
-    normalizedTech.includes("webpack") ||
-    normalizedTech.includes("jira") ||
-    normalizedTech.includes("sonarqube")
-  ) {
-    return "Tooling";
-  }
-
-  return "Other";
-};
-
-const groupTechByCategory = (techList: string[]) => {
-  const grouped = techList.reduce<Record<string, string[]>>(
-    (accumulator, tech) => {
-      const category = detectTechCategory(tech);
-      if (!accumulator[category]) {
-        accumulator[category] = [];
-      }
-      accumulator[category].push(tech);
-      return accumulator;
-    },
-    {},
-  );
-
-  return categoryOrder
-    .filter((category) => grouped[category]?.length)
-    .map((category) => ({
-      category,
-      items: grouped[category],
-    }));
-};
-
 const projects: Project[] = [
   {
     name: "OMNIA – GPS Insights Dashboard (HSBC)",
@@ -99,13 +22,14 @@ const projects: Project[] = [
     tech: [
       "React.js",
       "TypeScript",
-      "D3.js",
+      "d3",
       "Jest",
       "styled-components",
       "react-testing-library",
       "OMNIA-UI-Library",
       "React Context API",
       "Redux",
+      "Context API",
       "Git",
       "Webpack",
       "Jenkins CI/CD",
@@ -139,11 +63,9 @@ const projects: Project[] = [
     ],
     highlights: [
       "Engineered key front-end modules for a mission-critical banking application, including UIs for 5 core Accounts Receivable user stories in Release 9.",
-      "Identified and resolved complex Release 8 defects, improving stability and maintaining high code quality across critical flows.",
       "Integrated RESTful APIs to enhance financial workflows and support customer guarantee issuance and streamlined internal operations.",
       "Managed the full feature lifecycle from development and testing through QA validation and production deployment.",
       "Addressed SonarQube issues to improve code quality, maintainability, and long-term engineering standards.",
-      "Participated in deployment and release activities to ensure stable production rollouts and reliable delivery.",
     ],
     github: "#",
     live: "#",
@@ -159,6 +81,7 @@ const projects: Project[] = [
     tech: [
       "React.js",
       "Javascript (ES6+)",
+      "Highcharts",
       "Component Libraries",
       "Jest",
       "react-testing-library",
@@ -171,7 +94,6 @@ const projects: Project[] = [
       "Developed reusable Highcharts-based components including line charts, bar charts, and trend visualizations for telemetry analytics.",
       "Integrated REST APIs to fetch real-time infrastructure monitoring data from HPE InfoSight services.",
       "Optimized rendering of large telemetry datasets to ensure smooth performance of monitoring dashboards.",
-      "Designed modular React component architecture supporting scalable monitoring modules.",
       "Collaborated with backend and DevOps teams to integrate InfoSight APIs and ensure reliable data visualization workflows.",
     ],
     github: "#",
@@ -267,23 +189,16 @@ const Projects: React.FC = () => {
 
             <div>
               <p className="project-subtitle">Technologies</p>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {groupTechByCategory(selectedProject.tech).map(
-                  ({ category, items }) => (
-                    <div
-                      key={category}
-                      className="rounded-lg border border-cyan-400/20 bg-gradient-to-br from-cyan-900/25 to-blue-900/20 px-4 py-3"
-                    >
-                      <p className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1">
-                        {category}
-                      </p>
-                      <p className="text-cyan-50/90 text-sm leading-relaxed">
-                        {items.join(", ")}
-                      </p>
-                    </div>
-                  ),
-                )}
-              </div>
+              <ul className="flex flex-wrap gap-2" role="list">
+                {selectedProject.tech.map((tech) => (
+                  <li
+                    key={tech}
+                    className="rounded-full border border-cyan-400/30 bg-cyan-950/35 px-3 py-1 text-xs font-medium text-cyan-100"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
             </div>
           </article>
         </div>
