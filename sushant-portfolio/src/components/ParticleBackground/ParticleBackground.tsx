@@ -12,6 +12,7 @@ const ParticleBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particlesArray = useRef<Particle[]>([]);
   const scrollOffsetRef = useRef(0);
+  const canvasSizeRef = useRef({ width: 0, height: 0 });
 
   const initParticles = (width: number, height: number, count: number) => {
     particlesArray.current = [];
@@ -34,7 +35,7 @@ const ParticleBackground: React.FC = () => {
 
     const width = window.innerWidth;
     const height = window.innerHeight;
-    
+    canvasSizeRef.current = { width, height };
     canvas.width = width;
     canvas.height = height;
 
@@ -43,9 +44,11 @@ const ParticleBackground: React.FC = () => {
     let animationId: number;
 
     const animate = () => {
+      const { width: currentWidth, height: currentHeight } = canvasSizeRef.current;
+
       // Clear canvas with dark background
       ctx.fillStyle = "#111827";
-      ctx.fillRect(0, 0, width, height);
+      ctx.fillRect(0, 0, currentWidth, currentHeight);
 
       // Draw lines between particles
       for (let i = 0; i < particlesArray.current.length; i++) {
@@ -78,8 +81,8 @@ const ParticleBackground: React.FC = () => {
         p.y += p.vy;
 
         // Bounce on edges
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
+        if (p.x < 0 || p.x > currentWidth) p.vx *= -1;
+        if (p.y < 0 || p.y > currentHeight) p.vy *= -1;
       });
 
       animationId = requestAnimationFrame(animate);
@@ -96,6 +99,7 @@ const ParticleBackground: React.FC = () => {
     const handleResize = () => {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;
+      canvasSizeRef.current = { width: newWidth, height: newHeight };
       canvas.width = newWidth;
       canvas.height = newHeight;
       initParticles(newWidth, newHeight, 80);

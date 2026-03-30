@@ -13,19 +13,19 @@ const About: React.FC = () => {
               &lt;About Me /&gt;
             </h2>
             <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              Hi, I'm Sushant, a <span className="about-highlight">Senior Frontend Engineer</span> based in <span className="about-highlight-soft">Pune, India</span> with over <span className="about-highlight-soft">8 years of experience</span> building scalable, high-performance web applications for enterprise environments.
+              Hi, I'm Sushant, a <span className="about-highlight">Senior Frontend Engineer</span> based in <span className="about-highlight-soft">Pune, India</span>. I build scalable, high-performance web applications and intuitive data experiences for enterprise teams.
             </p>
 
             <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              I specialize in developing <span className="about-highlight-soft">data-driven platforms</span> and analytics dashboards using <span className="about-highlight">React</span>, <span className="about-highlight">TypeScript</span>, <span className="about-highlight">Highcharts</span>, and modern frontend architectures. My work focuses on transforming complex data into intuitive, interactive user interfaces that help organizations make better decisions.
+              I specialize in developing <span className="about-highlight-soft">data-driven platforms</span> and analytics dashboards using <span className="about-highlight">React</span>, <span className="about-highlight">TypeScript</span>, <span className="about-highlight">Highcharts</span>, and modern frontend architectures. I focus on turning complex datasets into polished, interactive interfaces that support smarter business decisions.
             </p>
 
             <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              Over the years, I have contributed to large-scale systems used by global teams, including projects for <span className="about-highlight-soft">HSBC</span> and <span className="about-highlight-soft">HPE</span>. These platforms involve high-volume data visualization, enterprise analytics dashboards, and performance-critical applications where reliability and scalability are essential.
+              My background includes contributing to large-scale systems for global teams, with a focus on reliability, performance, and maintainable user experiences in enterprise products.
             </p>
 
             <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              I enjoy designing <span className="about-highlight-soft">clean UI architectures</span>, <span className="about-highlight-soft">reusable component systems</span>, and optimized frontend solutions that handle complex business logic while maintaining excellent user experience.
+              I enjoy designing <span className="about-highlight-soft">clean UI architectures</span>, <span className="about-highlight-soft">reusable component systems</span>, and optimized frontend solutions that simplify complex workflows while keeping the interface accessible and engaging.
             </p>
 
             <div className="about-subsection pt-4 border-t border-gray-700">

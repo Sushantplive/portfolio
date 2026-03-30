@@ -102,6 +102,7 @@
   font-size: 0.73rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: rgba(207, 250, 254, 0.95);
   background: rgba(14, 116, 144, 0.2);
 }

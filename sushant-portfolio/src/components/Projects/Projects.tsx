@@ -166,7 +166,7 @@ const Projects: React.FC = () => {
                   {selectedProject.company}
                 </p>
               </div>
-              <span className="project-pill">Enterprise Delivery</span>
+              <span className="project-pill">Enterprise Analytics</span>
             </div>
 
             <p className="text-cyan-50/90 text-base leading-relaxed mb-6">
