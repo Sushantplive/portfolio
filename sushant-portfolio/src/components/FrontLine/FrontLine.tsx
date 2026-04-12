@@ -42,18 +42,18 @@ const FrontLine: React.FC = () => {
           Focused on <span className="text-cyan-400 font-semibold">React, TypeScript, Highcharts, and D3.js</span>, I design fast, scalable interfaces and reusable component systems for performance-critical applications.
         </p>
         <div className="hero-skill-badges mb-6" aria-label="Core highlights">
-          {/* <span>Eight Years Experience</span> */}
+          <span>8 Years Experience</span>
           <span>Enterprise Dashboards</span>
           <span>Data Visualization</span>
         </div>
         <div className="hero-cta-group">
-          {/* <a
-            href="/Sushant_Paikarao_Resume.pdf"
+          <a
+            href="/Sushant_Paikarao_Frontend_dev.pdf"
             download="Sushant_Paikarao_Resume.pdf"
             className="hero-link-secondary text-base sm:text-lg"
           >
             💼 Download Resume
-          </a> */}
+          </a>
           <a
             href="#contact"
             className="hero-link-secondary text-base sm:text-lg"
