@@ -122,8 +122,8 @@ export const projects: Project[] = [
       "Built expense tracking UI with interactive charts and budget summaries.",
       "Added smart categorization and filtering for transaction management.",
     ],
-    github: "#",
-    live: "#",
+    github: "https://github.com/Sushantplive/ct-client.git",
+    live: "https://ct-client-khaki.vercel.app/",
   },
   {
     name: "Portfolio Website",
