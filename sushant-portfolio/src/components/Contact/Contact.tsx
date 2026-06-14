@@ -5,14 +5,32 @@ import "./contact.css";
 
 const Contact: React.FC = () => {
   return (
-  <section id="contact" className="contact-section pt-12 sm:pt-20 bg-gray-900 text-white flex flex-col items-center">
+    <section id="contact" className="contact-section pt-12 sm:pt-20 bg-gray-900 text-white flex flex-col items-center">
       <div className="w-full max-w-5xl mx-auto px-6 text-center">
         <h2 className="contact-title text-4xl md:text-5xl font-bold text-cyan-400 mb-8">
           Get in Touch
         </h2>
         <p className="contact-intro text-lg text-gray-300 leading-relaxed mb-12">
-          Whether you have a question, want to collaborate, or just want to say hi, my inbox is always open. Feel free to reach out, and I’ll get back to you as soon as possible!
+          Whether you have a question, want to collaborate, or just want to say hi, my inbox is always open. Feel free to reach out, and I'll get back to you as soon as possible!
         </p>
+
+        {/* Availability Badge */}
+        <div className="availability-card mb-10 mx-auto max-w-md p-5 rounded-xl">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="availability-dot" />
+            <span className="text-emerald-400 font-bold text-lg">Open to Opportunities</span>
+          </div>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-gray-400 mb-1">Notice Period</p>
+              <p className="text-white font-semibold">3 Months</p>
+            </div>
+            <div>
+              <p className="text-gray-400 mb-1">Expected CTC</p>
+              <p className="text-white font-semibold">As per industry standards</p>
+            </div>
+          </div>
+        </div>
 
         <div className="contact-grid grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Email Section */}
@@ -56,6 +74,5 @@ const Contact: React.FC = () => {
     </section>
   );
 };
-
 
 export default Contact;
