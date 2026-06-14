@@ -42,7 +42,7 @@ const About: React.FC = () => {
                 Education:
               </p>
               <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                <span className="about-highlight">Bachelor of Engineering</span> — Computer Science
+                <span className="about-highlight">Bachelor of Engineering</span> — Electronic and Telecommunication Engineering
               </p>
             </div>
 
