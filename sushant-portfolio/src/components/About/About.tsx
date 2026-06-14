@@ -1,5 +1,6 @@
 import React from "react";
 import TechStack from "../TechStack/TechStack";
+import LighthouseScores from "../LighthouseScores/LighthouseScores";
 import "./about.css";
 
 const About: React.FC = () => {
@@ -69,6 +70,11 @@ const About: React.FC = () => {
         {/* Tech Stack Section */}
         <div className="mt-20 md:mt-40 lg:mt-56">
           <TechStack />
+        </div>
+
+        {/* Lighthouse Scores */}
+        <div className="mt-16 md:mt-24 border-t border-gray-700 pt-10">
+          <LighthouseScores />
         </div>
       </div>
     </section>
