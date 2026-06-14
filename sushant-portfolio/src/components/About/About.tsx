@@ -37,6 +37,15 @@ const About: React.FC = () => {
               </p>
             </div>
 
+            <div className="about-subsection pt-4 border-t border-gray-700">
+              <p className="text-cyan-400 font-semibold text-lg mb-3">
+                Education:
+              </p>
+              <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
+                <span className="about-highlight">Bachelor of Engineering</span> — Electronic and Telecommunication Engineering
+              </p>
+            </div>
+
             {/* <div className="about-subsection pt-2">
               <p className="text-cyan-400 font-semibold text-lg mb-4">Beyond Work</p>
               <p className="about-paragraph text-gray-300 text-lg leading-relaxed">

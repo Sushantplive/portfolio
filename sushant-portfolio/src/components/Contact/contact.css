@@ -71,6 +71,37 @@
   filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.5));
 }
 
+#contact .availability-card {
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: linear-gradient(165deg, rgba(6, 78, 59, 0.25), rgba(15, 23, 42, 0.92));
+  box-shadow: 0 12px 24px rgba(6, 78, 59, 0.15);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+#contact .availability-card:hover {
+  border-color: rgba(52, 211, 153, 0.6);
+  box-shadow: 0 16px 28px rgba(6, 78, 59, 0.22);
+}
+
+#contact .availability-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.7);
+  animation: availabilityPulse 2s ease-in-out infinite;
+}
+
+@keyframes availabilityPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(52, 211, 153, 0.95);
+  }
+}
+
 @media (max-width: 640px) {
   #contact .contact-title::after {
     width: 62px;
