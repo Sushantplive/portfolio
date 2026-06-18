@@ -4,6 +4,14 @@
 
 :root {
   color-scheme: dark;
+  --bg-base: #0f172a;
+  --bg-glow-cyan: radial-gradient(circle at 20% 15%, rgba(8, 145, 178, 0.16), transparent 40%);
+  --bg-glow-blue: radial-gradient(circle at 80% 75%, rgba(30, 64, 175, 0.18), transparent 42%);
+  --bg-surface: var(--bg-glow-cyan), var(--bg-glow-blue), var(--bg-base);
+}
+
+.site-section {
+  background: var(--bg-surface);
 }
 
 * {
@@ -14,10 +22,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto Slab', serif;
-  background:
-    radial-gradient(circle at 20% 15%, rgba(8, 145, 178, 0.16), transparent 40%),
-    radial-gradient(circle at 80% 75%, rgba(30, 64, 175, 0.18), transparent 42%),
-    #0f172a;
+  background: var(--bg-surface);
   color: #ffffff; /* default text color */
   cursor: none;
 }

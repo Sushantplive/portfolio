@@ -5,7 +5,7 @@ import "./contact.css";
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="contact-section pt-12 sm:pt-20 bg-gray-900 text-white flex flex-col items-center">
+    <section id="contact" className="contact-section site-section py-12 sm:py-20 text-white flex flex-col items-center justify-center">
       <div className="w-full max-w-5xl mx-auto px-6 text-center">
         <h2 className="contact-title text-4xl md:text-5xl font-bold text-cyan-400 mb-8">
           Get in Touch
