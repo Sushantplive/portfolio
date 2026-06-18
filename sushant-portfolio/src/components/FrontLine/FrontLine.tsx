@@ -95,7 +95,10 @@ const FrontLine: React.FC = () => {
               <div>
                 <p className="hero-panel__availability-title">Open to Opportunities</p>
                 <p className="hero-panel__availability-note">
-                  Remote-friendly · Global teams · 3-month notice
+                  Remote-friendly · Global teams · 3-month notice (negotiable)
+                </p>
+                <p className="hero-panel__availability-note hero-panel__availability-note--secondary">
+                  Immediate joiner / notice buyout open to discussion
                 </p>
               </div>
             </div>

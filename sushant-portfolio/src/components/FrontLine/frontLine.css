@@ -304,6 +304,12 @@
   color: rgba(203, 213, 225, 0.88);
 }
 
+#hero .hero-panel__availability-note--secondary {
+  margin-top: 0.35rem;
+  font-size: 0.74rem;
+  color: rgba(110, 231, 183, 0.92);
+}
+
 #hero .hero-scroll {
   display: inline-flex;
   flex-direction: column;

@@ -25,7 +25,22 @@
 }
 
 #contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  #contact .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  #contact .contact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 #contact .contact-card {
@@ -61,6 +76,29 @@
   filter: brightness(1.03);
 }
 
+#contact .contact-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+#contact .contact-secondary-btn {
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  background: rgba(6, 78, 59, 0.35);
+  color: #a7f3d0;
+  box-shadow: 0 8px 18px rgba(6, 78, 59, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+#contact .contact-secondary-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(110, 231, 183, 0.75);
+  background: rgba(6, 95, 70, 0.45);
+  box-shadow: 0 10px 24px rgba(6, 78, 59, 0.28);
+}
+
 #contact .contact-icon-link {
   color: rgba(148, 163, 184, 0.92);
   transition: color 180ms ease, transform 180ms ease, filter 180ms ease;
@@ -69,6 +107,11 @@
 #contact .contact-icon-link:hover {
   color: #67e8f9;
   filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.5));
+}
+
+#contact .contact-social__label {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 #contact .availability-card {
@@ -91,6 +134,22 @@
   background: #34d399;
   box-shadow: 0 0 8px rgba(52, 211, 153, 0.7);
   animation: availabilityPulse 2s ease-in-out infinite;
+}
+
+#contact .availability-detail {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6ee7b7;
+}
+
+#contact .availability-note {
+  margin: 1rem 0 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(52, 211, 153, 0.22);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: rgba(203, 213, 225, 0.92);
 }
 
 @keyframes availabilityPulse {

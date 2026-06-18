@@ -53,14 +53,8 @@
   background: rgba(8, 47, 73, 0.45);
 }
 
-#tech-stack .tech-stack-primary {
-  margin-bottom: 1.75rem;
-}
-
-#tech-stack .tech-stack-primary__label,
-#tech-stack .tech-stack-category__title,
-#tech-stack .tech-stack-strengths__title,
-#tech-stack .tech-stack-legend__title {
+#tech-stack .tech-stack-tier__title,
+#tech-stack .tech-stack-strengths__title {
   margin: 0 0 0.85rem;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
@@ -69,21 +63,72 @@
   color: #67e8f9;
 }
 
-#tech-stack .tech-stack-primary__grid {
+#tech-stack .tech-stack-tiers {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+#tech-stack .tech-stack-tier {
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  border-radius: 16px;
+  padding: 1.1rem 1.15rem;
+  background: linear-gradient(160deg, rgba(17, 24, 39, 0.55), rgba(15, 23, 42, 0.82));
+}
+
+#tech-stack .tech-stack-tier--featured {
+  border-color: rgba(34, 211, 238, 0.32);
+  background: linear-gradient(160deg, rgba(8, 47, 73, 0.42), rgba(15, 23, 42, 0.92));
+  box-shadow: 0 14px 28px rgba(8, 47, 73, 0.22);
+}
+
+#tech-stack .tech-stack-tier__header {
+  margin-bottom: 1rem;
+}
+
+#tech-stack .tech-stack-tier__title {
+  margin-bottom: 0.45rem;
+}
+
+#tech-stack .tech-stack-tier__description {
+  margin: 0;
+  max-width: 44rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(148, 163, 184, 0.95);
+}
+
+#tech-stack .tech-stack-tier__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+#tech-stack .tech-stack-tier__grid--featured {
   gap: 0.75rem;
 }
 
 @media (min-width: 640px) {
-  #tech-stack .tech-stack-primary__grid {
+  #tech-stack .tech-stack-tier__grid--featured {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  #tech-stack .tech-stack-primary__grid {
+  #tech-stack .tech-stack-tier__grid--featured {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  #tech-stack .tech-stack-tiers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #tech-stack .tech-stack-tier--featured {
+    grid-column: 1 / -1;
+  }
+
+  #tech-stack .tech-stack-tier__grid:not(.tech-stack-tier__grid--featured) {
+    grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   }
 }
 
@@ -134,72 +179,12 @@
   line-height: 1.25;
 }
 
-#tech-stack .tech-skill-card__level {
-  display: inline-block;
-  margin-top: 0.3rem;
-  padding: 0.12rem 0.45rem;
-  border-radius: 999px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-#tech-stack .tech-skill-card__level--expert {
-  color: #ecfeff;
-  background: rgba(34, 211, 238, 0.28);
-  border: 1px solid rgba(34, 211, 238, 0.45);
-}
-
-#tech-stack .tech-skill-card__level--advanced {
-  color: #dbeafe;
-  background: rgba(59, 130, 246, 0.22);
-  border: 1px solid rgba(96, 165, 250, 0.4);
-}
-
-#tech-stack .tech-skill-card__level--proficient {
-  color: #e2e8f0;
-  background: rgba(100, 116, 139, 0.28);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-}
-
-#tech-stack .tech-stack-categories {
-  display: grid;
-  gap: 1.25rem;
-  margin-bottom: 1.75rem;
-}
-
-@media (min-width: 768px) {
-  #tech-stack .tech-stack-categories {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-#tech-stack .tech-stack-category {
-  border: 1px solid rgba(34, 211, 238, 0.18);
-  border-radius: 16px;
-  padding: 1rem;
-  background: linear-gradient(160deg, rgba(17, 24, 39, 0.55), rgba(15, 23, 42, 0.82));
-}
-
-#tech-stack .tech-stack-category__grid {
-  display: grid;
-  gap: 0.65rem;
-}
-
 #tech-stack .tech-stack-strengths {
   display: grid;
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
-  #tech-stack .tech-stack-strengths {
-    grid-template-columns: 1.4fr 1fr;
-  }
-}
-
-#tech-stack .tech-stack-strengths__panel,
-#tech-stack .tech-stack-legend {
+#tech-stack .tech-stack-strengths__panel {
   border: 1px solid rgba(34, 211, 238, 0.2);
   border-radius: 16px;
   padding: 1.1rem 1.2rem;
@@ -230,24 +215,6 @@
   font-weight: 600;
   color: #e9d5ff;
   background: rgba(88, 28, 135, 0.22);
-}
-
-#tech-stack .tech-stack-legend__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.75rem;
-}
-
-#tech-stack .tech-stack-legend__list li {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.35rem;
-  font-size: 0.82rem;
-  color: rgba(203, 213, 225, 0.9);
-  line-height: 1.45;
 }
 
 @media (max-width: 639px) {

@@ -1,34 +1,20 @@
 ﻿import React from "react";
 import {
-  primaryStack,
   professionalStrengths,
   roleFitTags,
-  skillCategories,
-  type Proficiency,
+  skillTiers,
   type TechSkill,
 } from "./techStackData";
 import "./techStack.css";
-
-const proficiencyLabel: Record<Proficiency, string> = {
-  Expert: "Expert — production-ready, daily use",
-  Advanced: "Advanced — strong hands-on experience",
-  Proficient: "Proficient — comfortable in team delivery",
-};
 
 const SkillCard: React.FC<{ skill: TechSkill; featured?: boolean }> = ({
   skill,
   featured = false,
 }) => (
-  <article
-    className={`tech-skill-card ${featured ? "tech-skill-card--featured" : ""}`}
-    title={proficiencyLabel[skill.proficiency]}
-  >
+  <article className={`tech-skill-card ${featured ? "tech-skill-card--featured" : ""}`}>
     <img src={skill.icon} alt="" className="tech-skill-card__icon" aria-hidden="true" />
     <div className="tech-skill-card__body">
       <h4 className="tech-skill-card__name">{skill.name}</h4>
-      <span className={`tech-skill-card__level tech-skill-card__level--${skill.proficiency.toLowerCase()}`}>
-        {skill.proficiency}
-      </span>
     </div>
   </article>
 );
@@ -41,8 +27,8 @@ const TechStack: React.FC = () => {
           &lt;Skills &amp; Tech Stack /&gt;
         </h3>
         <p className="tech-stack-intro">
-          Production technologies used across enterprise banking, analytics dashboards, and
-          global delivery teams — structured for quick review by recruiters and hiring managers.
+          Technologies grouped by how they show up across my career — from daily production work to
+          enterprise client delivery — so recruiters can quickly see where I spend most of my time.
         </p>
       </header>
 
@@ -54,22 +40,23 @@ const TechStack: React.FC = () => {
         ))}
       </div>
 
-      <div className="tech-stack-primary">
-        <p className="tech-stack-primary__label">Primary Stack</p>
-        <div className="tech-stack-primary__grid">
-          {primaryStack.map((skill) => (
-            <SkillCard key={skill.name} skill={skill} featured />
-          ))}
-        </div>
-      </div>
-
-      <div className="tech-stack-categories">
-        {skillCategories.map((category) => (
-          <div key={category.id} className="tech-stack-category">
-            <h4 className="tech-stack-category__title">{category.title}</h4>
-            <div className="tech-stack-category__grid">
-              {category.skills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
+      <div className="tech-stack-tiers">
+        {skillTiers.map((tier) => (
+          <div
+            key={tier.id}
+            className={`tech-stack-tier ${tier.featured ? "tech-stack-tier--featured" : ""}`}
+          >
+            <div className="tech-stack-tier__header">
+              <h4 className="tech-stack-tier__title">{tier.title}</h4>
+              <p className="tech-stack-tier__description">{tier.description}</p>
+            </div>
+            <div
+              className={`tech-stack-tier__grid ${
+                tier.featured ? "tech-stack-tier__grid--featured" : ""
+              }`}
+            >
+              {tier.skills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} featured={tier.featured} />
               ))}
             </div>
           </div>
@@ -86,24 +73,6 @@ const TechStack: React.FC = () => {
             {professionalStrengths.map((strength) => (
               <li key={strength}>{strength}</li>
             ))}
-          </ul>
-        </div>
-
-        <div className="tech-stack-legend" aria-label="Proficiency legend">
-          <h4 className="tech-stack-legend__title">Proficiency Guide</h4>
-          <ul className="tech-stack-legend__list">
-            <li>
-              <span className="tech-skill-card__level tech-skill-card__level--expert">Expert</span>
-              Daily production use, architecture ownership
-            </li>
-            <li>
-              <span className="tech-skill-card__level tech-skill-card__level--advanced">Advanced</span>
-              Strong delivery experience on real projects
-            </li>
-            <li>
-              <span className="tech-skill-card__level tech-skill-card__level--proficient">Proficient</span>
-              Solid contributor in team environments
-            </li>
           </ul>
         </div>
       </div>

@@ -1,5 +1,9 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import "./slider.css";
+import "./enterpriseProof.css";
+import "./personalShowcase.css";
+import EnterpriseProofPanel from "./EnterpriseProof";
+import { ScreenshotSlider } from "./PersonalProjectShowcase";
 import { type Project, type ProjectCategory, projects } from "./projectsData";
 
 type TabKey = "all" | ProjectCategory;
@@ -45,12 +49,6 @@ const Projects: React.FC = () => {
       projects[0],
     [selectedProjectName, visibleProjects],
   );
-
-  useEffect(() => {
-    if (!visibleProjects.some((project) => project.name === selectedProjectName)) {
-      setSelectedProjectName(visibleProjects[0]?.name ?? "");
-    }
-  }, [selectedCategory, visibleProjects, selectedProjectName]);
 
   if (!selectedProject) {
     return null;
@@ -103,10 +101,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section
-      id="projects"
-      className="projects-section site-section py-12 sm:py-20 text-white flex flex-col justify-center"
-    >
+    <section id="projects" className="projects-section site-section py-10 sm:py-14 text-white">
       <div className="w-full max-w-6xl mx-auto px-6">
         <div className="projects-header mb-8 md:mb-10">
           <div>
@@ -114,8 +109,8 @@ const Projects: React.FC = () => {
               &lt;Projects /&gt;
             </h2>
             <p className="projects-intro text-lg max-w-2xl">
-              Enterprise platforms delivered for global clients and personal full-stack projects
-              built end-to-end.
+              Enterprise delivery for global clients and personal full-stack builds. Each project
+              shows role, impact, stack, and proof of work.
             </p>
           </div>
 
@@ -134,21 +129,6 @@ const Projects: React.FC = () => {
                 {tab.label}
               </button>
             ))}
-          </div>
-        </div>
-
-        <div className="projects-stats">
-          <div className="projects-stat">
-            <span className="projects-stat__value">{professionalProjects.length}</span>
-            <span className="projects-stat__label">Professional</span>
-          </div>
-          <div className="projects-stat">
-            <span className="projects-stat__value">{personalProjects.length}</span>
-            <span className="projects-stat__label">Personal</span>
-          </div>
-          <div className="projects-stat">
-            <span className="projects-stat__value">{projects.length}</span>
-            <span className="projects-stat__label">Total Projects</span>
           </div>
         </div>
 
@@ -176,52 +156,59 @@ const Projects: React.FC = () => {
           </aside>
 
           <article
-            className={`project-detail-card ${
+            className={`project-detail-card project-detail-card--brief ${
               selectedProject.category === "personal" ? "project-detail-card--personal" : ""
             }`}
           >
-            <div className="project-card-top">
-              <div className="project-card-top__main">
-                <div className="project-card-top__identity">
-                  <div
-                    className={`project-detail-avatar ${
+            <div className="project-brief-top">
+              <div className="project-brief-top__copy">
+                <h3 className="project-detail-card__title">{selectedProject.name}</h3>
+                <p className="project-detail-card__company">{selectedProject.company}</p>
+                <div className="project-card-tags">
+                  <span
+                    className={`project-card-tag ${
                       selectedProject.category === "personal"
-                        ? "project-detail-avatar--personal"
-                        : ""
+                        ? "project-card-tag--personal"
+                        : "project-card-tag--pro"
                     }`}
-                    aria-hidden="true"
                   >
-                    {getProjectInitials(selectedProject.company)}
-                  </div>
-                  <div>
-                    <p className="project-detail-card__eyebrow">Selected Project</p>
-                    <h3 className="project-detail-card__title">{selectedProject.name}</h3>
-                    <p className="project-detail-card__company">{selectedProject.company}</p>
-                  </div>
+                    {selectedProject.category === "professional" ? "Professional" : "Personal"}
+                  </span>
+                  {selectedProject.role ? (
+                    <span className="project-card-tag project-card-tag--role">
+                      {selectedProject.role}
+                    </span>
+                  ) : null}
                 </div>
               </div>
 
-              <div className="project-card-tags">
-                <span
-                  className={`project-card-tag ${
-                    selectedProject.category === "personal"
-                      ? "project-card-tag--personal"
-                      : "project-card-tag--pro"
-                  }`}
-                >
-                  {selectedProject.category === "professional" ? "Professional" : "Personal"}
-                </span>
-                {selectedProject.role ? (
-                  <span className="project-card-tag project-card-tag--role">
-                    {selectedProject.role}
-                  </span>
-                ) : null}
-              </div>
+              {hasLinks ? (
+                <div className="project-card-actions project-card-actions--inline">
+                  {selectedProject.live && selectedProject.live !== "#" ? (
+                    <a
+                      href={selectedProject.live}
+                      className="project-link-button project-link-button--small"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Live Demo
+                    </a>
+                  ) : null}
+                  {selectedProject.github && selectedProject.github !== "#" ? (
+                    <a
+                      href={selectedProject.github}
+                      className="project-link-button project-link-button--secondary project-link-button--small"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      GitHub
+                    </a>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
 
-            <p className="project-detail-card__desc">{selectedProject.desc}</p>
-
-            <div className="project-impact">
+            <div className="project-impact project-impact--lead">
               <p className="project-impact__label">Impact</p>
               <p className="project-impact__text">{selectedProject.impact}</p>
             </div>
@@ -237,6 +224,18 @@ const Projects: React.FC = () => {
               </div>
             </div>
 
+            <div className="project-brief-visual" aria-label="Project preview">
+              {selectedProject.personalShowcase ? (
+                <ScreenshotSlider screenshots={selectedProject.personalShowcase.screenshots} />
+              ) : null}
+
+              {selectedProject.enterpriseProof ? (
+                <EnterpriseProofPanel proof={selectedProject.enterpriseProof} variant="preview" />
+              ) : null}
+            </div>
+
+            <p className="project-detail-card__desc">{selectedProject.desc}</p>
+
             <div className="project-highlights-block">
               <p className="project-highlights-block__label">Key Contributions</p>
               <ul className="project-highlights" role="list">
@@ -246,29 +245,19 @@ const Projects: React.FC = () => {
               </ul>
             </div>
 
-            {hasLinks ? (
-              <div className="project-card-actions">
-                {selectedProject.live && selectedProject.live !== "#" ? (
-                  <a
-                    href={selectedProject.live}
-                    className="project-link-button"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Live Demo
-                  </a>
-                ) : null}
-                {selectedProject.github && selectedProject.github !== "#" ? (
-                  <a
-                    href={selectedProject.github}
-                    className="project-link-button project-link-button--secondary"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub Repo
-                  </a>
-                ) : null}
-              </div>
+            {selectedProject.enterpriseProof ? (
+              <>
+                <div className="project-brief-metrics">
+                  {selectedProject.enterpriseProof.performance.map((metric) => (
+                    <div key={metric.label} className="project-brief-metric">
+                      <p className="project-brief-metric__label">{metric.label}</p>
+                      <p className="project-brief-metric__value">{metric.after}</p>
+                      <p className="project-brief-metric__note">{metric.note}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="project-brief-nda">{selectedProject.enterpriseProof.ndaDisclaimer}</p>
+              </>
             ) : null}
           </article>
         </div>

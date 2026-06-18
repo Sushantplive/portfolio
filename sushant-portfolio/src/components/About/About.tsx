@@ -52,8 +52,12 @@ const About: React.FC = () => {
               My work spans analytics dashboards, reusable component systems, and performance-critical
               UIs using <span className="about-highlight">React</span>,{" "}
               <span className="about-highlight">TypeScript</span>, and{" "}
-              <span className="about-highlight">Highcharts</span>. I care about clean architecture,
-              maintainable code, and interfaces that stay fast under real-world data loads.
+              <span className="about-highlight">Highcharts</span>. I use{" "}
+              <span className="about-highlight">GitHub Copilot</span>,{" "}
+              <span className="about-highlight">Cursor</span>,{" "}
+              <span className="about-highlight">Windsurf</span>, and{" "}
+              <span className="about-highlight">Devin AI</span> to move faster on delivery and
+              refactors — with architecture, reviews, and production quality kept human-led.
             </p>
 
             <div className="about-facts">
@@ -62,12 +66,22 @@ const About: React.FC = () => {
                 <span className="about-fact__label">Years Experience</span>
               </div>
               <div className="about-fact">
-                <span className="about-fact__value">B.E.</span>
-                <span className="about-fact__label">Electronics &amp; Telecom</span>
+                <span className="about-fact__value">Enterprise</span>
+                <span className="about-fact__label">Domain Focus</span>
               </div>
               <div className="about-fact">
                 <span className="about-fact__value">3</span>
                 <span className="about-fact__label">Global Clients</span>
+              </div>
+            </div>
+
+            <div className="about-education">
+              <p className="about-education__label">Education</p>
+              <div className="about-education__card">
+                <h3 className="about-education__degree">Bachelor of Engineering (B.E.)</h3>
+                <p className="about-education__field">Electronics &amp; Telecommunication Engineering</p>
+                <p className="about-education__school">Babasaheb Naik College of Engineering</p>
+                <p className="about-education__year">Class of 2014</p>
               </div>
             </div>
 
