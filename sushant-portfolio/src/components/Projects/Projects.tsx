@@ -14,6 +14,10 @@ const tabs: Array<{ key: TabKey; label: string }> = [
   { key: "personal", label: "Personal" },
 ];
 
+const MAX_HIGHLIGHTS = 3;
+const MAX_METRICS = 3;
+const MAX_SIDEBAR_STACK = 3;
+
 function getProjectInitials(company: string): string {
   const words = company.replace(/[()]/g, " ").split(/\s+/).filter(Boolean);
   if (words.length >= 2) {
@@ -93,7 +97,13 @@ const Projects: React.FC = () => {
               </span>
             </div>
             <p className="project-list-item__company">{project.company}</p>
-            <p className="project-list-item__impact">{project.impact}</p>
+            <div className="project-list-item__stack">
+              {project.techStack.slice(0, MAX_SIDEBAR_STACK).map((tech) => (
+                <span key={tech} className="project-list-item__chip">
+                  {tech}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </button>
@@ -109,8 +119,7 @@ const Projects: React.FC = () => {
               &lt;Projects /&gt;
             </h2>
             <p className="projects-intro text-lg max-w-2xl">
-              Enterprise delivery for global clients and personal full-stack builds. Each project
-              shows role, impact, stack, and proof of work.
+              Enterprise and personal builds — select a project for details.
             </p>
           </div>
 
@@ -208,12 +217,9 @@ const Projects: React.FC = () => {
               ) : null}
             </div>
 
-            <div className="project-impact project-impact--lead">
-              <p className="project-impact__label">Impact</p>
-              <p className="project-impact__text">{selectedProject.impact}</p>
-            </div>
+            <p className="project-detail-card__desc">{selectedProject.desc}</p>
 
-            <div className="project-tech">
+            <div className="project-tech project-tech--compact">
               <p className="project-tech__label">Tech Stack</p>
               <div className="project-tech__chips">
                 {selectedProject.techStack.map((tech) => (
@@ -234,12 +240,10 @@ const Projects: React.FC = () => {
               ) : null}
             </div>
 
-            <p className="project-detail-card__desc">{selectedProject.desc}</p>
-
             <div className="project-highlights-block">
               <p className="project-highlights-block__label">Key Contributions</p>
               <ul className="project-highlights" role="list">
-                {selectedProject.highlights.map((item) => (
+                {selectedProject.highlights.slice(0, MAX_HIGHLIGHTS).map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -248,15 +252,14 @@ const Projects: React.FC = () => {
             {selectedProject.enterpriseProof ? (
               <>
                 <div className="project-brief-metrics">
-                  {selectedProject.enterpriseProof.performance.map((metric) => (
+                  {selectedProject.enterpriseProof.performance.slice(0, MAX_METRICS).map((metric) => (
                     <div key={metric.label} className="project-brief-metric">
                       <p className="project-brief-metric__label">{metric.label}</p>
                       <p className="project-brief-metric__value">{metric.after}</p>
-                      <p className="project-brief-metric__note">{metric.note}</p>
                     </div>
                   ))}
                 </div>
-                <p className="project-brief-nda">{selectedProject.enterpriseProof.ndaDisclaimer}</p>
+                <p className="project-brief-nda">Redacted patterns only — client data omitted under NDA.</p>
               </>
             ) : null}
           </article>

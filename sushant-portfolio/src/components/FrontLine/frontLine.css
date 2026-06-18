@@ -99,20 +99,20 @@
   color: transparent;
 }
 
-#hero .hero-headline {
-  margin: 0 0 0.85rem;
-  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+#hero .hero-tagline {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
   font-weight: 700;
-  line-height: 1.55;
+  line-height: 1.45;
   color: #e2e8f0;
 }
 
-#hero .hero-summary {
-  margin: 0 0 1.35rem;
-  max-width: 38rem;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(203, 213, 225, 0.92);
+#hero .hero-human {
+  margin: 0 0 1.25rem;
+  max-width: 32rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(148, 163, 184, 0.95);
 }
 
 #hero .hero-stack {
@@ -258,6 +258,33 @@
   color: #67e8f9;
 }
 
+#hero .hero-panel__client-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+#hero .hero-panel__client {
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+#hero .hero-panel__client-name {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e0f2fe;
+  line-height: 1.3;
+}
+
+#hero .hero-panel__client-domain {
+  margin: 0.2rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: rgba(148, 163, 184, 0.95);
+}
+
 #hero .hero-panel__list {
   margin: 0;
   padding-left: 1.1rem;
@@ -302,6 +329,24 @@
   margin: 0.2rem 0 0;
   font-size: 0.8rem;
   color: rgba(203, 213, 225, 0.88);
+}
+
+#hero .hero-panel__availability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+}
+
+#hero .hero-panel__availability-tag {
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 999px;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(209, 250, 229, 0.95);
+  background: rgba(6, 78, 59, 0.35);
 }
 
 #hero .hero-panel__availability-note--secondary {

@@ -248,6 +248,29 @@
   overflow: hidden;
 }
 
+#projects .project-list-item__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+}
+
+#projects .project-list-item__chip {
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  border-radius: 999px;
+  padding: 0.12rem 0.45rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: rgba(186, 230, 253, 0.95);
+  background: rgba(8, 47, 73, 0.35);
+}
+
+#projects .project-list-item--personal .project-list-item__chip {
+  border-color: rgba(168, 85, 247, 0.3);
+  color: rgba(233, 213, 255, 0.95);
+  background: rgba(59, 7, 100, 0.28);
+}
+
 #projects .project-detail-card {
   border-radius: 20px;
   border: 1px solid rgba(34, 211, 238, 0.24);

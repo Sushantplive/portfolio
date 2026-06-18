@@ -12,14 +12,10 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="contact-section site-section py-12 sm:py-20 text-white flex flex-col items-center justify-center">
       <div className="w-full max-w-5xl mx-auto px-6 text-center">
-        <h2 className="contact-title text-4xl md:text-5xl font-bold text-cyan-400 mb-8">
+        <h2 className="contact-title text-4xl md:text-5xl font-bold text-cyan-400 mb-6">
           Get in Touch
         </h2>
-        <p className="contact-intro text-lg text-gray-300 leading-relaxed mb-12">
-          Whether you have a question, want to collaborate, or just want to say hi, my inbox is always open. Feel free to reach out, and I'll get back to you as soon as possible!
-        </p>
 
-        {/* Availability Badge */}
         <div className="availability-card mb-10 mx-auto max-w-lg p-5 rounded-xl">
           <div className="flex items-center justify-center gap-2 mb-3">
             <span className="availability-dot" />
@@ -27,18 +23,18 @@ const Contact: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p className="text-gray-400 mb-1">Notice Period</p>
-              <p className="text-white font-semibold">3 Months</p>
-              <p className="availability-detail">Negotiable</p>
+              <p className="text-gray-400 mb-1">Work Preference</p>
+              <p className="text-white font-semibold">Remote &amp; global teams</p>
             </div>
             <div>
+              <p className="text-gray-400 mb-1">Notice Period</p>
+              <p className="text-white font-semibold">3 months · negotiable</p>
+            </div>
+            <div className="col-span-2">
               <p className="text-gray-400 mb-1">Expected CTC</p>
               <p className="text-white font-semibold">As per industry standards</p>
             </div>
           </div>
-          <p className="availability-note">
-            Open to immediate joiner arrangements and notice buyout discussions.
-          </p>
         </div>
 
         <div className="contact-grid">

@@ -1,6 +1,8 @@
 import React from "react";
 import "./experience.css";
 
+const MAX_BULLETS = 3;
+
 interface ClientEngagement {
   client: string;
   duration: string;
@@ -14,7 +16,6 @@ interface ExperienceEntry {
   company: string;
   initials: string;
   role: string;
-  roleNote?: string;
   duration: string;
   summary: string;
   isCurrent?: boolean;
@@ -28,37 +29,29 @@ const experiences: ExperienceEntry[] = [
     company: "Synechron",
     initials: "SY",
     role: "Technology Lead",
-    roleNote: "Technology Lead — hands-on developer with team leadership on client engagements",
     duration: "Jul 2021 – Present",
     isCurrent: true,
-    summary:
-      "Employed by Synechron as a Technology Lead, delivering front-end solutions for global banking clients while leading and mentoring engineering teams on key engagements.",
+    summary: "Lead frontend delivery for US Bank and HSBC banking platforms.",
     clients: [
       {
         client: "US Bank",
         duration: "Apr 2026 – Present",
-        project: "Common Transaction",
+        project: "Common Transaction · TCR Platform",
         isCurrent: true,
         highlights: [
-          "Building front-end modules for the Common Transaction feature within US Bank's Trade and Receivables Finance (TCR) platform.",
-          "Engineering UIs for standardized transaction capture, validation, and processing workflows across trade finance operations.",
-          "Integrating GraphQL with Apollo Client and REST APIs to connect Common Transaction flows with backend TCR services.",
-          "Managing the full feature lifecycle from development and testing through QA validation and production deployment.",
-          "Working within GitLab-based workflows to maintain code quality, maintainability, and long-term engineering standards.",
+          "Building Common Transaction UIs for trade finance capture, validation, and processing.",
+          "Integrating GraphQL (Apollo) and REST APIs with backend TCR services.",
+          "Owning feature delivery through QA and production in GitLab workflows.",
         ],
       },
       {
         client: "HSBC",
-        duration: "Jan 2023 – Mar 31, 2026",
-        project: "OMNIA – GPS Insights & Global Trade and Receivables Finance",
+        duration: "Jan 2023 – Mar 2026",
+        project: "OMNIA · GPS Insights & Trade Finance",
         highlights: [
-          "Led a front-end team of 8 engineers on the GPS Insights engagement, guiding delivery, code quality, and technical direction while staying hands-on in development.",
-          "Built and enhanced the GPS Insights analytics dashboard within HSBC's OMNIA platform for portfolio balances, transactions, and billed revenue.",
-          "Engineered front-end modules for HSBC's Global Trade and Receivables Finance platform, including UIs for customer guarantees and Accounts Receivable operations.",
-          "Developed interactive KPI cards, trend charts, and analytical tables with drill-down filtering (Monthly / Daily / MTD / YTD).",
-          "Integrated multiple REST APIs and optimized chart-heavy dashboard performance using memoization and controlled re-renders.",
-          "Collaborated with product, data, and backend teams to deliver scalable reporting solutions across global banking portfolios.",
-          "Resolved critical production issues and ensured regulatory-compliant releases through debugging, code reviews, and controlled deployments.",
+          "Led an 8-engineer frontend team on GPS Insights analytics dashboards.",
+          "Delivered KPI cards, trend charts, and drill-down reporting (MTD / YTD).",
+          "Optimized chart-heavy performance and shipped regulatory-compliant releases.",
         ],
       },
     ],
@@ -69,13 +62,11 @@ const experiences: ExperienceEntry[] = [
     initials: "AG",
     role: "Software Engineer",
     duration: "Jul 2018 – Jun 2021",
-    summary:
-      "Built enterprise front-end solutions for HPE InfoSight, a predictive analytics platform for global infrastructure monitoring.",
+    summary: "Built React dashboards for HPE InfoSight infrastructure telemetry.",
     responsibilities: [
-      "Built React-based dashboards integrating HPE InfoSight predictive analytics for infrastructure telemetry and system health monitoring.",
-      "Developed reusable Highcharts components including line, bar, and trend visualizations for large-scale telemetry datasets.",
-      "Integrated REST APIs to fetch real-time monitoring data and optimized rendering for smooth dashboard performance.",
-      "Collaborated with backend and DevOps teams to ensure reliable data visualization workflows across global systems.",
+      "Developed Highcharts-based telemetry dashboards for large-scale datasets.",
+      "Integrated REST APIs for real-time monitoring and optimized render performance.",
+      "Collaborated with backend and DevOps on reliable visualization workflows.",
     ],
   },
 ];
@@ -91,24 +82,8 @@ const Experience: React.FC = () => {
           &lt;Experience /&gt;
         </h2>
         <p className="experience-intro text-lg mb-8 md:mb-10">
-          A timeline of employers and client engagements across enterprise banking, analytics, and
-          infrastructure monitoring.
+          Employers and client engagements across banking, analytics, and infrastructure monitoring.
         </p>
-
-        <div className="experience-stats">
-          <div className="experience-stat">
-            <span className="experience-stat__value">8+</span>
-            <span className="experience-stat__label">Years Experience</span>
-          </div>
-          <div className="experience-stat">
-            <span className="experience-stat__value">2</span>
-            <span className="experience-stat__label">Employers</span>
-          </div>
-          <div className="experience-stat">
-            <span className="experience-stat__value">3</span>
-            <span className="experience-stat__label">Global Clients</span>
-          </div>
-        </div>
 
         <div className="experience-timeline">
           {experiences.map((entry) => (
@@ -127,9 +102,6 @@ const Experience: React.FC = () => {
                     <div>
                       <h3 className="experience-company">{entry.company}</h3>
                       <p className="experience-role">{entry.role}</p>
-                      {entry.roleNote ? (
-                        <p className="experience-role-note">{entry.roleNote}</p>
-                      ) : null}
                     </div>
                   </div>
 
@@ -163,7 +135,7 @@ const Experience: React.FC = () => {
                           <p className="experience-client-project">{engagement.project}</p>
                           <p className="experience-client-duration">{engagement.duration}</p>
                           <ul className="experience-highlights mt-4">
-                            {engagement.highlights.map((item) => (
+                            {engagement.highlights.slice(0, MAX_BULLETS).map((item) => (
                               <li key={item}>{item}</li>
                             ))}
                           </ul>
@@ -173,7 +145,7 @@ const Experience: React.FC = () => {
                   </div>
                 ) : (
                   <ul className="experience-highlights">
-                    {entry.responsibilities?.map((item) => (
+                    {entry.responsibilities?.slice(0, MAX_BULLETS).map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
