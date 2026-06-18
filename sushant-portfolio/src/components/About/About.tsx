@@ -1,6 +1,6 @@
 import React from "react";
 import TechStack from "../TechStack/TechStack";
-import LighthouseScores from "../LighthouseScores/LighthouseScores";
+// import LighthouseScores from "../LighthouseScores/LighthouseScores";
 import "./about.css";
 
 const About: React.FC = () => {
@@ -34,7 +34,7 @@ const About: React.FC = () => {
                 Where I've Worked:
               </p>
               <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                I have worked at <span className="about-highlight-soft">Agiliad</span> and <span className="about-highlight-soft">Synechron</span> (Technology Lead, individual contributor), contributing to enterprise systems for clients including <span className="about-highlight-soft">HSBC</span>, <span className="about-highlight-soft">US Bank</span>, and <span className="about-highlight-soft">HPE</span>.
+                I have worked at <span className="about-highlight-soft">Agiliad</span> and <span className="about-highlight-soft">Synechron</span> as a <span className="about-highlight-soft">Technology Lead</span>, contributing to enterprise systems for clients including <span className="about-highlight-soft">US Bank</span>, <span className="about-highlight-soft">HSBC</span> (leading a team of 8), and <span className="about-highlight-soft">HPE</span> through Agiliad.
               </p>
             </div>
 
@@ -72,10 +72,11 @@ const About: React.FC = () => {
           <TechStack />
         </div>
 
-        {/* Lighthouse Scores */}
+        {/* Lighthouse Scores — hidden for now
         <div className="mt-16 md:mt-24 border-t border-gray-700 pt-10">
           <LighthouseScores />
         </div>
+        */}
       </div>
     </section>
   );
