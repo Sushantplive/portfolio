@@ -1,82 +1,100 @@
 import React from "react";
 import TechStack from "../TechStack/TechStack";
-// import LighthouseScores from "../LighthouseScores/LighthouseScores";
 import "./about.css";
+
+const focusAreas = [
+  "React & TypeScript",
+  "Data Visualization",
+  "Enterprise Dashboards",
+  "Component Systems",
+  "Performance",
+];
 
 const About: React.FC = () => {
   return (
-  <section id="about" className="about-section pt-12 sm:pt-20 bg-gray-900 text-white min-h-screen flex flex-col justify-center">
-      <div className="w-full max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-[1.2fr_0.95fr] gap-8 lg:gap-10 items-start">
-          {/* Left Content */}
-          <div className="space-y-4 about-copy-panel">
-            <h2 className="about-title text-4xl md:text-5xl font-bold text-cyan-400">
-              &lt;About Me /&gt;
-            </h2>
-            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              Hi, I'm Sushant, a <span className="about-highlight">Senior Frontend Engineer</span> based in <span className="about-highlight-soft">Pune, India</span>. I build scalable, high-performance web applications and intuitive data experiences for enterprise teams.
-            </p>
+    <section
+      id="about"
+      className="about-section py-12 sm:py-20 bg-gray-900/40 text-white flex flex-col justify-center"
+    >
+      <div className="w-full max-w-6xl mx-auto px-6">
+        <h2 className="about-title text-4xl md:text-5xl font-bold text-cyan-400 mb-4">
+          &lt;About Me /&gt;
+        </h2>
+        <p className="about-intro text-lg mb-8 md:mb-10">
+          A snapshot of who I am, what I build, and how I approach frontend engineering for
+          enterprise teams.
+        </p>
 
-            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              I specialize in developing <span className="about-highlight-soft">data-driven platforms</span> and analytics dashboards using <span className="about-highlight">React</span>, <span className="about-highlight">TypeScript</span>, <span className="about-highlight">Highcharts</span>, and modern frontend architectures. I focus on turning complex datasets into polished, interactive interfaces that support smarter business decisions.
-            </p>
-
-            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              My background includes contributing to large-scale systems for global teams, with a focus on reliability, performance, and maintainable user experiences in enterprise products.
-            </p>
-
-            <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-              I enjoy designing <span className="about-highlight-soft">clean UI architectures</span>, <span className="about-highlight-soft">reusable component systems</span>, and optimized frontend solutions that simplify complex workflows while keeping the interface accessible and engaging.
-            </p>
-
-            <div className="about-subsection pt-4 border-t border-gray-700">
-              <p className="text-cyan-400 font-semibold text-lg mb-3">
-                Where I've Worked:
-              </p>
-              <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                I have worked at <span className="about-highlight-soft">Agiliad</span> and <span className="about-highlight-soft">Synechron</span> as a <span className="about-highlight-soft">Technology Lead</span>, contributing to enterprise systems for clients including <span className="about-highlight-soft">US Bank</span>, <span className="about-highlight-soft">HSBC</span> (leading a team of 8), and <span className="about-highlight-soft">HPE</span> through Agiliad.
-              </p>
-            </div>
-
-            <div className="about-subsection pt-4 border-t border-gray-700">
-              <p className="text-cyan-400 font-semibold text-lg mb-3">
-                Education:
-              </p>
-              <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                <span className="about-highlight">Bachelor of Engineering</span> — Electronic and Telecommunication Engineering
-              </p>
-            </div>
-
-            {/* <div className="about-subsection pt-2">
-              <p className="text-cyan-400 font-semibold text-lg mb-4">Beyond Work</p>
-              <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                Outside of work, I enjoy exploring new frontend technologies, improving my technical skills, and learning about <span className="about-highlight-soft">system design</span> and <span className="about-highlight-soft">performance engineering</span>. I also enjoy movies, nature, and spending time away from screens to recharge and stay creative.
-              </p>
-            </div> */}
-          </div>
-
-          {/* Right Image */}
-          <div className="flex justify-center md:justify-center mt-8 md:mt-2">
-            <div className="about-image-wrap w-full max-w-md">
+        <div className="about-layout">
+          <div className="about-profile">
+            <div className="about-image-wrap">
               <img
                 src="/profile3.jpeg"
-                alt="Profile"
-                className="about-image w-full h-auto rounded-lg shadow-lg border border-cyan-400 border-opacity-30 transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-cyan-300"
+                alt="Sushant Paikarao"
+                className="about-image"
               />
             </div>
+            <div className="about-profile-card">
+              <p className="about-profile-card__name">Sushant Paikarao</p>
+              <p className="about-profile-card__role">Technology Lead</p>
+              <p className="about-profile-card__location">Pune, India</p>
+            </div>
+          </div>
+
+          <div className="about-copy-panel">
+            <p className="about-paragraph">
+              I build scalable, high-performance web applications and intuitive data experiences
+              for enterprise teams — turning complex datasets into polished, interactive interfaces
+              that support smarter business decisions.
+            </p>
+
+            <p className="about-paragraph">
+              My work spans analytics dashboards, reusable component systems, and performance-critical
+              UIs using <span className="about-highlight">React</span>,{" "}
+              <span className="about-highlight">TypeScript</span>, and{" "}
+              <span className="about-highlight">Highcharts</span>. I care about clean architecture,
+              maintainable code, and interfaces that stay fast under real-world data loads.
+            </p>
+
+            <div className="about-facts">
+              <div className="about-fact">
+                <span className="about-fact__value">8+</span>
+                <span className="about-fact__label">Years Experience</span>
+              </div>
+              <div className="about-fact">
+                <span className="about-fact__value">B.E.</span>
+                <span className="about-fact__label">Electronics &amp; Telecom</span>
+              </div>
+              <div className="about-fact">
+                <span className="about-fact__value">3</span>
+                <span className="about-fact__label">Global Clients</span>
+              </div>
+            </div>
+
+            <div className="about-focus">
+              <p className="about-focus__label">Core Focus</p>
+              <div className="about-focus__tags">
+                {focusAreas.map((area) => (
+                  <span key={area} className="about-focus__tag">
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <p className="about-experience-link">
+              For employers, clients, and project details, see the{" "}
+              <a href="#experience" className="about-inline-link">
+                Experience section
+              </a>
+              .
+            </p>
           </div>
         </div>
 
-        {/* Tech Stack Section */}
-        <div className="mt-20 md:mt-40 lg:mt-56">
+        <div className="about-tech-stack">
           <TechStack />
         </div>
-
-        {/* Lighthouse Scores — hidden for now
-        <div className="mt-16 md:mt-24 border-t border-gray-700 pt-10">
-          <LighthouseScores />
-        </div>
-        */}
       </div>
     </section>
   );
