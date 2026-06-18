@@ -105,7 +105,7 @@ const Projects: React.FC = () => {
   return (
     <section
       id="projects"
-      className="projects-section py-12 sm:py-20 bg-gray-950/90 text-white min-h-screen flex flex-col justify-center"
+      className="projects-section site-section py-12 sm:py-20 text-white flex flex-col justify-center"
     >
       <div className="w-full max-w-6xl mx-auto px-6">
         <div className="projects-header mb-8 md:mb-10">
