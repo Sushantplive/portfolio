@@ -41,7 +41,7 @@ const Navigation: React.FC = () => {
   const navLinks = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
-    // { id: "experience", label: "Experience" },
+    { id: "experience", label: "Experience" },
     // { id: "tech-stack", label: "Tech Stack" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },

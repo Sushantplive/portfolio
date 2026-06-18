@@ -16,12 +16,39 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: "Common Transaction",
+    company: "US Bank",
+    category: "professional",
+    desc: "Front-end development for the Common Transaction module within US Bank's Trade and Receivables Finance (TCR) platform — enabling standardized transaction processing, validation, and workflow management across trade finance operations.",
+    impact:
+      "Delivering the Common Transaction module within TCR to support standardized financial transaction flows for US Bank's trade and receivables operations.",
+    role: "Technology Lead",
+    techStack: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "GraphQL",
+      "Apollo Client",
+      "TypeScript",
+      "REST API Integration",
+      "GitLab",
+    ],
+    highlights: [
+      "Building React and Next.js front-end modules for the Common Transaction feature within the TCR platform.",
+      "Engineering UIs for standardized transaction capture, validation, and processing workflows.",
+      "Integrating GraphQL with Apollo Client and REST APIs to connect Common Transaction flows with backend TCR services.",
+      "Managing the full feature lifecycle from development and testing through QA validation and production deployment.",
+      "Working within GitLab-based workflows to maintain code quality, maintainability, and long-term engineering standards.",
+    ],
+  },
+  {
     name: "OMNIA – GPS Insights Dashboard (HSBC)",
     company: "HSBC",
     category: "professional",
     desc: "Developed and enhanced the GPS Insights analytics dashboard within HSBC’s OMNIA platform, enabling internal banking teams to analyze portfolio balances, transaction volumes, billed revenue, and industry-level performance through interactive visualizations.",
     impact:
-      "The GPS Insights dashboard provides internal banking teams with a centralized view of portfolio analytics such as balances, transactions, and billed revenue.",
+      "Led a team of 8 front-end engineers while delivering the GPS Insights dashboard used by internal banking teams for portfolio analytics.",
+    role: "Technology Lead — Team of 8",
     techStack: [
       "React.js",
       "TypeScript",
@@ -39,6 +66,7 @@ export const projects: Project[] = [
       "Component Architecture",
     ],
     highlights: [
+      "Led a front-end team of 8 engineers, guiding delivery, code reviews, technical direction, and mentoring while contributing hands-on to the codebase.",
       "Built interactive data visualization components including KPI cards, line/bar/multi-line trend charts, and analytical tables to represent high-volume financial data.",
       "Implemented dynamic filtering, date-range selection, and drill-down capabilities (Monthly / Daily / MTD / YTD) to deliver deeper, user-driven financial insights.",
       "Integrated multiple REST APIs to fetch and process large datasets for balances, transactions, and revenue analytics across global banking portfolios.",
@@ -49,11 +77,11 @@ export const projects: Project[] = [
   },
   {
     name: "Global Trade and Receivables Finance",
-    company: "Synechron",
+    company: "HSBC",
     category: "professional",
-    desc: "Engineered key front-end modules for a mission-critical banking application using ReactJS, facilitating the issuance of customer guarantees and streamlining internal operations. Contributed to stability and performance through defect resolution and feature development across multiple releases.",
+    desc: "Engineered key front-end modules for HSBC's Global Trade and Receivables Finance platform using ReactJS, facilitating the issuance of customer guarantees and streamlining internal operations across multiple releases.",
     impact:
-      "Delivered critical financial modules supporting customer guarantees and AR operations",
+      "Delivered critical financial modules for HSBC supporting customer guarantees and Accounts Receivable operations.",
     techStack: [
       "React.js",
       "Javascript (ES6+)",
@@ -64,7 +92,7 @@ export const projects: Project[] = [
       "Jenkins CI/CD",
     ],
     highlights: [
-      "Engineered key front-end modules for a mission-critical banking application, including UIs for 5 core Accounts Receivable user stories in Release 9.",
+      "Engineered key front-end modules for HSBC's Global Trade and Receivables Finance platform, including UIs for 5 core Accounts Receivable user stories in Release 9.",
       "Integrated RESTful APIs to enhance financial workflows and support customer guarantee issuance and streamlined internal operations.",
       "Managed the full feature lifecycle from development and testing through QA validation and production deployment.",
       "Addressed SonarQube issues to improve code quality, maintainability, and long-term engineering standards.",

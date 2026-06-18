@@ -1,5 +1,6 @@
 import React from "react";
 import TechStack from "../TechStack/TechStack";
+// import LighthouseScores from "../LighthouseScores/LighthouseScores";
 import "./about.css";
 
 const About: React.FC = () => {
@@ -33,7 +34,7 @@ const About: React.FC = () => {
                 Where I've Worked:
               </p>
               <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                I have contributed to enterprise systems at <span className="about-highlight-soft">Agiliad</span>, <span className="about-highlight-soft">Synechron</span>, and <span className="about-highlight-soft">HSBC</span>, building applications used by global teams for analytics, monitoring, and business decision-making.
+                I have worked at <span className="about-highlight-soft">Agiliad</span> and <span className="about-highlight-soft">Synechron</span> as a <span className="about-highlight-soft">Technology Lead</span>, contributing to enterprise systems for clients including <span className="about-highlight-soft">US Bank</span>, <span className="about-highlight-soft">HSBC</span> (leading a team of 8), and <span className="about-highlight-soft">HPE</span> through Agiliad.
               </p>
             </div>
 
@@ -70,6 +71,12 @@ const About: React.FC = () => {
         <div className="mt-20 md:mt-40 lg:mt-56">
           <TechStack />
         </div>
+
+        {/* Lighthouse Scores — hidden for now
+        <div className="mt-16 md:mt-24 border-t border-gray-700 pt-10">
+          <LighthouseScores />
+        </div>
+        */}
       </div>
     </section>
   );
