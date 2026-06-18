@@ -21,8 +21,7 @@ const About: React.FC = () => {
           &lt;About Me /&gt;
         </h2>
         <p className="about-intro text-lg mb-8 md:mb-10">
-          A snapshot of who I am, what I build, and how I approach frontend engineering for
-          enterprise teams.
+          Frontend tech lead with 8+ years shipping enterprise dashboards for global banking clients.
         </p>
 
         <div className="about-layout">
@@ -43,31 +42,19 @@ const About: React.FC = () => {
 
           <div className="about-copy-panel">
             <p className="about-paragraph">
-              I build scalable, high-performance web applications and intuitive data experiences
-              for enterprise teams — turning complex datasets into polished, interactive interfaces
-              that support smarter business decisions.
+              I build React and TypeScript interfaces for data-heavy products — analytics dashboards,
+              reusable component systems, and chart-driven UIs for US Bank, HSBC, and HPE. I use AI
+              coding tools (Copilot, Cursor, Windsurf) to ship faster; architecture and reviews stay
+              human-led.
             </p>
 
-            <p className="about-paragraph">
-              My work spans analytics dashboards, reusable component systems, and performance-critical
-              UIs using <span className="about-highlight">React</span>,{" "}
-              <span className="about-highlight">TypeScript</span>, and{" "}
-              <span className="about-highlight">Highcharts</span>. I care about clean architecture,
-              maintainable code, and interfaces that stay fast under real-world data loads.
-            </p>
-
-            <div className="about-facts">
-              <div className="about-fact">
-                <span className="about-fact__value">8+</span>
-                <span className="about-fact__label">Years Experience</span>
-              </div>
-              <div className="about-fact">
-                <span className="about-fact__value">B.E.</span>
-                <span className="about-fact__label">Electronics &amp; Telecom</span>
-              </div>
-              <div className="about-fact">
-                <span className="about-fact__value">3</span>
-                <span className="about-fact__label">Global Clients</span>
+            <div className="about-education">
+              <p className="about-education__label">Education</p>
+              <div className="about-education__card">
+                <h3 className="about-education__degree">Bachelor of Engineering (B.E.)</h3>
+                <p className="about-education__field">Electronics &amp; Telecommunication Engineering</p>
+                <p className="about-education__school">Babasaheb Naik College of Engineering</p>
+                <p className="about-education__year">Class of 2014</p>
               </div>
             </div>
 
@@ -81,14 +68,6 @@ const About: React.FC = () => {
                 ))}
               </div>
             </div>
-
-            <p className="about-experience-link">
-              For employers, clients, and project details, see the{" "}
-              <a href="#experience" className="about-inline-link">
-                Experience section
-              </a>
-              .
-            </p>
           </div>
         </div>
 

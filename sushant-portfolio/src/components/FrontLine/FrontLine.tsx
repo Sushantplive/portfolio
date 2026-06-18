@@ -23,7 +23,7 @@ const FrontLine: React.FC = () => {
           <div className="hero-content">
             <p className="hero-eyebrow">
               <span className="hero-eyebrow__dot" aria-hidden="true" />
-              Technology Lead · Hands-on Frontend Engineer · Pune, India
+              Technology Lead · Pune, India
             </p>
 
             <h1 className="hero-title">
@@ -31,15 +31,9 @@ const FrontLine: React.FC = () => {
               <span className="hero-title__name">Sushant.</span>
             </h1>
 
-            <p className="hero-headline">
-              I write production code and lead frontend delivery for enterprise analytics
-              and banking platforms.
-            </p>
+            <p className="hero-tagline">I ship React dashboards for global banks.</p>
 
-            <p className="hero-summary">
-              I build with React, TypeScript, and chart-heavy dashboards while guiding
-              teams, code reviews, and technical direction on client engagements.
-            </p>
+            <p className="hero-human">Based in Pune · open to remote with global teams</p>
 
             <div className="hero-stack" aria-label="Core technologies">
               {heroStack.map((tech) => (
@@ -81,22 +75,14 @@ const FrontLine: React.FC = () => {
               ))}
             </div>
 
-            <div className="hero-panel__block">
-              <p className="hero-panel__block-title">Enterprise Domains</p>
-              <ul className="hero-panel__list">
-                <li>Trade &amp; Receivables Finance (US Bank, HSBC)</li>
-                <li>Analytics Dashboards &amp; KPI Reporting</li>
-                <li>Infrastructure Monitoring (HPE InfoSight)</li>
-              </ul>
-            </div>
-
             <div className="hero-panel__availability">
               <span className="hero-panel__availability-dot" aria-hidden="true" />
               <div>
                 <p className="hero-panel__availability-title">Open to Opportunities</p>
-                <p className="hero-panel__availability-note">
-                  Remote-friendly · Global teams · 3-month notice
-                </p>
+                <div className="hero-panel__availability-tags">
+                  <span className="hero-panel__availability-tag">Remote &amp; global teams</span>
+                  <span className="hero-panel__availability-tag">3-month notice · negotiable</span>
+                </div>
               </div>
             </div>
           </aside>
