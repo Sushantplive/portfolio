@@ -7,7 +7,7 @@ import About from './components/About/About'
 import Navigation from './components/Navigation/Navigation'
 import Footer from './components/Footer/Footer'
 import CustomCursor from './components/CustomCursor/CustomCursor'
-// import Experience from './components/Experience/Experience'
+import Experience from './components/Experience/Experience'
 
 function App() {
 
@@ -22,9 +22,9 @@ function App() {
         <div id="about" className="transition-all duration-300 relative">
           <About />
         </div>
-        {/* <div id="experience" className="transition-all duration-300 relative">
+        <div id="experience" className="transition-all duration-300 relative">
           <Experience />
-        </div> */}
+        </div>
         {/* <div id="tech-stack" className="transition-all duration-300 relative">
           <TechStack />
         </div> */}

@@ -34,7 +34,7 @@ const About: React.FC = () => {
                 Where I've Worked:
               </p>
               <p className="about-paragraph text-gray-300 text-lg leading-relaxed">
-                I have contributed to enterprise systems at <span className="about-highlight-soft">Agiliad</span>, <span className="about-highlight-soft">Synechron</span>, and <span className="about-highlight-soft">HSBC</span>, building applications used by global teams for analytics, monitoring, and business decision-making.
+                I have worked at <span className="about-highlight-soft">Agiliad</span> and <span className="about-highlight-soft">Synechron</span> (Technology Lead, individual contributor), contributing to enterprise systems for clients including <span className="about-highlight-soft">HSBC</span>, <span className="about-highlight-soft">US Bank</span>, and <span className="about-highlight-soft">HPE</span>.
               </p>
             </div>
 
