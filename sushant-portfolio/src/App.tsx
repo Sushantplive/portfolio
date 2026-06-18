@@ -16,10 +16,10 @@ function App() {
       <CustomCursor />
       <Navigation />
       <div className="App relative z-10 w-full text-white pt-8">
-        <div id="hero" className="transition-all duration-300 relative overflow-hidden">
+        <div className="transition-all duration-300 relative overflow-hidden">
           <FrontLine />
         </div>
-        <div id="about" className="transition-all duration-300 relative">
+        <div className="transition-all duration-300 relative">
           <About />
         </div>
         <div id="experience" className="transition-all duration-300 relative">
