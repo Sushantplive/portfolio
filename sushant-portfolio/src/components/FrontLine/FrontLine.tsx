@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ParticleBackground from "../ParticleBackground/ParticleBackground";
+import { projects } from "../Projects/projectsData";
 import "./frontLine.css";
 
 const heroStats = [
@@ -11,6 +12,14 @@ const heroStats = [
 const heroStack = ["React", "TypeScript", "Highcharts", "D3.js", "GraphQL"];
 
 const FrontLine: React.FC = () => {
+  const projectStats = useMemo(() => {
+    const personalCount = projects.filter((project) => project.category === "personal").length;
+    return [
+      { value: String(projects.length), label: "Total Projects" },
+      { value: String(personalCount), label: "Personal Projects" },
+    ];
+  }, []);
+
   return (
     <section id="hero" className="hero-section">
       <div className="hero-bg" aria-hidden="true">
@@ -45,7 +54,7 @@ const FrontLine: React.FC = () => {
 
             <div className="hero-actions">
               <a
-                href="/Sushant_Paikarao_Frontend_dev.pdf"
+                href="/Sushant_Paikarao_Resume.pdf"
                 download="Sushant_Paikarao_Resume.pdf"
                 className="hero-btn hero-btn--primary"
               >
@@ -72,6 +81,15 @@ const FrontLine: React.FC = () => {
                   <span className="hero-stat__value">{stat.value}</span>
                   <span className="hero-stat__label">{stat.label}</span>
                 </div>
+              ))}
+            </div>
+
+            <div className="hero-panel__stats hero-panel__stats--projects">
+              {projectStats.map((stat) => (
+                <a key={stat.label} href="#projects" className="hero-stat hero-stat--link">
+                  <span className="hero-stat__value">{stat.value}</span>
+                  <span className="hero-stat__label">{stat.label}</span>
+                </a>
               ))}
             </div>
 

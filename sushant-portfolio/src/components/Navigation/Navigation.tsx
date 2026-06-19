@@ -2,12 +2,20 @@ import React, { useState, useEffect } from "react";
 import "./navigation-responsive.css";
 
 const navLinks = [
-  { id: "hero", label: "Home" },
   { id: "about", label: "About" },
+  { id: "tech-stack", label: "Skills" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
+
+const sectionIds = ["hero", ...navLinks.map((link) => link.id)];
+
+const resumeLink = {
+  href: "/Sushant_Paikarao_Resume.pdf",
+  download: "Sushant_Paikarao_Resume.pdf",
+  label: "Resume",
+};
 
 const socialLinks = [
   {
@@ -56,9 +64,8 @@ const Navigation: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ["hero", "about", "experience", "tech-stack", "projects", "contact"];
-
-      for (const sectionId of sections) {
+      for (let index = sectionIds.length - 1; index >= 0; index -= 1) {
+        const sectionId = sectionIds[index];
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -142,6 +149,18 @@ const Navigation: React.FC = () => {
     </button>
   );
 
+  const renderResumeLink = (mobile = false) => (
+    <a
+      key="resume"
+      href={resumeLink.href}
+      download={resumeLink.download}
+      className={`nav-link nav-link--resume ${mobile ? "nav-link--mobile" : ""}`}
+      onClick={() => setIsMobileMenuOpen(false)}
+    >
+      {resumeLink.label}
+    </a>
+  );
+
   return (
     <nav
       className={`custom-nav fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
@@ -174,6 +193,7 @@ const Navigation: React.FC = () => {
 
         <div className="custom-nav-links">
           {navLinks.map((link) => renderNavLink(link))}
+          {renderResumeLink()}
         </div>
 
         <div className="custom-nav-actions flex items-center gap-4">
@@ -219,6 +239,7 @@ const Navigation: React.FC = () => {
           <div className="mobile-nav-panel__inner">
             <div className="mobile-nav-panel__links">
               {navLinks.map((link) => renderNavLink(link, true))}
+              {renderResumeLink(true)}
             </div>
 
             <div className="mobile-nav-panel__social">
