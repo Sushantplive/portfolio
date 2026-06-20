@@ -46,7 +46,6 @@ body::after {
 
 .site-section {
   position: relative;
-  transition: background 0.45s ease;
 }
 
 /* Premium glass surface used via CSS vars on cards */
@@ -64,8 +63,38 @@ body::after {
 [data-theme="light"] #projects .project-detail-card--personal,
 [data-theme="light"] #projects .personal-showcase__panel,
 [data-theme="light"] #projects .project-brief-visual {
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
   box-shadow: var(--surface-shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: none !important;
+  }
+
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  [data-theme="light"] #hero .hero-content,
+  [data-theme="light"] #hero .hero-panel,
+  [data-theme="light"] #about .about-copy-panel,
+  [data-theme="light"] #about .about-profile-card,
+  [data-theme="light"] #about .about-image-wrap,
+  [data-theme="light"] #experience .experience-employer-card,
+  [data-theme="light"] #tech-stack .tech-stack-panel,
+  [data-theme="light"] #projects .project-detail-card,
+  [data-theme="light"] #projects .project-list-item,
+  [data-theme="light"] #contact .contact-card,
+  [data-theme="light"] #contact .availability-card,
+  [data-theme="light"] #projects .project-detail-card--personal,
+  [data-theme="light"] #projects .personal-showcase__panel,
+  [data-theme="light"] #projects .project-brief-visual {
+    backdrop-filter: none;
+  }
 }
 
 [data-theme="light"] #hero .hero-content::before,

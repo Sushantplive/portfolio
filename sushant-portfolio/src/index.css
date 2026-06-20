@@ -49,6 +49,11 @@
   --color-particle-dot: #22d3ee;
   --color-particle-line: rgba(34, 211, 238, 0.28);
   --color-particle-glow: rgba(34, 211, 238, 0.45);
+  --color-particle-accent: #818cf8;
+  --color-particle-pulse: #67e8f9;
+  --color-particle-hub: #c4b5fd;
+  --color-particle-hex: rgba(34, 211, 238, 0.07);
+  --color-particle-aurora: rgba(99, 102, 241, 0.12);
   --color-scrollbar-track: #0b1220;
   --color-selection-bg: rgba(34, 211, 238, 0.35);
   --color-btn-primary-text: #0f172a;
@@ -121,6 +126,11 @@
   --color-particle-dot: #0284c7;
   --color-particle-line: rgba(2, 132, 199, 0.28);
   --color-particle-glow: rgba(56, 189, 248, 0.4);
+  --color-particle-accent: #6366f1;
+  --color-particle-pulse: #38bdf8;
+  --color-particle-hub: #7c3aed;
+  --color-particle-hex: rgba(8, 145, 178, 0.09);
+  --color-particle-aurora: rgba(99, 102, 241, 0.1);
   --color-scrollbar-track: #e2e8f0;
   --color-selection-bg: rgba(8, 145, 178, 0.22);
   --color-btn-primary-text: #ffffff;
@@ -162,7 +172,6 @@ body {
   background: var(--bg-surface);
   color: var(--color-text);
   cursor: none;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .text-theme {
