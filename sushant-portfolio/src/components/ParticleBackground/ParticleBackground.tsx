@@ -348,12 +348,21 @@ const ParticleBackground: React.FC = () => {
 
     let colors = readThemeColors();
     let backgroundGradient = ctx.createLinearGradient(0, 0, 0, 1);
+    const gridCanvas = document.createElement("canvas");
+    const gridCtx = gridCanvas.getContext("2d");
 
     const rebuildBackgroundGradient = (height: number) => {
       backgroundGradient = ctx.createLinearGradient(0, 0, 0, height);
       backgroundGradient.addColorStop(0, colors.particleBg);
       backgroundGradient.addColorStop(0.55, colors.particleBg);
       backgroundGradient.addColorStop(1, colors.particleBgEnd);
+    };
+
+    const rebuildGridCache = (width: number, height: number) => {
+      if (!gridCtx) return;
+      gridCanvas.width = width;
+      gridCanvas.height = height;
+      drawPcbGrid(gridCtx, width, height, colors.particleHex, colors.particleHex);
     };
 
     const createParticle = (
@@ -416,6 +425,7 @@ const ParticleBackground: React.FC = () => {
       canvas.height = newHeight;
       colors = readThemeColors();
       rebuildBackgroundGradient(newHeight);
+      rebuildGridCache(newWidth, newHeight);
       seedParticles(newWidth, newHeight);
     };
 
@@ -495,7 +505,11 @@ const ParticleBackground: React.FC = () => {
 
       ctx.fillStyle = backgroundGradient;
       ctx.fillRect(0, 0, width, height);
-      drawPcbGrid(ctx, width, height, colors.particleHex, colors.particleHex);
+      if (gridCanvas.width === width && gridCanvas.height === height) {
+        ctx.drawImage(gridCanvas, 0, 0);
+      } else {
+        drawPcbGrid(ctx, width, height, colors.particleHex, colors.particleHex);
+      }
 
       const gridData = buildSpatialGrid(particles, connectionDistance);
 
@@ -638,12 +652,15 @@ const ParticleBackground: React.FC = () => {
       isActiveRef.current = document.visibilityState === "visible";
     };
     const handlePointerMove = (event: MouseEvent) => {
+      if (!isActiveRef.current) return;
       const rect = canvas.getBoundingClientRect();
-      pointerRef.current = {
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top,
-        active: true,
-      };
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+        pointerRef.current.active = false;
+        return;
+      }
+      pointerRef.current = { x, y, active: true };
     };
     const handlePointerLeave = () => {
       pointerRef.current.active = false;

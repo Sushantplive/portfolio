@@ -6,14 +6,12 @@ import Projects from './components/Projects/Projects'
 import About from './components/About/About'
 import Navigation from './components/Navigation/Navigation'
 import Footer from './components/Footer/Footer'
-import CustomCursor from './components/CustomCursor/CustomCursor'
 import Experience from './components/Experience/Experience'
 
 function App() {
 
   return (
     <>
-      <CustomCursor />
       <Navigation />
       <div className="App relative z-10 w-full text-theme pt-8">
         <div className="transition-all duration-300 relative overflow-hidden">
