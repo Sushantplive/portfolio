@@ -1,0 +1,234 @@
+/* Shared theme polish — transitions, ambient layers, premium surfaces */
+
+html {
+  transition: color-scheme 0.45s ease;
+}
+
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background 0.45s ease,
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    color 0.35s ease,
+    box-shadow 0.45s ease,
+    fill 0.35s ease,
+    stroke 0.35s ease !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: var(--ambient-orbs);
+  opacity: var(--ambient-opacity);
+  transition: opacity 0.5s ease;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: var(--ambient-grid);
+  opacity: var(--ambient-grid-opacity);
+  mask-image: radial-gradient(circle at center, black 20%, transparent 78%);
+}
+
+.App {
+  position: relative;
+  z-index: 1;
+}
+
+.site-section {
+  position: relative;
+}
+
+/* Premium glass surface used via CSS vars on cards */
+[data-theme="light"] #hero .hero-content,
+[data-theme="light"] #hero .hero-panel,
+[data-theme="light"] #about .about-copy-panel,
+[data-theme="light"] #about .about-profile-card,
+[data-theme="light"] #about .about-image-wrap,
+[data-theme="light"] #experience .experience-employer-card,
+[data-theme="light"] #tech-stack .tech-stack-panel,
+[data-theme="light"] #projects .project-detail-card,
+[data-theme="light"] #projects .project-list-item,
+[data-theme="light"] #contact .contact-card,
+[data-theme="light"] #contact .availability-card,
+[data-theme="light"] #projects .project-detail-card--personal,
+[data-theme="light"] #projects .personal-showcase__panel,
+[data-theme="light"] #projects .project-brief-visual {
+  backdrop-filter: blur(8px);
+  box-shadow: var(--surface-shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: none !important;
+  }
+
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  [data-theme="light"] #hero .hero-content,
+  [data-theme="light"] #hero .hero-panel,
+  [data-theme="light"] #about .about-copy-panel,
+  [data-theme="light"] #about .about-profile-card,
+  [data-theme="light"] #about .about-image-wrap,
+  [data-theme="light"] #experience .experience-employer-card,
+  [data-theme="light"] #tech-stack .tech-stack-panel,
+  [data-theme="light"] #projects .project-detail-card,
+  [data-theme="light"] #projects .project-list-item,
+  [data-theme="light"] #contact .contact-card,
+  [data-theme="light"] #contact .availability-card,
+  [data-theme="light"] #projects .project-detail-card--personal,
+  [data-theme="light"] #projects .personal-showcase__panel,
+  [data-theme="light"] #projects .project-brief-visual {
+    backdrop-filter: none;
+  }
+}
+
+[data-theme="light"] #hero .hero-content::before,
+[data-theme="light"] #hero .hero-panel::before,
+[data-theme="light"] #about .about-copy-panel::before,
+[data-theme="light"] #experience .experience-employer-card::before,
+[data-theme="light"] #projects .project-detail-card--brief::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--surface-border-gradient);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+[data-theme="light"] #hero .hero-content,
+[data-theme="light"] #hero .hero-panel,
+[data-theme="light"] #about .about-copy-panel,
+[data-theme="light"] #experience .experience-employer-card,
+[data-theme="light"] #projects .project-detail-card--brief {
+  position: relative;
+}
+
+/* Section title shimmer on light */
+[data-theme="light"] #about .about-title,
+[data-theme="light"] #experience .experience-title,
+[data-theme="light"] #projects .projects-title,
+[data-theme="light"] #contact .contact-title,
+[data-theme="light"] #tech-stack .tech-stack-title {
+  background: var(--section-title-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+[data-theme="light"] #about .about-title::after,
+[data-theme="light"] #experience .experience-title::after,
+[data-theme="light"] #projects .projects-title::after,
+[data-theme="light"] #contact .contact-title::after,
+[data-theme="light"] #tech-stack .tech-stack-title::after {
+  background: var(--section-underline-gradient);
+}
+
+/* Dark mode nav glow when scrolled */
+[data-theme="dark"] .custom-nav--scrolled {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(34, 211, 238, 0.08),
+    0 0 40px rgba(34, 211, 238, 0.06);
+}
+
+[data-theme="light"] .custom-nav--scrolled {
+  box-shadow:
+    0 8px 28px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(8, 145, 178, 0.12),
+    0 4px 20px rgba(8, 145, 178, 0.08);
+}
+
+/* Hero stat cards hover lift in light */
+[data-theme="light"] #hero .hero-stat--link:hover {
+  box-shadow: 0 14px 28px rgba(8, 145, 178, 0.16);
+}
+
+[data-theme="light"] #projects .project-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--surface-shadow-hover);
+  border-color: rgba(8, 145, 178, 0.38);
+}
+
+[data-theme="light"] #projects .project-list-item--personal:hover {
+  border-color: rgba(124, 58, 237, 0.42);
+  box-shadow:
+    0 10px 24px rgba(124, 58, 237, 0.14),
+    0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] #projects .personal-showcase__panel:hover {
+  box-shadow: var(--surface-shadow-hover);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+[data-theme="light"] #projects .project-brief-visual:hover {
+  border-color: rgba(124, 58, 237, 0.38);
+  box-shadow:
+    var(--surface-shadow-hover),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] #projects .project-list-item {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+[data-theme="light"] #experience .experience-employer-card:hover {
+  box-shadow: var(--surface-shadow-hover);
+}
+
+[data-theme="light"] #contact .contact-card:hover {
+  box-shadow: var(--surface-shadow-hover);
+  border-color: rgba(8, 145, 178, 0.42);
+}
+
+/* Active project sidebar glow */
+[data-theme="light"] #projects .project-list-item--active {
+  box-shadow:
+    var(--surface-shadow),
+    inset 3px 0 0 var(--color-accent);
+}
+
+[data-theme="light"] #projects .project-list-item--personal.project-list-item--active {
+  box-shadow:
+    var(--surface-shadow),
+    inset 3px 0 0 #7c3aed;
+}
+
+[data-theme="dark"] #projects .project-list-item--active {
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.25),
+    inset 3px 0 0 rgba(34, 211, 238, 0.85);
+}
+
+/* Mobile theme row */
+.mobile-nav-panel__theme {
+  padding: 0.15rem 0;
+}
+
+.mobile-nav-panel__theme .theme-switch-wrap {
+  width: 100%;
+}
+
+.mobile-nav-panel__theme .theme-switch-wrap__label {
+  margin-bottom: 0.15rem;
+}

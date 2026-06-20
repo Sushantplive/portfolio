@@ -69,6 +69,7 @@ const ScoreGauge: React.FC<{ data: ScoreData; delay: number }> = ({ data, delay 
             fill="none"
             stroke="rgba(255,255,255,0.08)"
             strokeWidth="6"
+            className="gauge-track"
           />
           <circle
             ref={circleRef}

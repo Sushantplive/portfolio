@@ -62,7 +62,9 @@ const Navigation: React.FC = () => {
   );
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateScrollState = () => {
       setIsScrolled(window.scrollY > 50);
 
       for (let index = sectionIds.length - 1; index >= 0; index -= 1) {
@@ -76,9 +78,19 @@ const Navigation: React.FC = () => {
           }
         }
       }
+
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateScrollState);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
