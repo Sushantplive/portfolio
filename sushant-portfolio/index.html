@@ -16,6 +16,24 @@
     <meta name="author" content="Sushant Paikarao" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f172a" />
+    <script>
+      (function () {
+        var storageKey = "portfolio-theme";
+        var stored = localStorage.getItem(storageKey);
+        var theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.style.colorScheme = theme;
+        var metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          metaThemeColor.setAttribute("content", theme === "light" ? "#f1f5f9" : "#0f172a");
+        }
+      })();
+    </script>
     <link rel="canonical" href="https://sushdream.in/" />
 
     <!-- Open Graph -->

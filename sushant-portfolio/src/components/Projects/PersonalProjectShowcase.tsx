@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { PersonalShowcase, ProjectScreenshot } from "./projectsData";
 import "./personalShowcase.css";
 
@@ -12,15 +12,14 @@ interface ScreenshotSliderProps {
 }
 
 export const ScreenshotSlider: React.FC<ScreenshotSliderProps> = ({ screenshots }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-
   const screenshotKey = screenshots.map((shot) => shot.src).join("|");
 
-  useEffect(() => {
-    setActiveIndex(0);
-    setImageErrors({});
-  }, [screenshotKey]);
+  return <ScreenshotSliderContent key={screenshotKey} screenshots={screenshots} />;
+};
+
+const ScreenshotSliderContent: React.FC<ScreenshotSliderProps> = ({ screenshots }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   if (screenshots.length === 0) {
     return null;

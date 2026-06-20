@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import "./navigation-responsive.css";
 
 const navLinks = [
@@ -91,8 +92,6 @@ const Navigation: React.FC = () => {
       }
     };
 
-    setIsMobileViewport(mediaQuery.matches);
-
     mediaQuery.addEventListener("change", handleViewportChange);
     return () => mediaQuery.removeEventListener("change", handleViewportChange);
   }, []);
@@ -164,9 +163,7 @@ const Navigation: React.FC = () => {
   return (
     <nav
       className={`custom-nav fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
-          ? "bg-gray-900 bg-opacity-95 backdrop-blur-md border-b border-gray-700 shadow-lg shadow-cyan-500/10"
-          : "bg-gray-900 bg-opacity-60 backdrop-blur-sm border-b border-gray-700/50"
+        isScrolled || isMobileMenuOpen ? "custom-nav--scrolled" : ""
       }`}
     >
       <div className="custom-nav__bar w-full max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
@@ -197,6 +194,7 @@ const Navigation: React.FC = () => {
         </div>
 
         <div className="custom-nav-actions flex items-center gap-4">
+          <ThemeToggle />
           <div className="custom-nav-social custom-nav-social--desktop">
             {socialLinks.map((link) => (
               <a
@@ -240,6 +238,10 @@ const Navigation: React.FC = () => {
             <div className="mobile-nav-panel__links">
               {navLinks.map((link) => renderNavLink(link, true))}
               {renderResumeLink(true)}
+            </div>
+
+            <div className="mobile-nav-panel__theme">
+              <ThemeToggle showLabel />
             </div>
 
             <div className="mobile-nav-panel__social">

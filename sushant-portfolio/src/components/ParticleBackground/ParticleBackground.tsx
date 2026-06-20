@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useTheme } from "../../hooks/useTheme";
 
 interface Particle {
   x: number;
@@ -9,6 +10,7 @@ interface Particle {
 }
 
 const ParticleBackground: React.FC = () => {
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const particlesArray = useRef<Particle[]>([]);
   const scrollOffsetRef = useRef(0);
@@ -43,14 +45,17 @@ const ParticleBackground: React.FC = () => {
 
     let animationId: number;
 
+    const styles = getComputedStyle(document.documentElement);
+    const particleBg = styles.getPropertyValue("--color-particle-bg").trim() || "#111827";
+    const particleDot = styles.getPropertyValue("--color-particle-dot").trim() || "#22d3ee";
+    const particleLine = styles.getPropertyValue("--color-particle-line").trim() || "rgba(34, 211, 238, 0.3)";
+
     const animate = () => {
       const { width: currentWidth, height: currentHeight } = canvasSizeRef.current;
 
-      // Clear canvas with dark background
-      ctx.fillStyle = "#111827";
+      ctx.fillStyle = particleBg;
       ctx.fillRect(0, 0, currentWidth, currentHeight);
 
-      // Draw lines between particles
       for (let i = 0; i < particlesArray.current.length; i++) {
         const p1 = particlesArray.current[i];
         for (let j = i + 1; j < particlesArray.current.length; j++) {
@@ -59,7 +64,7 @@ const ParticleBackground: React.FC = () => {
           const dy = p1.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 100) {
-            ctx.strokeStyle = "rgba(34, 211, 238, 0.3)"; // cyan
+            ctx.strokeStyle = particleLine;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -69,9 +74,8 @@ const ParticleBackground: React.FC = () => {
         }
       }
 
-      // Draw and update particles
       particlesArray.current.forEach((p) => {
-        ctx.fillStyle = "#22d3ee"; // cyan
+        ctx.fillStyle = particleDot;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -113,7 +117,7 @@ const ParticleBackground: React.FC = () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas

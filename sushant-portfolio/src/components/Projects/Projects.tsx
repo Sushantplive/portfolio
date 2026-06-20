@@ -111,7 +111,7 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="projects-section site-section py-10 sm:py-14 text-white">
+    <section id="projects" className="projects-section site-section py-10 sm:py-14 text-theme">
       <div className="w-full max-w-6xl mx-auto px-6">
         <div className="projects-header mb-8 md:mb-10">
           <div>
