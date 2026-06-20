@@ -10,7 +10,7 @@ const WHATSAPP_URL = "https://wa.me/918142174853";
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="contact-section site-section py-12 sm:py-20 text-white flex flex-col items-center justify-center">
+    <section id="contact" className="contact-section site-section py-12 sm:py-20 text-theme flex flex-col items-center justify-center">
       <div className="w-full max-w-5xl mx-auto px-6 text-center">
         <h2 className="contact-title text-4xl md:text-5xl font-bold text-cyan-400 mb-6">
           Get in Touch

@@ -75,7 +75,7 @@ const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="experience-section site-section py-12 sm:py-20 text-white flex flex-col justify-center"
+      className="experience-section site-section py-12 sm:py-20 text-theme flex flex-col justify-center"
     >
       <div className="w-full max-w-6xl mx-auto px-6">
         <h2 className="experience-title text-4xl md:text-5xl font-bold text-cyan-400 mb-4">
