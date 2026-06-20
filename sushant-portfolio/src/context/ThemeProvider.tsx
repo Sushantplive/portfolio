@@ -23,7 +23,7 @@ function applyTheme(theme: Theme) {
 
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   if (metaThemeColor) {
-    metaThemeColor.setAttribute("content", theme === "light" ? "#eef4fb" : "#0a0f1a");
+    metaThemeColor.setAttribute("content", theme === "light" ? "#dce6f0" : "#0a0f1a");
   }
 
   window.setTimeout(() => {

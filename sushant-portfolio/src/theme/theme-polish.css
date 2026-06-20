@@ -60,7 +60,10 @@ body::after {
 [data-theme="light"] #projects .project-detail-card,
 [data-theme="light"] #projects .project-list-item,
 [data-theme="light"] #contact .contact-card,
-[data-theme="light"] #contact .availability-card {
+[data-theme="light"] #contact .availability-card,
+[data-theme="light"] #projects .project-detail-card--personal,
+[data-theme="light"] #projects .personal-showcase__panel,
+[data-theme="light"] #projects .project-brief-visual {
   backdrop-filter: blur(16px);
   box-shadow: var(--surface-shadow);
 }
@@ -121,9 +124,9 @@ body::after {
 
 [data-theme="light"] .custom-nav--scrolled {
   box-shadow:
-    0 10px 40px rgba(15, 23, 42, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.85),
-    0 4px 24px rgba(8, 145, 178, 0.1);
+    0 8px 28px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(8, 145, 178, 0.12),
+    0 4px 20px rgba(8, 145, 178, 0.08);
 }
 
 /* Hero stat cards hover lift in light */
@@ -135,6 +138,25 @@ body::after {
   transform: translateY(-2px);
   box-shadow: var(--surface-shadow-hover);
   border-color: rgba(8, 145, 178, 0.38);
+}
+
+[data-theme="light"] #projects .project-list-item--personal:hover {
+  border-color: rgba(124, 58, 237, 0.42);
+  box-shadow:
+    0 10px 24px rgba(124, 58, 237, 0.14),
+    0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] #projects .personal-showcase__panel:hover {
+  box-shadow: var(--surface-shadow-hover);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+[data-theme="light"] #projects .project-brief-visual:hover {
+  border-color: rgba(124, 58, 237, 0.38);
+  box-shadow:
+    var(--surface-shadow-hover),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 [data-theme="light"] #projects .project-list-item {
@@ -155,6 +177,12 @@ body::after {
   box-shadow:
     var(--surface-shadow),
     inset 3px 0 0 var(--color-accent);
+}
+
+[data-theme="light"] #projects .project-list-item--personal.project-list-item--active {
+  box-shadow:
+    var(--surface-shadow),
+    inset 3px 0 0 #7c3aed;
 }
 
 [data-theme="dark"] #projects .project-list-item--active {
