@@ -14,12 +14,19 @@ interface Particle {
   hub: boolean;
 }
 
+interface CircuitPath {
+  points: { x: number; y: number }[];
+  segmentLengths: number[];
+  totalLength: number;
+}
+
 interface DataPulse {
   from: number;
   to: number;
   progress: number;
   speed: number;
   accent: boolean;
+  horizontalFirst: boolean;
 }
 
 interface ThemePalette {
@@ -40,26 +47,26 @@ interface PointerState {
   active: boolean;
 }
 
+const GRID_STEP = 28;
+
 const CONFIG = {
   light: {
-    network: 34,
-    ambientFar: 16,
-    ambientNear: 10,
+    network: 32,
+    ambientFar: 14,
+    ambientNear: 8,
     hubs: 3,
-    connectionDistance: 108,
-    maxPulses: 14,
+    connectionDistance: 110,
+    maxPulses: 12,
   },
   dark: {
-    network: 38,
-    ambientFar: 18,
-    ambientNear: 12,
+    network: 36,
+    ambientFar: 16,
+    ambientNear: 10,
     hubs: 4,
-    connectionDistance: 112,
-    maxPulses: 16,
+    connectionDistance: 114,
+    maxPulses: 14,
   },
 } as const;
-
-const HEX_SIZE = 42;
 
 function readThemeColors(): ThemePalette {
   const styles = getComputedStyle(document.documentElement);
@@ -83,10 +90,8 @@ function cellKey(col: number, row: number) {
   return `${col},${row}`;
 }
 
-function buildSpatialGrid(particles: Particle[], cellSize: number, width: number, height: number) {
+function buildSpatialGrid(particles: Particle[], cellSize: number) {
   const grid = new Map<string, number[]>();
-  const cols = Math.ceil(width / cellSize) + 1;
-  const rows = Math.ceil(height / cellSize) + 1;
 
   for (let index = 0; index < particles.length; index++) {
     const particle = particles[index];
@@ -96,14 +101,11 @@ function buildSpatialGrid(particles: Particle[], cellSize: number, width: number
     const row = Math.floor(particle.y / cellSize);
     const key = cellKey(col, row);
     const bucket = grid.get(key);
-    if (bucket) {
-      bucket.push(index);
-    } else {
-      grid.set(key, [index]);
-    }
+    if (bucket) bucket.push(index);
+    else grid.set(key, [index]);
   }
 
-  return { grid, cols, rows, cellSize };
+  return { grid, cellSize };
 }
 
 function getNetworkNeighbors(
@@ -122,9 +124,7 @@ function getNetworkNeighbors(
       const bucket = grid.get(cellKey(x, y));
       if (!bucket) continue;
       for (const candidate of bucket) {
-        if (candidate !== index) {
-          neighbors.push(candidate);
-        }
+        if (candidate !== index) neighbors.push(candidate);
       }
     }
   }
@@ -132,66 +132,195 @@ function getNetworkNeighbors(
   return neighbors;
 }
 
-function drawHexLattice(
+function buildCircuitPath(
+  from: Particle,
+  to: Particle,
+  horizontalFirst: boolean,
+): CircuitPath {
+  const elbow = horizontalFirst
+    ? { x: to.x, y: from.y }
+    : { x: from.x, y: to.y };
+
+  const points = [
+    { x: from.x, y: from.y },
+    elbow,
+    { x: to.x, y: to.y },
+  ];
+
+  const segmentLengths: number[] = [];
+  let totalLength = 0;
+
+  for (let i = 0; i < points.length - 1; i++) {
+    const dx = points[i + 1].x - points[i].x;
+    const dy = points[i + 1].y - points[i].y;
+    const length = Math.hypot(dx, dy);
+    segmentLengths.push(length);
+    totalLength += length;
+  }
+
+  return { points, segmentLengths, totalLength };
+}
+
+function getPointOnPath(path: CircuitPath, progress: number) {
+  if (path.totalLength <= 0) {
+    return { ...path.points[0], segmentIndex: 0 };
+  }
+
+  const target = Math.min(Math.max(progress, 0), 1) * path.totalLength;
+  let walked = 0;
+
+  for (let i = 0; i < path.segmentLengths.length; i++) {
+    const segmentLength = path.segmentLengths[i];
+    if (walked + segmentLength >= target) {
+      const localT = segmentLength === 0 ? 0 : (target - walked) / segmentLength;
+      const start = path.points[i];
+      const end = path.points[i + 1];
+      return {
+        x: start.x + (end.x - start.x) * localT,
+        y: start.y + (end.y - start.y) * localT,
+        segmentIndex: i,
+      };
+    }
+    walked += segmentLength;
+  }
+
+  const last = path.points[path.points.length - 1];
+  return { x: last.x, y: last.y, segmentIndex: path.segmentLengths.length - 1 };
+}
+
+function drawPcbGrid(
   ctx: CanvasRenderingContext2D,
   width: number,
   height: number,
-  strokeColor: string,
+  gridColor: string,
+  dotColor: string,
 ) {
-  const hexHeight = HEX_SIZE * Math.sqrt(3);
-  const horizontalStep = HEX_SIZE * 1.5;
-  const verticalStep = hexHeight;
-
   ctx.save();
-  ctx.strokeStyle = strokeColor;
-  ctx.lineWidth = 0.65;
+  ctx.strokeStyle = gridColor;
+  ctx.lineWidth = 0.55;
 
-  for (let row = -1; row * verticalStep < height + hexHeight; row++) {
-    const y = row * verticalStep;
-    const offset = row % 2 === 0 ? 0 : horizontalStep * 0.5;
+  for (let x = 0; x <= width; x += GRID_STEP) {
+    ctx.beginPath();
+    ctx.moveTo(x + 0.5, 0);
+    ctx.lineTo(x + 0.5, height);
+    ctx.stroke();
+  }
 
-    for (let col = -1; col * horizontalStep < width + HEX_SIZE; col++) {
-      const x = col * horizontalStep + offset;
-      drawHexagon(ctx, x, y, HEX_SIZE * 0.92);
+  for (let y = 0; y <= height; y += GRID_STEP) {
+    ctx.beginPath();
+    ctx.moveTo(0, y + 0.5);
+    ctx.lineTo(width, y + 0.5);
+    ctx.stroke();
+  }
+
+  ctx.fillStyle = dotColor;
+  for (let x = 0; x <= width; x += GRID_STEP) {
+    for (let y = 0; y <= height; y += GRID_STEP) {
+      ctx.beginPath();
+      ctx.arc(x, y, 0.85, 0, Math.PI * 2);
+      ctx.fill();
     }
   }
 
   ctx.restore();
 }
 
-function drawHexagon(ctx: CanvasRenderingContext2D, x: number, y: number, radius: number) {
+function drawCircuitTrace(
+  ctx: CanvasRenderingContext2D,
+  path: CircuitPath,
+  strokeColor: string,
+  lineWidth: number,
+  alpha: number,
+  drawVias: boolean,
+  viaColor: string,
+) {
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = lineWidth;
+  ctx.lineJoin = "round";
+  ctx.lineCap = "round";
   ctx.beginPath();
-  for (let i = 0; i < 6; i++) {
-    const angle = (Math.PI / 3) * i - Math.PI / 6;
-    const px = x + radius * Math.cos(angle);
-    const py = y + radius * Math.sin(angle);
-    if (i === 0) ctx.moveTo(px, py);
-    else ctx.lineTo(px, py);
+  ctx.moveTo(path.points[0].x, path.points[0].y);
+  for (let i = 1; i < path.points.length; i++) {
+    ctx.lineTo(path.points[i].x, path.points[i].y);
   }
-  ctx.closePath();
   ctx.stroke();
+
+  if (drawVias && path.points.length === 3) {
+    const via = path.points[1];
+    ctx.globalAlpha = alpha * 1.15;
+    ctx.fillStyle = viaColor;
+    ctx.beginPath();
+    ctx.arc(via.x, via.y, lineWidth + 1.1, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.globalAlpha = alpha * 0.55;
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(via.x, via.y, lineWidth * 0.45, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
 }
 
-function drawAuroraBand(
+function drawChipPad(
   ctx: CanvasRenderingContext2D,
-  width: number,
-  height: number,
-  time: number,
-  auroraColor: string,
-  accentColor: string,
+  x: number,
+  y: number,
+  size: number,
+  fillColor: string,
+  borderColor: string,
+  alpha: number,
+  pulse = 1,
 ) {
-  const waveCenter = ((time * 0.000045) % 1.35) * (height + 140) - 70;
-  const gradient = ctx.createLinearGradient(0, waveCenter - 90, 0, waveCenter + 90);
-  gradient.addColorStop(0, "rgba(0,0,0,0)");
-  gradient.addColorStop(0.42, auroraColor);
-  gradient.addColorStop(0.5, accentColor);
-  gradient.addColorStop(0.58, auroraColor);
-  gradient.addColorStop(1, "rgba(0,0,0,0)");
-
+  const pad = size * 2.1 * pulse;
   ctx.save();
-  ctx.globalCompositeOperation = "screen";
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
+  ctx.globalAlpha = alpha;
+  ctx.fillStyle = fillColor;
+  ctx.strokeStyle = borderColor;
+  ctx.lineWidth = 1.1;
+  ctx.beginPath();
+  ctx.roundRect(x - pad / 2, y - pad / 2, pad, pad, 3);
+  ctx.fill();
+  ctx.stroke();
+
+  const pinLength = pad * 0.22;
+  const pinThickness = 1.4;
+  ctx.fillStyle = borderColor;
+  ctx.fillRect(x - pad / 2 - pinLength, y - pinThickness, pinLength, pinThickness * 2);
+  ctx.fillRect(x + pad / 2, y - pinThickness, pinLength, pinThickness * 2);
+  ctx.fillRect(x - pinThickness, y - pad / 2 - pinLength, pinThickness * 2, pinLength);
+  ctx.fillRect(x - pinThickness, y + pad / 2, pinThickness * 2, pinLength);
+
+  ctx.globalAlpha = alpha * 0.85;
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(x, y, size * 0.32, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawSolderPad(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  radius: number,
+  fillColor: string,
+  alpha: number,
+) {
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.fillStyle = fillColor;
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.globalAlpha = alpha * 0.35;
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = 0.8;
+  ctx.stroke();
   ctx.restore();
 }
 
@@ -234,9 +363,9 @@ const ParticleBackground: React.FC = () => {
       hub = false,
     ): Particle => {
       const layerConfig = {
-        0: { speed: isLight ? 0.12 : 0.16, size: isLight ? 0.7 : 0.85 },
-        1: { speed: isLight ? 0.28 : 0.38, size: isLight ? 1.2 : 1.45 },
-        2: { speed: isLight ? 0.42 : 0.55, size: isLight ? 2.1 : 2.4 },
+        0: { speed: isLight ? 0.1 : 0.14, size: isLight ? 0.65 : 0.8 },
+        1: { speed: isLight ? 0.22 : 0.3, size: isLight ? 1.15 : 1.35 },
+        2: { speed: isLight ? 0.34 : 0.44, size: isLight ? 1.7 : 2 },
       }[layer];
 
       return {
@@ -244,7 +373,7 @@ const ParticleBackground: React.FC = () => {
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * layerConfig.speed,
         vy: (Math.random() - 0.5) * layerConfig.speed,
-        size: hub ? layerConfig.size + 1.4 : layerConfig.size + Math.random() * 0.8,
+        size: hub ? layerConfig.size + 1.2 : layerConfig.size + Math.random() * 0.6,
         layer,
         phase: Math.random() * Math.PI * 2,
         hub,
@@ -266,7 +395,7 @@ const ParticleBackground: React.FC = () => {
       for (let i = 0; i < settings.hubs; i++) {
         const hubIndex = Math.floor((i / settings.hubs) * networkParticles.length);
         networkParticles[hubIndex].hub = true;
-        networkParticles[hubIndex].size += 1.1;
+        networkParticles[hubIndex].size += 1;
       }
 
       particles.push(...networkParticles);
@@ -292,67 +421,69 @@ const ParticleBackground: React.FC = () => {
 
     resizeCanvas();
 
+    const drawStaticTraces = (particles: Particle[]) => {
+      const gridData = buildSpatialGrid(particles, connectionDistance);
+
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
+        if (p1.layer !== 1) continue;
+        for (const j of getNetworkNeighbors(i, particles, gridData)) {
+          if (j <= i) continue;
+          const p2 = particles[j];
+          if (p2.layer !== 1) continue;
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          if (dx * dx + dy * dy >= connectionDistanceSq) continue;
+          const path = buildCircuitPath(p1, p2, (i + j) % 2 === 0);
+          drawCircuitTrace(
+            ctx,
+            path,
+            p1.hub || p2.hub ? colors.particleAccent : colors.particleLine,
+            p1.hub || p2.hub ? 1.1 : 0.85,
+            isLight ? 0.42 : 0.58,
+            true,
+            colors.particlePulse,
+          );
+        }
+      }
+    };
+
     if (reducedMotion) {
       ctx.fillStyle = backgroundGradient;
       ctx.fillRect(0, 0, canvasSizeRef.current.width, canvasSizeRef.current.height);
-      drawHexLattice(ctx, canvasSizeRef.current.width, canvasSizeRef.current.height, colors.particleHex);
+      drawPcbGrid(
+        ctx,
+        canvasSizeRef.current.width,
+        canvasSizeRef.current.height,
+        colors.particleHex,
+        colors.particleHex,
+      );
+      drawStaticTraces(particlesRef.current);
+      for (const particle of particlesRef.current) {
+        if (particle.hub && particle.layer === 1) {
+          drawChipPad(ctx, particle.x, particle.y, particle.size, colors.particleHub, colors.particleAccent, 0.9);
+        } else if (particle.layer === 1) {
+          drawSolderPad(ctx, particle.x, particle.y, particle.size, colors.particleDot, 0.85);
+        }
+      }
       return;
     }
 
     let animationId = 0;
-    let frame = 0;
 
-    const spawnPulse = (from: number, to: number) => {
+    const spawnPulse = (from: number, to: number, horizontalFirst: boolean) => {
       if (pulsesRef.current.length >= settings.maxPulses) return;
       pulsesRef.current.push({
         from,
         to,
         progress: 0,
-        speed: 0.012 + Math.random() * 0.018,
-        accent: Math.random() > 0.55,
+        speed: 0.014 + Math.random() * 0.02,
+        accent: Math.random() > 0.5,
+        horizontalFirst,
       });
     };
 
-    const drawHubSigils = (particles: Particle[]) => {
-      const hubs = particles
-        .map((particle, index) => ({ particle, index }))
-        .filter(({ particle }) => particle.layer === 1 && particle.hub);
-
-      for (let i = 0; i < hubs.length; i++) {
-        for (let j = i + 1; j < hubs.length; j++) {
-          for (let k = j + 1; k < hubs.length; k++) {
-            const a = hubs[i].particle;
-            const b = hubs[j].particle;
-            const c = hubs[k].particle;
-
-            const ab = (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
-            const bc = (b.x - c.x) ** 2 + (b.y - c.y) ** 2;
-            const ca = (c.x - a.x) ** 2 + (c.y - a.y) ** 2;
-
-            if (ab < connectionDistanceSq && bc < connectionDistanceSq && ca < connectionDistanceSq) {
-              const pulse = 0.45 + Math.sin(frame * 0.03 + i + j + k) * 0.2;
-              ctx.save();
-              ctx.globalAlpha = isLight ? 0.07 * pulse : 0.11 * pulse;
-              const sigilGradient = ctx.createLinearGradient(a.x, a.y, c.x, c.y);
-              sigilGradient.addColorStop(0, colors.particleAccent);
-              sigilGradient.addColorStop(1, colors.particlePulse);
-              ctx.fillStyle = sigilGradient;
-              ctx.beginPath();
-              ctx.moveTo(a.x, a.y);
-              ctx.lineTo(b.x, b.y);
-              ctx.lineTo(c.x, c.y);
-              ctx.closePath();
-              ctx.fill();
-              ctx.restore();
-            }
-          }
-        }
-      }
-    };
-
     const animate = (time: number) => {
-      frame += 1;
-
       if (!isActiveRef.current) {
         animationId = requestAnimationFrame(animate);
         return;
@@ -364,19 +495,17 @@ const ParticleBackground: React.FC = () => {
 
       ctx.fillStyle = backgroundGradient;
       ctx.fillRect(0, 0, width, height);
-      drawHexLattice(ctx, width, height, colors.particleHex);
-      drawAuroraBand(ctx, width, height, time, colors.particleAurora, colors.particleAccent);
+      drawPcbGrid(ctx, width, height, colors.particleHex, colors.particleHex);
 
-      const gridData = buildSpatialGrid(particles, connectionDistance, width, height);
+      const gridData = buildSpatialGrid(particles, connectionDistance);
 
       for (const particle of particles) {
-        if (pointer.active) {
+        if (pointer.active && particle.layer === 1) {
           const dx = pointer.x - particle.x;
           const dy = pointer.y - particle.y;
           const distSq = dx * dx + dy * dy;
-          const fieldRadius = particle.layer === 1 ? 16500 : 9000;
-          if (distSq > 120 && distSq < fieldRadius) {
-            const pull = particle.hub ? 0.0009 : 0.0016;
+          if (distSq > 140 && distSq < 14000) {
+            const pull = particle.hub ? 0.00075 : 0.0012;
             particle.vx += dx * pull;
             particle.vy += dy * pull;
           }
@@ -388,18 +517,15 @@ const ParticleBackground: React.FC = () => {
         if (particle.x < 0 || particle.x > width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > height) particle.vy *= -1;
 
-        particle.vx *= particle.layer === 0 ? 0.998 : 0.992;
-        particle.vy *= particle.layer === 0 ? 0.998 : 0.992;
+        particle.vx *= particle.layer === 0 ? 0.998 : 0.991;
+        particle.vy *= particle.layer === 0 ? 0.998 : 0.991;
       }
-
-      drawHubSigils(particles);
 
       for (let i = 0; i < particles.length; i++) {
         const p1 = particles[i];
         if (p1.layer !== 1) continue;
 
-        const neighbors = getNetworkNeighbors(i, particles, gridData);
-        for (const j of neighbors) {
+        for (const j of getNetworkNeighbors(i, particles, gridData)) {
           if (j <= i) continue;
           const p2 = particles[j];
           if (p2.layer !== 1) continue;
@@ -411,19 +537,23 @@ const ParticleBackground: React.FC = () => {
 
           const dist = Math.sqrt(distSq);
           const strength = 1 - dist / connectionDistance;
-          const hubGlow = p1.hub || p2.hub ? 1.35 : 1;
+          const isHubTrace = p1.hub || p2.hub;
+          const horizontalFirst = (i + j) % 2 === 0;
+          const path = buildCircuitPath(p1, p2, horizontalFirst);
 
-          ctx.globalAlpha = strength * (isLight ? 0.38 : 0.62) * hubGlow;
-          ctx.strokeStyle = p1.hub || p2.hub ? colors.particleAccent : colors.particleLine;
-          ctx.lineWidth = p1.hub || p2.hub ? 1.15 : 0.8;
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
+          drawCircuitTrace(
+            ctx,
+            path,
+            isHubTrace ? colors.particleAccent : colors.particleLine,
+            isHubTrace ? 1.25 : 0.9,
+            strength * (isLight ? 0.4 : 0.62) * (isHubTrace ? 1.2 : 1),
+            true,
+            isHubTrace ? colors.particleHub : colors.particlePulse,
+          );
 
-          if (spawnCooldownRef.current <= 0 && Math.random() < 0.018) {
-            spawnPulse(i, j);
-            spawnCooldownRef.current = 6;
+          if (spawnCooldownRef.current <= 0 && Math.random() < 0.02) {
+            spawnPulse(i, j, horizontalFirst);
+            spawnCooldownRef.current = 7;
           }
         }
       }
@@ -438,25 +568,29 @@ const ParticleBackground: React.FC = () => {
         pulse.progress += pulse.speed;
         if (pulse.progress > 1) return false;
 
-        const x = from.x + (to.x - from.x) * pulse.progress;
-        const y = from.y + (to.y - from.y) * pulse.progress;
-        const tailProgress = Math.max(0, pulse.progress - 0.12);
-        const tailX = from.x + (to.x - from.x) * tailProgress;
-        const tailY = from.y + (to.y - from.y) * tailProgress;
+        const path = buildCircuitPath(from, to, pulse.horizontalFirst);
+        const head = getPointOnPath(path, pulse.progress);
+        const tail = getPointOnPath(path, Math.max(0, pulse.progress - 0.14));
 
         ctx.save();
-        ctx.globalAlpha = isLight ? 0.85 : 1;
+        ctx.globalAlpha = isLight ? 0.9 : 1;
         ctx.strokeStyle = pulse.accent ? colors.particleAccent : colors.particlePulse;
-        ctx.lineWidth = 2.2;
+        ctx.lineWidth = 2.4;
         ctx.lineCap = "round";
         ctx.beginPath();
-        ctx.moveTo(tailX, tailY);
-        ctx.lineTo(x, y);
+        ctx.moveTo(tail.x, tail.y);
+        ctx.lineTo(head.x, head.y);
         ctx.stroke();
 
         ctx.fillStyle = pulse.accent ? colors.particleAccent : colors.particlePulse;
         ctx.beginPath();
-        ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+        ctx.arc(head.x, head.y, 2.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.globalAlpha = isLight ? 0.45 : 0.65;
+        ctx.fillStyle = "#ffffff";
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 1, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
 
@@ -464,35 +598,33 @@ const ParticleBackground: React.FC = () => {
       });
 
       for (const particle of particles) {
-        const depthAlpha = particle.layer === 0 ? 0.35 : particle.layer === 2 ? 0.9 : 0.75;
-        const pulse = particle.hub ? 0.75 + Math.sin(time * 0.004 + particle.phase) * 0.25 : 1;
+        const depthAlpha = particle.layer === 0 ? 0.3 : particle.layer === 2 ? 0.75 : 0.88;
+        const hubPulse = particle.hub ? 0.92 + Math.sin(time * 0.0035 + particle.phase) * 0.08 : 1;
 
-        if (particle.hub) {
-          const ringRadius = particle.size * 3.8 * pulse;
-          ctx.save();
-          ctx.globalAlpha = isLight ? 0.14 : 0.22;
-          ctx.strokeStyle = colors.particleHub;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.arc(particle.x, particle.y, ringRadius, 0, Math.PI * 2);
-          ctx.stroke();
-          ctx.restore();
+        if (particle.hub && particle.layer === 1) {
+          drawChipPad(
+            ctx,
+            particle.x,
+            particle.y,
+            particle.size,
+            colors.particleHub,
+            colors.particleAccent,
+            depthAlpha * hubPulse,
+            hubPulse,
+          );
+          continue;
         }
 
-        ctx.globalAlpha = depthAlpha * (particle.hub ? pulse : 1);
-        ctx.fillStyle = particle.hub ? colors.particleHub : particle.layer === 2 ? colors.particleAccent : colors.particleDot;
+        if (particle.layer === 1) {
+          drawSolderPad(ctx, particle.x, particle.y, particle.size, colors.particleDot, depthAlpha);
+          continue;
+        }
 
+        ctx.globalAlpha = depthAlpha;
+        ctx.fillStyle = particle.layer === 2 ? colors.particleAccent : colors.particleDot;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * (particle.hub ? pulse : 1), 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
-
-        if (particle.hub) {
-          ctx.globalAlpha = isLight ? 0.55 : 0.75;
-          ctx.fillStyle = "#ffffff";
-          ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.size * 0.35, 0, Math.PI * 2);
-          ctx.fill();
-        }
       }
 
       ctx.globalAlpha = 1;
@@ -502,11 +634,9 @@ const ParticleBackground: React.FC = () => {
     animationId = requestAnimationFrame(animate);
 
     const handleResize = () => resizeCanvas();
-
     const handleVisibility = () => {
       isActiveRef.current = document.visibilityState === "visible";
     };
-
     const handlePointerMove = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       pointerRef.current = {
@@ -515,7 +645,6 @@ const ParticleBackground: React.FC = () => {
         active: true,
       };
     };
-
     const handlePointerLeave = () => {
       pointerRef.current.active = false;
     };
