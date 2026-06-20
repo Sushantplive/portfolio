@@ -15,13 +15,20 @@ function getPreferredTheme(): Theme {
 }
 
 function applyTheme(theme: Theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  document.documentElement.style.colorScheme = theme;
+  const root = document.documentElement;
+  root.classList.add("theme-transitioning");
+
+  root.setAttribute("data-theme", theme);
+  root.style.colorScheme = theme;
 
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   if (metaThemeColor) {
-    metaThemeColor.setAttribute("content", theme === "light" ? "#f1f5f9" : "#0f172a");
+    metaThemeColor.setAttribute("content", theme === "light" ? "#eef4fb" : "#0a0f1a");
   }
+
+  window.setTimeout(() => {
+    root.classList.remove("theme-transitioning");
+  }, 480);
 }
 
 interface ThemeProviderProps {
