@@ -647,29 +647,9 @@
   }
 
   #projects .projects-list {
-    display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
-    padding-bottom: 0.35rem;
-    scroll-snap-type: x mandatory;
-  }
-
-  #projects .project-list-item {
-    min-width: min(60vw, 220px);
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    border-left: 1px solid rgba(34, 211, 238, 0.14);
-    border-bottom: 3px solid transparent;
-  }
-
-  #projects .project-list-item--active {
-    border-left-color: rgba(56, 189, 248, 0.55);
-    border-bottom-color: #22d3ee;
-  }
-
-  #projects .project-list-item--personal.project-list-item--active {
-    border-left-color: rgba(192, 132, 252, 0.55);
-    border-bottom-color: #c084fc;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
   }
 }
 
