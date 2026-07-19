@@ -16,19 +16,12 @@ const tabs: Array<{ key: TabKey; label: string }> = [
 
 const MAX_HIGHLIGHTS = 3;
 const MAX_METRICS = 3;
-const MAX_SIDEBAR_STACK = 3;
-
-function getProjectInitials(company: string): string {
-  const words = company.replace(/[()]/g, " ").split(/\s+/).filter(Boolean);
-  if (words.length >= 2) {
-    return `${words[0][0] ?? ""}${words[1][0] ?? ""}`.toUpperCase();
-  }
-  return (company.slice(0, 2) || "PR").toUpperCase();
-}
+const MAX_VISIBLE_TECH = 8;
 
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<TabKey>("all");
   const [selectedProjectName, setSelectedProjectName] = useState(projects[0]?.name ?? "");
+  const [showAllTech, setShowAllTech] = useState(false);
 
   const professionalProjects = useMemo(
     () => projects.filter((project) => project.category === "professional"),
@@ -62,6 +55,11 @@ const Projects: React.FC = () => {
     (selectedProject.live && selectedProject.live !== "#") ||
     (selectedProject.github && selectedProject.github !== "#");
 
+  const selectProject = (name: string) => {
+    setSelectedProjectName(name);
+    setShowAllTech(false);
+  };
+
   const renderProjectButton = (project: Project) => {
     const isActive = project.name === selectedProject.name;
     return (
@@ -71,44 +69,19 @@ const Projects: React.FC = () => {
         className={`project-list-item ${isActive ? "project-list-item--active" : ""} ${
           project.category === "personal" ? "project-list-item--personal" : ""
         }`}
-        onClick={() => setSelectedProjectName(project.name)}
+        onClick={() => selectProject(project.name)}
         aria-pressed={isActive}
       >
-        <div className="project-list-item__row">
-          <div
-            className={`project-list-item__avatar ${
-              project.category === "personal" ? "project-list-item__avatar--personal" : ""
-            }`}
-            aria-hidden="true"
-          >
-            {getProjectInitials(project.company)}
-          </div>
-          <div className="project-list-item__body">
-            <div className="project-list-item__top">
-              <p className="project-list-item__name">{project.name}</p>
-              <span
-                className={`project-list-item__badge ${
-                  project.category === "personal"
-                    ? "project-list-item__badge--personal"
-                    : "project-list-item__badge--pro"
-                }`}
-              >
-                {project.category === "professional" ? "Pro" : "Personal"}
-              </span>
-            </div>
-            <p className="project-list-item__company">{project.company}</p>
-            <div className="project-list-item__stack">
-              {project.techStack.slice(0, MAX_SIDEBAR_STACK).map((tech) => (
-                <span key={tech} className="project-list-item__chip">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <p className="project-list-item__name">{project.name}</p>
+        <p className="project-list-item__company">{project.company}</p>
       </button>
     );
   };
+
+  const visibleTech = showAllTech
+    ? selectedProject.techStack
+    : selectedProject.techStack.slice(0, MAX_VISIBLE_TECH);
+  const hiddenTechCount = selectedProject.techStack.length - MAX_VISIBLE_TECH;
 
   return (
     <section id="projects" className="projects-section site-section py-10 sm:py-14 text-theme">
@@ -131,7 +104,10 @@ const Projects: React.FC = () => {
                 className={`projects-tab ${
                   selectedCategory === tab.key ? "projects-tab--active" : ""
                 }`}
-                onClick={() => setSelectedCategory(tab.key)}
+                onClick={() => {
+                  setSelectedCategory(tab.key);
+                  setShowAllTech(false);
+                }}
                 role="tab"
                 aria-selected={selectedCategory === tab.key}
               >
@@ -222,11 +198,20 @@ const Projects: React.FC = () => {
             <div className="project-tech project-tech--compact">
               <p className="project-tech__label">Tech Stack</p>
               <div className="project-tech__chips">
-                {selectedProject.techStack.map((tech) => (
+                {visibleTech.map((tech) => (
                   <span key={tech} className="project-tech__chip">
                     {tech}
                   </span>
                 ))}
+                {hiddenTechCount > 0 ? (
+                  <button
+                    type="button"
+                    className="project-tech__chip project-tech__chip--toggle"
+                    onClick={() => setShowAllTech((current) => !current)}
+                  >
+                    {showAllTech ? "Show less" : `+${hiddenTechCount} more`}
+                  </button>
+                ) : null}
               </div>
             </div>
 
