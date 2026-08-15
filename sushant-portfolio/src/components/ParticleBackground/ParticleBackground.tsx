@@ -68,7 +68,14 @@ const CONFIG = {
   },
 } as const;
 
-type ParticleSettings = (typeof CONFIG)[keyof typeof CONFIG];
+interface ParticleSettings {
+  network: number;
+  ambientFar: number;
+  ambientNear: number;
+  hubs: number;
+  connectionDistance: number;
+  maxPulses: number;
+}
 
 function getParticleSettings(theme: keyof typeof CONFIG, width: number): ParticleSettings {
   const base = CONFIG[theme];
