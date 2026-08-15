@@ -3,7 +3,7 @@ import "./slider.css";
 import "./enterpriseProof.css";
 import "./personalShowcase.css";
 import EnterpriseProofPanel from "./EnterpriseProof";
-import { ScreenshotSlider } from "./PersonalProjectShowcase";
+import PersonalProjectShowcase from "./PersonalProjectShowcase";
 import { type Project, type ProjectCategory, projects } from "./projectsData";
 
 type TabKey = "all" | ProjectCategory;
@@ -22,6 +22,7 @@ const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<TabKey>("all");
   const [selectedProjectName, setSelectedProjectName] = useState(projects[0]?.name ?? "");
   const [showAllTech, setShowAllTech] = useState(false);
+  const [showAllHighlights, setShowAllHighlights] = useState(false);
 
   const professionalProjects = useMemo(
     () => projects.filter((project) => project.category === "professional"),
@@ -58,6 +59,7 @@ const Projects: React.FC = () => {
   const selectProject = (name: string) => {
     setSelectedProjectName(name);
     setShowAllTech(false);
+    setShowAllHighlights(false);
   };
 
   const renderProjectButton = (project: Project) => {
@@ -107,6 +109,7 @@ const Projects: React.FC = () => {
                 onClick={() => {
                   setSelectedCategory(tab.key);
                   setShowAllTech(false);
+                  setShowAllHighlights(false);
                 }}
                 role="tab"
                 aria-selected={selectedCategory === tab.key}
@@ -217,7 +220,10 @@ const Projects: React.FC = () => {
 
             <div className="project-brief-visual" aria-label="Project preview">
               {selectedProject.personalShowcase ? (
-                <ScreenshotSlider screenshots={selectedProject.personalShowcase.screenshots} />
+                <PersonalProjectShowcase
+                  showcase={selectedProject.personalShowcase}
+                  variant="preview"
+                />
               ) : null}
 
               {selectedProject.enterpriseProof ? (
@@ -228,11 +234,32 @@ const Projects: React.FC = () => {
             <div className="project-highlights-block">
               <p className="project-highlights-block__label">Key Contributions</p>
               <ul className="project-highlights" role="list">
-                {selectedProject.highlights.slice(0, MAX_HIGHLIGHTS).map((item) => (
+                {(showAllHighlights
+                  ? selectedProject.highlights
+                  : selectedProject.highlights.slice(0, MAX_HIGHLIGHTS)
+                ).map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              {selectedProject.highlights.length > MAX_HIGHLIGHTS ? (
+                <button
+                  type="button"
+                  className="project-highlights-toggle"
+                  onClick={() => setShowAllHighlights((current) => !current)}
+                >
+                  {showAllHighlights
+                    ? "Show fewer contributions"
+                    : `Show all ${selectedProject.highlights.length} contributions`}
+                </button>
+              ) : null}
             </div>
+
+            {selectedProject.personalShowcase ? (
+              <PersonalProjectShowcase
+                showcase={selectedProject.personalShowcase}
+                variant="details"
+              />
+            ) : null}
 
             {selectedProject.enterpriseProof ? (
               <>
@@ -240,7 +267,13 @@ const Projects: React.FC = () => {
                   {selectedProject.enterpriseProof.performance.slice(0, MAX_METRICS).map((metric) => (
                     <div key={metric.label} className="project-brief-metric">
                       <p className="project-brief-metric__label">{metric.label}</p>
-                      <p className="project-brief-metric__value">{metric.after}</p>
+                      <p className="project-brief-metric__value">
+                        <span className="project-brief-metric__before">{metric.before}</span>
+                        <span className="project-brief-metric__arrow" aria-hidden="true">
+                          →
+                        </span>
+                        <span className="project-brief-metric__after">{metric.after}</span>
+                      </p>
                     </div>
                   ))}
                 </div>

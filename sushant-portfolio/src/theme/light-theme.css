@@ -469,6 +469,15 @@
   color: #0f172a;
 }
 
+[data-theme="light"] #projects .project-brief-metric__before {
+  color: #64748b;
+  text-decoration-color: rgba(100, 116, 139, 0.55);
+}
+
+[data-theme="light"] #projects .project-brief-metric__arrow {
+  color: #059669;
+}
+
 [data-theme="light"] #projects .project-tech__chip,
 [data-theme="light"] #projects .project-card-tag {
   color: var(--color-accent-muted);
@@ -832,6 +841,16 @@
 
 [data-theme="light"] #projects .personal-showcase__arch-layer-detail {
   color: var(--color-text-muted);
+}
+
+[data-theme="light"] #projects .project-highlights-toggle {
+  color: #0e7490;
+  border-color: rgba(14, 116, 144, 0.45);
+}
+
+[data-theme="light"] #projects .project-detail-card--personal .project-highlights-toggle {
+  color: #6d28d9;
+  border-color: rgba(124, 58, 237, 0.4);
 }
 
 [data-theme="light"] #projects .personal-showcase__signal {

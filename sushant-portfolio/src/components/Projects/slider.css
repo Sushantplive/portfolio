@@ -308,6 +308,24 @@
   font-weight: 800;
   color: #a5f3fc;
   line-height: 1.3;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+#projects .project-brief-metric__before {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(148, 163, 184, 0.9);
+  text-decoration: line-through;
+  text-decoration-color: rgba(148, 163, 184, 0.55);
+}
+
+#projects .project-brief-metric__arrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(52, 211, 153, 0.9);
 }
 
 #projects .project-brief-metric__note {
@@ -514,6 +532,23 @@
 #projects .project-detail-card--personal .project-tech__label,
 #projects .project-detail-card--personal .project-highlights-block__label {
   color: rgba(216, 180, 254, 0.88);
+}
+
+#projects .project-highlights-toggle {
+  margin-top: 0.6rem;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px dashed rgba(103, 232, 249, 0.45);
+  border-radius: 999px;
+  color: #67e8f9;
+  background: transparent;
+  cursor: pointer;
+}
+
+#projects .project-detail-card--personal .project-highlights-toggle {
+  border-color: rgba(192, 132, 252, 0.45);
+  color: #d8b4fe;
 }
 
 #projects .project-impact__text {
