@@ -59,6 +59,8 @@ body::after {
 [data-theme="light"] #tech-stack .tech-stack-group,
 [data-theme="light"] #projects .project-detail-card,
 [data-theme="light"] #projects .project-list-item,
+[data-theme="light"] #blog .blog-card,
+[data-theme="light"] #blog .blog-article,
 [data-theme="light"] #contact .contact-card,
 [data-theme="light"] #contact .availability-card,
 [data-theme="light"] #projects .project-detail-card--personal,
@@ -87,9 +89,11 @@ body::after {
   [data-theme="light"] #about .about-profile-card,
   [data-theme="light"] #experience .experience-employer-card,
   [data-theme="light"] #tech-stack .tech-stack-primary,
-[data-theme="light"] #tech-stack .tech-stack-group,
+  [data-theme="light"] #tech-stack .tech-stack-group,
   [data-theme="light"] #projects .project-detail-card,
   [data-theme="light"] #projects .project-list-item,
+  [data-theme="light"] #blog .blog-card,
+  [data-theme="light"] #blog .blog-article,
   [data-theme="light"] #contact .contact-card,
   [data-theme="light"] #contact .availability-card,
   [data-theme="light"] #projects .project-detail-card--personal,
@@ -129,6 +133,7 @@ body::after {
 [data-theme="light"] #about .about-title,
 [data-theme="light"] #experience .experience-title,
 [data-theme="light"] #projects .projects-title,
+[data-theme="light"] #blog .blog-title,
 [data-theme="light"] #contact .contact-title,
 [data-theme="light"] #tech-stack .tech-stack-title {
   background: var(--section-title-gradient);
@@ -140,6 +145,7 @@ body::after {
 [data-theme="light"] #about .about-title::after,
 [data-theme="light"] #experience .experience-title::after,
 [data-theme="light"] #projects .projects-title::after,
+[data-theme="light"] #blog .blog-title::after,
 [data-theme="light"] #contact .contact-title::after,
 [data-theme="light"] #tech-stack .tech-stack-title::after {
   background: var(--section-underline-gradient);
