@@ -446,7 +446,7 @@ export const projects: Project[] = [
     desc: "Personal portfolio site built with Vite and React to showcase enterprise experience, projects, skills, and recruiter-ready contact details.",
     impact:
       "Live portfolio at sushdream.in highlighting 8+ years of frontend leadership across US Bank, HSBC, and HPE engagements.",
-    techStack: ["Vite", "React", "TypeScript", "Tailwind CSS", "react-tsparticles"],
+    techStack: ["Vite", "React", "TypeScript", "Tailwind CSS", "Canvas API"],
     highlights: [
       "Built a responsive single-page portfolio with Vite, React, and TypeScript.",
       "Implemented mobile navigation, structured experience/projects sections, and SEO meta tags with Open Graph support.",
