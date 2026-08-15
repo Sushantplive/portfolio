@@ -36,6 +36,35 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  #about .about-layout {
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  #about .about-portrait {
+    max-width: 220px;
+    border-radius: 16px;
+  }
+
+  #about .about-profile {
+    top: 5.5rem;
+  }
+
+  #about .about-copy-panel {
+    padding: 1.15rem 1.2rem;
+    border-radius: 16px;
+  }
+
+  #about .about-lede {
+    font-size: 1.02rem;
+  }
+
+  #about .about-paragraph {
+    font-size: 0.98rem;
+  }
+}
+
 #about .about-profile {
   display: flex;
   flex-direction: column;
@@ -292,16 +321,50 @@
   border-bottom-color: rgba(165, 243, 252, 0.7);
 }
 
-#about .about-tech-stack {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(75, 85, 99, 0.55);
-}
-
 @media (max-width: 640px) {
+  #about .about-layout {
+    gap: 1.35rem;
+  }
+
+  #about .about-portrait {
+    max-width: 220px;
+    border-radius: 16px;
+  }
+
+  #about .about-profile-card {
+    padding: 0.85rem 0.9rem 0.95rem;
+  }
+
+  #about .about-profile-card__name {
+    font-size: 1rem;
+  }
+
+  #about .about-profile-card__role {
+    font-size: 0.84rem;
+  }
+
+  #about .about-profile-card__location {
+    font-size: 0.78rem;
+  }
+
   #about .about-copy-panel {
     padding: 1rem;
     border-radius: 14px;
+  }
+
+  #about .about-lede {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  #about .about-paragraph {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  #about .about-paragraph--muted {
+    font-size: 0.88rem;
   }
 
   #about .about-title::after {
@@ -311,5 +374,10 @@
   #about .about-education__card {
     flex-direction: column;
     gap: 0.45rem;
+  }
+
+  #about .about-focus__tag {
+    padding: 0.28rem 0.6rem;
+    font-size: 0.75rem;
   }
 }

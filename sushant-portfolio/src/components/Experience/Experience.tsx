@@ -31,7 +31,8 @@ const experiences: ExperienceEntry[] = [
     role: "Technology Lead",
     duration: "Jul 2021 – Present",
     isCurrent: true,
-    summary: "Lead frontend delivery for US Bank and HSBC banking platforms.",
+    summary:
+      "Lead frontend delivery for analytics dashboards and enterprise product UIs at US Bank and HSBC.",
     clients: [
       {
         client: "US Bank",

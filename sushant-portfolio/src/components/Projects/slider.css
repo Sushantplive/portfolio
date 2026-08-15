@@ -229,7 +229,7 @@
 
 #projects .project-impact--lead {
   margin: 0;
-  padding: 1rem 1.1rem;
+  padding: 0.85rem 1rem;
   border-radius: 14px;
   border: 1px solid rgba(34, 211, 238, 0.28);
   background: rgba(8, 47, 73, 0.35);
@@ -240,9 +240,14 @@
   background: rgba(59, 7, 100, 0.28);
 }
 
+#projects .project-impact--lead .project-impact__label {
+  margin-bottom: 0.35rem;
+}
+
 #projects .project-impact--lead .project-impact__text {
-  font-size: 1rem;
-  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
   font-weight: 600;
   color: #e0f2fe;
 }
@@ -671,7 +676,7 @@
   color: rgba(207, 250, 254, 0.95);
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1023px) {
   #projects .projects-layout {
     grid-template-columns: 1fr;
   }
@@ -688,6 +693,50 @@
   }
 }
 
+@media (min-width: 641px) and (max-width: 1023px) {
+  #projects .projects-header {
+    gap: 1.25rem;
+  }
+
+  #projects .projects-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.65rem;
+  }
+
+  #projects .project-detail-card {
+    padding: 1.25rem 1.35rem;
+  }
+
+  #projects .project-detail-card--brief {
+    gap: 1.05rem;
+  }
+
+  #projects .project-brief-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #projects .project-brief-metric:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  #projects .project-brief-visual .personal-showcase__shot-frame {
+    min-height: min(36vh, 320px);
+    max-height: min(36vh, 320px);
+  }
+
+  #projects .project-brief-visual .personal-showcase__shot-image {
+    max-height: min(34vh, 300px);
+  }
+
+  #projects .project-brief-visual .enterprise-proof__panel--mockup-only .enterprise-proof__mock {
+    max-height: min(36vh, 320px);
+  }
+
+  #projects .project-impact--lead .project-impact__text {
+    font-size: 0.92rem;
+  }
+}
+
 @media (max-width: 640px) {
   #projects .projects-header {
     flex-direction: column;
@@ -701,8 +750,104 @@
     grid-template-columns: 1fr;
   }
 
+  #projects .projects-list {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  #projects .project-list-item {
+    flex: 0 0 min(78vw, 16.5rem);
+    scroll-snap-align: start;
+  }
+
+  #projects .project-list-item__name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   #projects .project-detail-card {
-    padding: 1.15rem;
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  #projects .project-detail-card--brief {
+    gap: 0.95rem;
+  }
+
+  #projects .project-brief-top {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-bottom: 0.85rem;
+  }
+
+  #projects .project-card-actions--inline {
+    width: 100%;
+  }
+
+  #projects .project-card-actions--inline .project-link-button {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  #projects .project-detail-card__desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  #projects .project-impact--lead {
+    padding: 0.75rem 0.85rem;
+  }
+
+  #projects .project-impact--lead .project-impact__text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  #projects .project-brief-metrics {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  #projects .project-brief-metric {
+    padding: 0.65rem 0.75rem;
+  }
+
+  #projects .project-brief-metric__label {
+    font-size: 0.64rem;
+  }
+
+  #projects .project-brief-metric__value {
+    font-size: 0.95rem;
+  }
+
+  #projects .project-brief-visual {
+    padding: 0.55rem;
+  }
+
+  #projects .project-brief-visual .personal-showcase__shot-frame {
+    min-height: min(32vh, 260px);
+    max-height: min(32vh, 260px);
+  }
+
+  #projects .project-brief-visual .personal-showcase__shot-image {
+    max-height: min(30vh, 240px);
+  }
+
+  #projects .project-brief-visual .enterprise-proof__panel--mockup-only .enterprise-proof__mock {
+    max-height: min(32vh, 260px);
+  }
+
+  #projects .project-highlights--compact li,
+  #projects .project-highlights li {
+    font-size: 0.84rem;
+    line-height: 1.45;
   }
 
   #projects .project-card-top__identity {

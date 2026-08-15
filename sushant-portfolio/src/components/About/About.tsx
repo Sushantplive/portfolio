@@ -1,5 +1,4 @@
 import React from "react";
-import TechStack from "../TechStack/TechStack";
 import "./about.css";
 
 const focusAreas = [
@@ -95,10 +94,6 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="about-tech-stack">
-          <TechStack />
         </div>
       </div>
     </section>

@@ -2,8 +2,9 @@ import './App.css'
 import Contact from './components/Contact/Contact'
 import FrontLine from './components/FrontLine/FrontLine'
 import Projects from './components/Projects/Projects'
-// import TechStack from './components/TechStack/TechStack'
+import TechStack from './components/TechStack/TechStack'
 import About from './components/About/About'
+import Blog from './components/Blog/Blog'
 import Navigation from './components/Navigation/Navigation'
 import Footer from './components/Footer/Footer'
 import Experience from './components/Experience/Experience'
@@ -21,13 +22,16 @@ function App() {
           <About />
         </div>
         <div className="transition-all duration-300 relative">
+          <TechStack />
+        </div>
+        <div className="transition-all duration-300 relative">
           <Experience />
         </div>
-        {/* <div id="tech-stack" className="transition-all duration-300 relative">
-          <TechStack />
-        </div> */}
         <div className="transition-all duration-300 relative">
           <Projects />
+        </div>
+        <div className="transition-all duration-300 relative">
+          <Blog />
         </div>
         <div className="transition-all duration-300 relative">
           <Contact />

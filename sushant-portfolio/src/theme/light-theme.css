@@ -320,8 +320,7 @@
 }
 
 [data-theme="light"] #about .about-education,
-[data-theme="light"] #about .about-focus,
-[data-theme="light"] #about .about-tech-stack {
+[data-theme="light"] #about .about-focus {
   border-top-color: rgba(148, 163, 184, 0.35);
 }
 
@@ -545,6 +544,24 @@
   color: #059669;
 }
 
+[data-theme="light"] #projects .project-brief-metric {
+  border-color: rgba(8, 145, 178, 0.28);
+  background: #f0f9ff;
+}
+
+[data-theme="light"] #projects .project-impact--lead {
+  border-color: rgba(8, 145, 178, 0.3);
+  background: linear-gradient(120deg, #ecfeff, #e0f2fe);
+}
+
+[data-theme="light"] #projects .project-impact--lead .project-impact__label {
+  color: #0e7490;
+}
+
+[data-theme="light"] #projects .project-impact--lead .project-impact__text {
+  color: #0f172a;
+}
+
 [data-theme="light"] #projects .project-tech__chip,
 [data-theme="light"] #projects .project-card-tag {
   color: var(--color-accent-muted);
@@ -619,6 +636,58 @@
 
 [data-theme="light"] #contact .text-emerald-400 {
   color: #047857 !important;
+}
+
+/* Blog */
+[data-theme="light"] #blog .blog-intro,
+[data-theme="light"] #blog .blog-card__excerpt,
+[data-theme="light"] #blog .blog-article__body p {
+  color: var(--color-text-muted);
+}
+
+[data-theme="light"] #blog .blog-title {
+  color: transparent !important;
+}
+
+[data-theme="light"] #blog .blog-card,
+[data-theme="light"] #blog .blog-article {
+  background: #ffffff;
+  border-color: var(--color-border-strong);
+}
+
+[data-theme="light"] #blog .blog-card:hover {
+  border-color: rgba(8, 145, 178, 0.45);
+  box-shadow: 0 12px 28px rgba(8, 145, 178, 0.12);
+}
+
+[data-theme="light"] #blog .blog-card__title,
+[data-theme="light"] #blog .blog-article__title {
+  color: #0f172a;
+}
+
+[data-theme="light"] #blog .blog-card__meta,
+[data-theme="light"] #blog .blog-article__meta {
+  color: #64748b;
+}
+
+[data-theme="light"] #blog .blog-tag {
+  color: var(--color-accent-muted);
+  background: var(--color-chip-bg);
+  border-color: var(--color-border);
+}
+
+[data-theme="light"] #blog .blog-card__read,
+[data-theme="light"] #blog .blog-back {
+  color: var(--color-accent-muted);
+  background: #e0f2fe;
+  border-color: rgba(8, 145, 178, 0.35);
+}
+
+[data-theme="light"] #blog .blog-card__read:hover,
+[data-theme="light"] #blog .blog-back:hover {
+  background: #cffafe;
+  border-color: rgba(8, 145, 178, 0.55);
+  color: #0e7490;
 }
 
 /* Footer */

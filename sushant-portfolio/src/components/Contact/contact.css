@@ -37,6 +37,19 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  #contact .contact-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 28rem;
+    justify-self: center;
+    width: 100%;
+  }
+
+  #contact .availability-card {
+    max-width: 36rem;
+  }
+}
+
 @media (min-width: 1024px) {
   #contact .contact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -164,5 +177,27 @@
 @media (max-width: 640px) {
   #contact .contact-title::after {
     width: 62px;
+  }
+
+  #contact .availability-card {
+    padding: 1rem 0.95rem;
+  }
+
+  #contact .availability-card .grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  #contact .contact-card {
+    padding: 1.15rem;
+  }
+
+  #contact .contact-card__actions {
+    flex-direction: column;
+  }
+
+  #contact .contact-card__actions a {
+    width: 100%;
+    justify-content: center;
   }
 }

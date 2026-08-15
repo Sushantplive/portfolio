@@ -198,6 +198,30 @@ const Projects: React.FC = () => {
 
             <p className="project-detail-card__desc">{selectedProject.desc}</p>
 
+            {selectedProject.impact ? (
+              <div className="project-impact project-impact--lead">
+                <p className="project-impact__label">Impact</p>
+                <p className="project-impact__text">{selectedProject.impact}</p>
+              </div>
+            ) : null}
+
+            {selectedProject.enterpriseProof ? (
+              <div className="project-brief-metrics" aria-label="Performance improvements">
+                {selectedProject.enterpriseProof.performance.slice(0, MAX_METRICS).map((metric) => (
+                  <div key={metric.label} className="project-brief-metric">
+                    <p className="project-brief-metric__label">{metric.label}</p>
+                    <p className="project-brief-metric__value">
+                      <span className="project-brief-metric__before">{metric.before}</span>
+                      <span className="project-brief-metric__arrow" aria-hidden="true">
+                        →
+                      </span>
+                      <span className="project-brief-metric__after">{metric.after}</span>
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+
             <div className="project-tech project-tech--compact">
               <p className="project-tech__label">Tech Stack</p>
               <div className="project-tech__chips">
@@ -262,23 +286,9 @@ const Projects: React.FC = () => {
             ) : null}
 
             {selectedProject.enterpriseProof ? (
-              <>
-                <div className="project-brief-metrics">
-                  {selectedProject.enterpriseProof.performance.slice(0, MAX_METRICS).map((metric) => (
-                    <div key={metric.label} className="project-brief-metric">
-                      <p className="project-brief-metric__label">{metric.label}</p>
-                      <p className="project-brief-metric__value">
-                        <span className="project-brief-metric__before">{metric.before}</span>
-                        <span className="project-brief-metric__arrow" aria-hidden="true">
-                          →
-                        </span>
-                        <span className="project-brief-metric__after">{metric.after}</span>
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <p className="project-brief-nda">Redacted patterns only — client data omitted under NDA.</p>
-              </>
+              <p className="project-brief-nda">
+                Redacted patterns only — client data omitted under NDA.
+              </p>
             ) : null}
           </article>
         </div>
