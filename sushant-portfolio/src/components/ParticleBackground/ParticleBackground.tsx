@@ -68,6 +68,23 @@ const CONFIG = {
   },
 } as const;
 
+type ParticleSettings = (typeof CONFIG)[keyof typeof CONFIG];
+
+function getParticleSettings(theme: keyof typeof CONFIG, width: number): ParticleSettings {
+  const base = CONFIG[theme];
+  if (width >= 768) return base;
+
+  // Lighter first paint / battery use on small screens
+  return {
+    network: Math.round(base.network * 0.55),
+    ambientFar: Math.round(base.ambientFar * 0.55),
+    ambientNear: Math.round(base.ambientNear * 0.55),
+    hubs: Math.max(2, Math.round(base.hubs * 0.75)),
+    connectionDistance: Math.round(base.connectionDistance * 0.9),
+    maxPulses: Math.round(base.maxPulses * 0.6),
+  };
+}
+
 function readThemeColors(): ThemePalette {
   const styles = getComputedStyle(document.documentElement);
   const pick = (name: string, fallback: string) =>
@@ -341,15 +358,18 @@ const ParticleBackground: React.FC = () => {
     if (!ctx) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const settings = CONFIG[theme];
-    const connectionDistance = settings.connectionDistance;
-    const connectionDistanceSq = connectionDistance * connectionDistance;
+    let settings = getParticleSettings(theme, window.innerWidth);
+    let connectionDistance = settings.connectionDistance;
+    let connectionDistanceSq = connectionDistance * connectionDistance;
     const isLight = theme === "light";
 
     let colors = readThemeColors();
     let backgroundGradient = ctx.createLinearGradient(0, 0, 0, 1);
     const gridCanvas = document.createElement("canvas");
     const gridCtx = gridCanvas.getContext("2d");
+    let animationId = 0;
+    let isLooping = false;
+    let wasIntersecting = true;
 
     const rebuildBackgroundGradient = (height: number) => {
       backgroundGradient = ctx.createLinearGradient(0, 0, 0, height);
@@ -418,11 +438,15 @@ const ParticleBackground: React.FC = () => {
     };
 
     const resizeCanvas = () => {
-      const newWidth = window.innerWidth;
-      const newHeight = window.innerHeight;
+      const parent = canvas.parentElement;
+      const newWidth = Math.max(1, parent?.clientWidth || window.innerWidth);
+      const newHeight = Math.max(1, parent?.clientHeight || window.innerHeight);
       canvasSizeRef.current = { width: newWidth, height: newHeight };
       canvas.width = newWidth;
       canvas.height = newHeight;
+      settings = getParticleSettings(theme, newWidth);
+      connectionDistance = settings.connectionDistance;
+      connectionDistanceSq = connectionDistance * connectionDistance;
       colors = readThemeColors();
       rebuildBackgroundGradient(newHeight);
       rebuildGridCache(newWidth, newHeight);
@@ -479,8 +503,6 @@ const ParticleBackground: React.FC = () => {
       return;
     }
 
-    let animationId = 0;
-
     const spawnPulse = (from: number, to: number, horizontalFirst: boolean) => {
       if (pulsesRef.current.length >= settings.maxPulses) return;
       pulsesRef.current.push({
@@ -495,7 +517,8 @@ const ParticleBackground: React.FC = () => {
 
     const animate = (time: number) => {
       if (!isActiveRef.current) {
-        animationId = requestAnimationFrame(animate);
+        isLooping = false;
+        animationId = 0;
         return;
       }
 
@@ -645,11 +668,23 @@ const ParticleBackground: React.FC = () => {
       animationId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame(animate);
+    const startLoop = () => {
+      if (isLooping || !isActiveRef.current) return;
+      isLooping = true;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    const syncActiveState = (visible: boolean) => {
+      wasIntersecting = visible;
+      isActiveRef.current = visible && document.visibilityState === "visible";
+      if (isActiveRef.current) startLoop();
+    };
+
+    syncActiveState(true);
 
     const handleResize = () => resizeCanvas();
     const handleVisibility = () => {
-      isActiveRef.current = document.visibilityState === "visible";
+      syncActiveState(wasIntersecting);
     };
     const handlePointerMove = (event: MouseEvent) => {
       if (!isActiveRef.current) return;
@@ -668,7 +703,7 @@ const ParticleBackground: React.FC = () => {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        isActiveRef.current = entry.isIntersecting && document.visibilityState === "visible";
+        syncActiveState(entry.isIntersecting);
       },
       { threshold: 0.05 },
     );
@@ -685,6 +720,8 @@ const ParticleBackground: React.FC = () => {
       window.removeEventListener("mousemove", handlePointerMove);
       window.removeEventListener("mouseout", handlePointerLeave);
       observer.disconnect();
+      isActiveRef.current = false;
+      isLooping = false;
       cancelAnimationFrame(animationId);
     };
   }, [theme]);

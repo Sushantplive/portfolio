@@ -5,11 +5,18 @@ import "./frontLine.css";
 
 const heroStats = [
   { value: "8+", label: "Years Experience" },
+  { value: "8", label: "Engineers Led" },
   { value: "3", label: "Global Clients" },
-  { value: "Banking", label: "Enterprise Focus" },
 ];
 
-const heroStack = ["React", "TypeScript", "Highcharts", "D3.js", "GraphQL"];
+const heroStack = [
+  "React",
+  "TypeScript",
+  "Next.js",
+  "GraphQL",
+  "Highcharts",
+  "D3.js",
+];
 
 const FrontLine: React.FC = () => {
   const projectStats = useMemo(() => {
@@ -36,13 +43,44 @@ const FrontLine: React.FC = () => {
             </p>
 
             <h1 className="hero-title">
-              Hello, I&apos;m{" "}
-              <span className="hero-title__name">Sushant.</span>
+              <span className="hero-title__greeting">
+                <span className="hero-title__word">
+                  <span
+                    className="hero-title__word-inner"
+                    style={{ "--reveal-delay": "40ms" } as React.CSSProperties}
+                  >
+                    Hello,
+                  </span>
+                </span>
+                <span className="hero-title__word">
+                  <span
+                    className="hero-title__word-inner"
+                    style={{ "--reveal-delay": "130ms" } as React.CSSProperties}
+                  >
+                    I&apos;m
+                  </span>
+                </span>
+              </span>
+              <span className="hero-title__name">
+                <span className="hero-title__word hero-title__word--name">
+                  <span
+                    className="hero-title__word-inner hero-title__word-inner--name"
+                    style={{ "--reveal-delay": "240ms" } as React.CSSProperties}
+                  >
+                    Sushant.
+                  </span>
+                </span>
+              </span>
             </h1>
 
-            <p className="hero-tagline">I ship React dashboards for global banks.</p>
+            <p className="hero-tagline">
+              I build React &amp; TypeScript dashboards for data-heavy products.
+            </p>
 
-            <p className="hero-human">Based in Pune · open to remote with global teams</p>
+            <p className="hero-human">
+              Analytics UIs, chart-heavy platforms, and reusable component systems — trusted by
+              teams at US Bank, HSBC, and HPE.
+            </p>
 
             <div className="hero-stack" aria-label="Core technologies">
               {heroStack.map((tech) => (
@@ -93,12 +131,22 @@ const FrontLine: React.FC = () => {
               ))}
             </div>
 
+            <div className="hero-panel__clients">
+              <p className="hero-panel__clients-label">Recent clients</p>
+              <div className="hero-panel__clients-tags">
+                <span className="hero-panel__clients-tag">US Bank</span>
+                <span className="hero-panel__clients-tag">HSBC</span>
+                <span className="hero-panel__clients-tag">HPE</span>
+              </div>
+            </div>
+
             <div className="hero-panel__availability">
               <span className="hero-panel__availability-dot" aria-hidden="true" />
               <div>
                 <p className="hero-panel__availability-title">Open to Opportunities</p>
                 <div className="hero-panel__availability-tags">
                   <span className="hero-panel__availability-tag">Remote &amp; global teams</span>
+                  <span className="hero-panel__availability-tag">Product · SaaS · Enterprise</span>
                   <span className="hero-panel__availability-tag">3-month notice · negotiable</span>
                 </div>
               </div>

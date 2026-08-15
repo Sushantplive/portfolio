@@ -105,14 +105,30 @@
   box-shadow: 0 2px 8px rgba(8, 145, 178, 0.1);
 }
 
-[data-theme="light"] #hero .hero-title {
-  color: var(--color-heading);
+[data-theme="light"] #hero .hero-title__greeting {
+  color: var(--color-accent-muted);
+}
+
+[data-theme="light"] #hero .hero-title__word-inner--name {
+  background: linear-gradient(
+    110deg,
+    #0e7490 0%,
+    #0891b2 28%,
+    #0284c7 52%,
+    #38bdf8 72%,
+    #0891b2 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 [data-theme="light"] #hero .hero-title__name {
-  background: linear-gradient(115deg, #0891b2 0%, #0284c7 45%, #6366f1 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  filter: drop-shadow(0 8px 18px rgba(8, 145, 178, 0.18));
+}
+
+[data-theme="light"] #hero .hero-title__name::after {
+  background: linear-gradient(90deg, rgba(8, 145, 178, 0.9), rgba(14, 165, 233, 0.35), transparent);
 }
 
 [data-theme="light"] #hero .hero-tagline {
@@ -184,6 +200,16 @@
   border-color: var(--color-border-strong);
 }
 
+[data-theme="light"] #hero .hero-panel__clients-label {
+  color: var(--color-accent);
+}
+
+[data-theme="light"] #hero .hero-panel__clients-tag {
+  color: var(--color-accent-muted);
+  background: #e0f2fe;
+  border-color: rgba(8, 145, 178, 0.32);
+}
+
 [data-theme="light"] #hero .hero-panel__availability {
   background: linear-gradient(135deg, #d1fae5, #ffffff);
   border-color: rgba(16, 185, 129, 0.38);
@@ -205,6 +231,14 @@
 [data-theme="light"] #about .about-paragraph,
 [data-theme="light"] #about .about-education__field {
   color: var(--color-text-muted);
+}
+
+[data-theme="light"] #about .about-lede {
+  color: #0f172a;
+}
+
+[data-theme="light"] #about .about-paragraph--muted {
+  color: var(--color-text-subtle);
 }
 
 [data-theme="light"] #about .about-title,
@@ -255,13 +289,34 @@
   color: var(--color-text-subtle);
 }
 
-[data-theme="light"] #about .about-image-wrap,
-[data-theme="light"] #about .about-profile-card,
+[data-theme="light"] #about .about-portrait,
 [data-theme="light"] #about .about-copy-panel,
 [data-theme="light"] #about .about-education__card,
 [data-theme="light"] #about .about-fact {
   background: var(--color-card-bg-deep);
   border-color: var(--color-border-strong);
+}
+
+[data-theme="light"] #about .about-portrait {
+  box-shadow: var(--surface-shadow);
+}
+
+[data-theme="light"] #about .about-portrait:hover {
+  border-color: rgba(8, 145, 178, 0.45);
+  box-shadow: var(--surface-shadow);
+}
+
+[data-theme="light"] #about .about-image-wrap {
+  background: #e2e8f0;
+}
+
+[data-theme="light"] #about .about-image-wrap::after {
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.88), transparent);
+}
+
+[data-theme="light"] #about .about-profile-card {
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+  border-top-color: rgba(148, 163, 184, 0.28);
 }
 
 [data-theme="light"] #about .about-education,
@@ -391,21 +446,32 @@
 }
 
 [data-theme="light"] #tech-stack .tech-stack-intro,
-[data-theme="light"] #tech-stack .tech-stack-panel__note {
+[data-theme="light"] #tech-stack .tech-stack-note,
+[data-theme="light"] #tech-stack .tech-stack-group__blurb,
+[data-theme="light"] #tech-stack .tech-stack-primary__blurb {
   color: var(--color-text-muted);
 }
 
-[data-theme="light"] #tech-stack .tech-stack-panel {
+[data-theme="light"] #tech-stack .tech-stack-primary {
+  background:
+    linear-gradient(135deg, rgba(8, 145, 178, 0.12), transparent 45%),
+    var(--color-card-bg-deep);
+  border-color: rgba(8, 145, 178, 0.38);
+  box-shadow: var(--surface-shadow);
+}
+
+[data-theme="light"] #tech-stack .tech-stack-primary__eyebrow,
+[data-theme="light"] #tech-stack .tech-stack-groups__heading {
+  color: var(--color-accent);
+}
+
+[data-theme="light"] #tech-stack .tech-stack-group {
   background: var(--color-card-bg-deep);
   border-color: var(--color-border-strong);
 }
 
-[data-theme="light"] #tech-stack .tech-stack-row {
-  border-bottom-color: rgba(100, 116, 139, 0.22);
-}
-
-[data-theme="light"] #tech-stack .tech-stack-row__label {
-  color: var(--color-accent-light);
+[data-theme="light"] #tech-stack .tech-stack-group__title {
+  color: #0f172a;
 }
 
 [data-theme="light"] #tech-stack .tech-stack-chip {
@@ -417,7 +483,8 @@
 [data-theme="light"] #tech-stack .tech-stack-chip--primary {
   color: var(--color-accent-muted);
   background: #e0f2fe;
-  border-color: rgba(8, 145, 178, 0.38);
+  border-color: rgba(8, 145, 178, 0.45);
+  box-shadow: none;
 }
 
 /* Projects */

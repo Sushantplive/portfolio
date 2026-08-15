@@ -92,7 +92,8 @@ const Experience: React.FC = () => {
           &lt;Experience /&gt;
         </h2>
         <p className="experience-intro text-lg mb-8 md:mb-10">
-          Employers and client engagements across banking, analytics, and infrastructure monitoring.
+          Employers and client engagements across enterprise platforms, analytics products, and
+          infrastructure monitoring.
         </p>
 
         <div className="experience-timeline">
