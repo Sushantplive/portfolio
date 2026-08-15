@@ -139,18 +139,6 @@ const FrontLine: React.FC = () => {
                 <span className="hero-panel__clients-tag">HPE</span>
               </div>
             </div>
-
-            <div className="hero-panel__availability">
-              <span className="hero-panel__availability-dot" aria-hidden="true" />
-              <div>
-                <p className="hero-panel__availability-title">Open to Opportunities</p>
-                <div className="hero-panel__availability-tags">
-                  <span className="hero-panel__availability-tag">Remote &amp; global teams</span>
-                  <span className="hero-panel__availability-tag">Product · SaaS · Enterprise</span>
-                  <span className="hero-panel__availability-tag">3-month notice · negotiable</span>
-                </div>
-              </div>
-            </div>
           </aside>
         </div>
 
