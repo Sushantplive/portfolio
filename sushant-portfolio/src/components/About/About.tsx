@@ -3,11 +3,11 @@ import TechStack from "../TechStack/TechStack";
 import "./about.css";
 
 const focusAreas = [
-  "React & TypeScript",
-  "Data Visualization",
   "Enterprise Dashboards",
+  "Data Visualization",
+  "Product & SaaS UIs",
+  "Frontend Leadership",
   "Component Systems",
-  "Performance",
 ];
 
 const About: React.FC = () => {
@@ -21,39 +21,65 @@ const About: React.FC = () => {
           &lt;About Me /&gt;
         </h2>
         <p className="about-intro text-lg mb-8 md:mb-10">
-          Frontend tech lead with 8+ years shipping enterprise dashboards for global banking clients.
+          Hands-on Technology Lead — I own frontend architecture, mentoring, and production delivery
+          for data-heavy products.
         </p>
 
         <div className="about-layout">
           <div className="about-profile">
-            <div className="about-image-wrap">
-              <img
-                src="/profile3.jpeg"
-                alt="Sushant Paikarao"
-                className="about-image"
-              />
-            </div>
-            <div className="about-profile-card">
-              <p className="about-profile-card__name">Sushant Paikarao</p>
-              <p className="about-profile-card__role">Technology Lead</p>
-              <p className="about-profile-card__location">Pune, India</p>
-            </div>
+            <figure className="about-portrait">
+              <div className="about-image-wrap">
+                <img
+                  src="/profile3.jpeg"
+                  alt="Sushant Paikarao, Technology Lead"
+                  className="about-image"
+                  width={560}
+                  height={700}
+                  decoding="async"
+                  fetchPriority="low"
+                />
+              </div>
+              <figcaption className="about-profile-card">
+                <p className="about-profile-card__name">Sushant Paikarao</p>
+                <p className="about-profile-card__role">Technology Lead · Synechron</p>
+                <p className="about-profile-card__location">Pune, India · Open to remote</p>
+              </figcaption>
+            </figure>
           </div>
 
           <div className="about-copy-panel">
+            <p className="about-lede">
+              I build with{" "}
+              <span className="about-highlight">React</span> and{" "}
+              <span className="about-highlight">TypeScript</span>: analytics dashboards,
+              chart-driven UIs, and reusable component systems that scale across product, SaaS, and
+              enterprise teams.
+            </p>
+
             <p className="about-paragraph">
-              I build React and TypeScript interfaces for data-heavy products — analytics dashboards,
-              reusable component systems, and chart-driven UIs for US Bank, HSBC, and HPE. I use AI
-              coding tools (Copilot, Cursor, Windsurf) to ship faster; architecture and reviews stay
-              human-led.
+              Across 8+ years at{" "}
+              <span className="about-highlight">US Bank</span>,{" "}
+              <span className="about-highlight">HSBC</span>, and{" "}
+              <span className="about-highlight">HPE</span>, I&apos;ve shipped teller workflows, GPS
+              Insights analytics (led a team of 8), and Highcharts telemetry dashboards. That
+              experience transfers cleanly to any team that needs performant, reliable frontends.
+            </p>
+
+            <p className="about-paragraph about-paragraph--muted">
+              I use AI coding tools (Copilot, Cursor, Windsurf) to move faster — architecture and
+              code review stay human-led.
             </p>
 
             <div className="about-education">
               <p className="about-education__label">Education</p>
               <div className="about-education__card">
-                <h3 className="about-education__degree">Bachelor of Engineering (B.E.)</h3>
-                <p className="about-education__field">Electronics &amp; Telecommunication Engineering</p>
-                <p className="about-education__school">Babasaheb Naik College of Engineering</p>
+                <div className="about-education__main">
+                  <h3 className="about-education__degree">Bachelor of Engineering (B.E.)</h3>
+                  <p className="about-education__field">
+                    Electronics &amp; Telecommunication Engineering
+                  </p>
+                  <p className="about-education__school">Babasaheb Naik College of Engineering</p>
+                </div>
                 <p className="about-education__year">Class of 2014</p>
               </div>
             </div>

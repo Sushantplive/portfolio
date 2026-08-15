@@ -10,39 +10,56 @@ const TechStack: React.FC = () => {
           &lt;Skills &amp; Tech Stack /&gt;
         </h3>
         <p className="tech-stack-intro">
-          Technologies I use in production for enterprise dashboards and analytics platforms.
+          Primary stack reflects what I use most on client projects — plus skills recruiters
+          search for. Complementary skills are grouped below.
         </p>
       </header>
 
-      <div className="tech-stack-panel">
-        <div className="tech-stack-row tech-stack-row--primary">
-          <p className="tech-stack-row__label">Primary stack</p>
-          <ul className="tech-stack-row__skills" aria-label="Primary stack">
-            {primaryStack.map((skill) => (
-              <li key={skill}>
-                <span className="tech-stack-chip tech-stack-chip--primary">{skill}</span>
-              </li>
-            ))}
-          </ul>
+      <div className="tech-stack-primary" aria-labelledby="tech-stack-primary-heading">
+        <div className="tech-stack-primary__header">
+          <p id="tech-stack-primary-heading" className="tech-stack-primary__eyebrow">
+            Primary tech stack
+          </p>
+          <p className="tech-stack-primary__blurb">
+            Day-to-day stack for enterprise dashboards and analytics products — strong fit for
+            product, SaaS, and enterprise frontend roles.
+          </p>
         </div>
-
-        {techStackCategories.map((category) => (
-          <div key={category.id} className="tech-stack-row">
-            <p className="tech-stack-row__label">{category.title}</p>
-            <ul className="tech-stack-row__skills" aria-label={category.title}>
-              {category.skills.map((skill) => (
-                <li key={skill}>
-                  <span className="tech-stack-chip">{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-
-        <p className="tech-stack-panel__note">
-          AI tools speed delivery — architecture and code review stay human-led.
-        </p>
+        <ul className="tech-stack-primary__list" aria-label="Primary tech stack">
+          {primaryStack.map((skill) => (
+            <li key={skill}>
+              <span className="tech-stack-chip tech-stack-chip--primary">{skill}</span>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      <div className="tech-stack-groups">
+        <p className="tech-stack-groups__heading">Skill groups</p>
+        <div className="tech-stack-groups__grid">
+          {techStackCategories.map((category) => (
+            <article key={category.id} className="tech-stack-group" aria-labelledby={`tech-group-${category.id}`}>
+              <header className="tech-stack-group__header">
+                <h4 id={`tech-group-${category.id}`} className="tech-stack-group__title">
+                  {category.title}
+                </h4>
+                <p className="tech-stack-group__blurb">{category.blurb}</p>
+              </header>
+              <ul className="tech-stack-group__skills" aria-label={category.title}>
+                {category.skills.map((skill) => (
+                  <li key={skill}>
+                    <span className="tech-stack-chip">{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <p className="tech-stack-note">
+        AI tools speed delivery — architecture and code review stay human-led.
+      </p>
     </section>
   );
 };
