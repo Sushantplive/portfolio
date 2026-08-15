@@ -60,9 +60,9 @@ export const projects: Project[] = [
     name: "Common Transaction",
     company: "US Bank",
     category: "professional",
-    desc: "Front-end development for the Common Transaction module within US Bank's Trade and Receivables Finance (TCR) platform — enabling standardized transaction processing, validation, and workflow management across trade finance operations.",
+    desc: "Worked on the Common Transactions module of a Teller Cash Recycler (TCR) application that integrates with TCR devices to support teller operations such as Deposit, Multi-Deposit, Night Drop, Withdrawal, and Reversal. Built reusable React components and transaction workflows, implemented validations and state management, integrated backend APIs, handled device responses and transaction statuses, and provided appropriate success/error flows to the teller.",
     impact:
-      "Delivering the Common Transaction module within TCR to support standardized financial transaction flows for US Bank's trade and receivables operations.",
+      "Delivering the Common Transactions module of US Bank's Teller Cash Recycler application, powering teller operations such as Deposit, Multi-Deposit, Night Drop, Withdrawal, and Reversal.",
     role: "Technology Lead",
     techStack: [
       "React",
@@ -76,8 +76,8 @@ export const projects: Project[] = [
     ],
     highlights: [
       "Building React and Next.js front-end modules for the Common Transaction feature within the TCR platform.",
-      "Engineering UIs for standardized transaction capture, validation, and processing workflows.",
-      "Integrating GraphQL with Apollo Client and REST APIs to connect Common Transaction flows with backend TCR services.",
+      "Engineering teller transaction workflows — Deposit, Multi-Deposit, Night Drop, Withdrawal, and Reversal — with validations and state management.",
+      "Integrating GraphQL with Apollo Client and REST APIs, handling TCR device responses, transaction statuses, and success/error flows for tellers.",
       "Managing the full feature lifecycle from development and testing through QA validation and production deployment.",
       "Working within GitLab-based workflows to maintain code quality, maintainability, and long-term engineering standards.",
     ],
@@ -95,8 +95,8 @@ export const projects: Project[] = [
           detail: "GraphQL queries and REST endpoints for capture, validation, and submission flows.",
         },
         {
-          title: "TCR Platform Services",
-          detail: "Backend trade finance services handling standardized transaction processing.",
+          title: "TCR Device & Platform Services",
+          detail: "Backend services integrating with Teller Cash Recycler devices for deposits, withdrawals, and reversals.",
         },
       ],
       performance: [
@@ -446,7 +446,7 @@ export const projects: Project[] = [
     desc: "Personal portfolio site built with Vite and React to showcase enterprise experience, projects, skills, and recruiter-ready contact details.",
     impact:
       "Live portfolio at sushdream.in highlighting 8+ years of frontend leadership across US Bank, HSBC, and HPE engagements.",
-    techStack: ["Vite", "React", "TypeScript", "Tailwind CSS", "react-tsparticles"],
+    techStack: ["Vite", "React", "TypeScript", "Tailwind CSS", "Canvas API"],
     highlights: [
       "Built a responsive single-page portfolio with Vite, React, and TypeScript.",
       "Implemented mobile navigation, structured experience/projects sections, and SEO meta tags with Open Graph support.",

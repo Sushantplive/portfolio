@@ -50,12 +50,11 @@ src/
 | `typescript` | Type safety |
 | `vite` | Build tool with HMR |
 | `tailwindcss` v4 | Utility-first CSS |
-| `react-slick` + `slick-carousel` | Projects carousel |
 | `react-icons` | SVG icon library |
 
 ## Resume Download
 
-Place your resume at `public/Sushant_Paikarao_Resume.pdf`.
+Place your resume at `public/Sushant_Paikarao_Frontend_dev.pdf`.
 The **Hire Me** button (navbar + hero) will trigger a direct browser download.
 
 ## License

@@ -36,22 +36,32 @@ const experiences: ExperienceEntry[] = [
       {
         client: "US Bank",
         duration: "Apr 2026 – Present",
-        project: "Common Transaction · TCR Platform",
+        project: "Common Transactions · Teller Cash Recycler (TCR)",
         isCurrent: true,
         highlights: [
-          "Building Common Transaction UIs for trade finance capture, validation, and processing.",
-          "Integrating GraphQL (Apollo) and REST APIs with backend TCR services.",
+          "Building Common Transactions UIs for teller operations — Deposit, Multi-Deposit, Night Drop, Withdrawal, and Reversal.",
+          "Integrating GraphQL (Apollo) and REST APIs, handling TCR device responses and transaction statuses.",
           "Owning feature delivery through QA and production in GitLab workflows.",
         ],
       },
       {
         client: "HSBC",
         duration: "Jan 2023 – Mar 2026",
-        project: "OMNIA · GPS Insights & Trade Finance",
+        project: "OMNIA · GPS Insights",
         highlights: [
           "Led an 8-engineer frontend team on GPS Insights analytics dashboards.",
           "Delivered KPI cards, trend charts, and drill-down reporting (MTD / YTD).",
           "Optimized chart-heavy performance and shipped regulatory-compliant releases.",
+        ],
+      },
+      {
+        client: "HSBC",
+        duration: "Apr 2022 – Dec 2022",
+        project: "Global Trade and Receivables Finance (GTRF)",
+        highlights: [
+          "Delivered UIs for 5 core Accounts Receivable user stories in Release 9, including customer guarantee issuance.",
+          "Integrated RESTful APIs to support financial workflows and streamline internal operations.",
+          "Improved code quality and maintainability through SonarQube remediation across modules.",
         ],
       },
     ],
@@ -121,7 +131,7 @@ const Experience: React.FC = () => {
                     <div className="experience-client-grid">
                       {entry.clients.map((engagement) => (
                         <div
-                          key={engagement.client}
+                          key={`${engagement.client}-${engagement.project}`}
                           className={`experience-client-card ${
                             engagement.isCurrent ? "experience-client-card--current" : ""
                           }`}
