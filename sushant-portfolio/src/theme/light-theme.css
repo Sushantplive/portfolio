@@ -320,8 +320,7 @@
 }
 
 [data-theme="light"] #about .about-education,
-[data-theme="light"] #about .about-focus,
-[data-theme="light"] #about .about-tech-stack {
+[data-theme="light"] #about .about-focus {
   border-top-color: rgba(148, 163, 184, 0.35);
 }
 
@@ -543,6 +542,24 @@
 
 [data-theme="light"] #projects .project-brief-metric__arrow {
   color: #059669;
+}
+
+[data-theme="light"] #projects .project-brief-metric {
+  border-color: rgba(8, 145, 178, 0.28);
+  background: #f0f9ff;
+}
+
+[data-theme="light"] #projects .project-impact--lead {
+  border-color: rgba(8, 145, 178, 0.3);
+  background: linear-gradient(120deg, #ecfeff, #e0f2fe);
+}
+
+[data-theme="light"] #projects .project-impact--lead .project-impact__label {
+  color: #0e7490;
+}
+
+[data-theme="light"] #projects .project-impact--lead .project-impact__text {
+  color: #0f172a;
 }
 
 [data-theme="light"] #projects .project-tech__chip,
