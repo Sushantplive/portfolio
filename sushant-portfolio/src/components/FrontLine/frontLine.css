@@ -17,6 +17,12 @@
   z-index: 0;
 }
 
+#hero .hero-bg__orbs,
+#hero .hero-bg__shine {
+  display: none;
+  pointer-events: none;
+}
+
 #hero .hero-bg__overlay {
   position: absolute;
   inset: 0;
@@ -219,6 +225,11 @@
   font-size: 0.95rem;
   line-height: 1.6;
   color: rgba(148, 163, 184, 0.95);
+}
+
+#hero .hero-client-name {
+  color: #e0f2fe;
+  font-weight: 700;
 }
 
 #hero .hero-stack {

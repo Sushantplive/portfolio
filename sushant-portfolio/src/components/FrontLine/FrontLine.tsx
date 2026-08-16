@@ -31,6 +31,8 @@ const FrontLine: React.FC = () => {
     <section id="hero" className="hero-section">
       <div className="hero-bg" aria-hidden="true">
         <ParticleBackground />
+        <div className="hero-bg__orbs" />
+        <div className="hero-bg__shine" />
         <div className="hero-bg__overlay" />
       </div>
 
@@ -79,7 +81,9 @@ const FrontLine: React.FC = () => {
 
             <p className="hero-human">
               Analytics UIs, chart-heavy platforms, and reusable component systems — trusted by
-              teams at US Bank, HSBC, and HPE.
+              teams at <span className="hero-client-name">US Bank</span>,{" "}
+              <span className="hero-client-name">HSBC</span>, and{" "}
+              <span className="hero-client-name">HPE</span>.
             </p>
 
             <div className="hero-stack" aria-label="Core technologies">

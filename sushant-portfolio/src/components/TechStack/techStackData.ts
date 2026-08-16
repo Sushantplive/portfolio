@@ -32,7 +32,6 @@ export const techStackCategories: TechCategory[] = [
       "CSS3",
       "Tailwind CSS",
       "Styled Components",
-      "Webpack",
     ],
   },
   {
@@ -45,13 +44,25 @@ export const techStackCategories: TechCategory[] = [
     id: "apis-state",
     title: "APIs & State",
     blurb: "Data fetching and client state patterns",
-    skills: ["Apollo Client", "Context API", "Express.js", "MongoDB"],
+    skills: ["Redux", "Apollo Client", "Context API", "Express.js", "MongoDB"],
+  },
+  {
+    id: "test-frameworks",
+    title: "Test Frameworks",
+    blurb: "Unit and component tests for React UIs",
+    skills: ["Jest", "React Testing Library"],
+  },
+  {
+    id: "build-tools",
+    title: "Build Tools",
+    blurb: "Bundling, tooling, and package workflows",
+    skills: ["Vite", "Webpack", "npm"],
   },
   {
     id: "quality-delivery",
-    title: "Quality & Delivery",
-    blurb: "Testing, CI, and release workflows",
-    skills: ["Jest", "React Testing Library", "Git", "GitLab CI", "Jenkins CI/CD"],
+    title: "Delivery & CI",
+    blurb: "Version control, CI, and delivery process",
+    skills: ["Git", "GitLab CI", "Jenkins CI/CD", "Jira", "Agile"],
   },
   {
     id: "ai-tools",

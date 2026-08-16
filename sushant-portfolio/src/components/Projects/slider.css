@@ -323,8 +323,6 @@
   font-size: 0.82rem;
   font-weight: 600;
   color: rgba(148, 163, 184, 0.9);
-  text-decoration: line-through;
-  text-decoration-color: rgba(148, 163, 184, 0.55);
 }
 
 #projects .project-brief-metric__arrow {
@@ -460,6 +458,17 @@
   color: rgba(226, 232, 240, 0.92);
 }
 
+[data-theme="light"] #projects .project-detail-card__title,
+[data-theme="light"] #projects .project-list-item__name {
+  color: #0c4a6e;
+}
+
+[data-theme="light"] #projects .project-detail-card__company,
+[data-theme="light"] #projects .project-list-item__company {
+  color: #155e75;
+  font-weight: 700;
+}
+
 #projects .project-detail-card__desc {
   margin: 0;
   font-size: 0.92rem;
@@ -531,6 +540,12 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(165, 243, 252, 0.88);
+}
+
+[data-theme="light"] #projects .project-impact__label,
+[data-theme="light"] #projects .project-tech__label,
+[data-theme="light"] #projects .project-highlights-block__label {
+  color: #0c4a6e;
 }
 
 #projects .project-detail-card--personal .project-impact__label,
