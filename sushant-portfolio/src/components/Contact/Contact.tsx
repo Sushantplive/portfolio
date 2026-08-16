@@ -4,9 +4,9 @@ import { FaXTwitter } from "react-icons/fa6";
 import "./contact.css";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/sushantpaikarao/";
-const PHONE_DISPLAY = "+91 81421 74853";
-const PHONE_TEL = "+918142174853";
-const WHATSAPP_URL = "https://wa.me/918142174853";
+const PHONE_DISPLAY = "+91 70575 72242";
+const PHONE_TEL = "+917057572242";
+const WHATSAPP_URL = "https://wa.me/917057572242";
 
 const Contact: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <p className="text-gray-400 mb-1">Work Preference</p>
-              <p className="text-white font-semibold">Remote &amp; global teams</p>
+              <p className="text-white font-semibold">Remote, hybrid, or on-site</p>
             </div>
             <div>
               <p className="text-gray-400 mb-1">Notice Period</p>

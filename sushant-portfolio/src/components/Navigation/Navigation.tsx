@@ -7,15 +7,14 @@ const navLinks = [
   { id: "tech-stack", label: "Skills" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
-  { id: "blog", label: "Blog" },
   { id: "contact", label: "Contact" },
 ];
 
 const sectionIds = ["hero", ...navLinks.map((link) => link.id)];
 
 const resumeLink = {
-  href: "/Sushant_Paikarao_Frontend_dev.pdf",
-  download: "Sushant_Paikarao_Frontend_dev.pdf",
+  href: "/Sushant_Paikarao_Lead_Frontend_Engineer.pdf",
+  download: "Sushant_Paikarao_Lead_Frontend_Engineer.pdf",
   label: "Resume",
 };
 

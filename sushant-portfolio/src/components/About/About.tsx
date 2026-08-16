@@ -20,8 +20,8 @@ const About: React.FC = () => {
           &lt;About Me /&gt;
         </h2>
         <p className="about-intro text-lg mb-8 md:mb-10">
-          Hands-on Technology Lead — I own frontend architecture, mentoring, and production delivery
-          for data-heavy products.
+          I lead frontend architecture and delivery — mentoring engineers while still shipping the
+          critical path myself.
         </p>
 
         <div className="about-layout">
@@ -41,7 +41,9 @@ const About: React.FC = () => {
               <figcaption className="about-profile-card">
                 <p className="about-profile-card__name">Sushant Paikarao</p>
                 <p className="about-profile-card__role">Technology Lead · Synechron</p>
-                <p className="about-profile-card__location">Pune, India · Open to remote</p>
+                <p className="about-profile-card__location">
+                  Based in Pune, India · Open to remote, hybrid, or on-site
+                </p>
               </figcaption>
             </figure>
           </div>

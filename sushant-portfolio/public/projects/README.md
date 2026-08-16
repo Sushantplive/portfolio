@@ -22,15 +22,6 @@ Folder: `public/expansetracker/`
 
 Optional: `expanse_tracker_login.png`
 
-## Portfolio Website
-Folder: `public/projects/portfolio/`
-
-| File | Screen |
-|------|--------|
-| `hero.png` | Hero + navigation |
-| `projects-section.png` | Projects section |
-| `contact.png` | Contact section |
-
 ## Tips
 - PNG or WebP, ~1200–1600px wide
 - Use demo data only

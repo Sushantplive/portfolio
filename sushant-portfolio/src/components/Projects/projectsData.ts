@@ -101,16 +101,16 @@ export const projects: Project[] = [
       ],
       performance: [
         {
-          label: "Multi-step workflow render time",
-          before: "~2.6s",
-          after: "~1.0s",
-          note: "Improved via code-splitting, memoized form sections, and lighter initial payloads.",
+          label: "Multi-step workflow",
+          before: "Full bundle per step",
+          after: "Split, memoized steps",
+          note: "Code-splitting, memoized form sections, and lighter initial payloads.",
         },
         {
-          label: "Validation feedback latency",
-          before: "~1.4s",
-          after: "~450ms",
-          note: "Reduced round-trips with optimized API orchestration and cached reference data.",
+          label: "Validation feedback",
+          before: "Extra API round-trips",
+          after: "Cached reference data",
+          note: "Fewer network hops for field checks by orchestrating APIs and caching lookup data.",
         },
       ],
       deliverySignals: [
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     },
   },
   {
-    name: "OMNIA – GPS Insights Dashboard (HSBC)",
+    name: "OMNIA – GPS Insights Dashboard",
     company: "HSBC",
     category: "professional",
     desc: "Developed and enhanced the GPS Insights analytics dashboard within HSBC’s OMNIA platform, enabling internal banking teams to analyze portfolio balances, transaction volumes, billed revenue, and industry-level performance through interactive visualizations.",
@@ -173,19 +173,19 @@ export const projects: Project[] = [
       ],
       performance: [
         {
-          label: "Initial chart dashboard load",
-          before: "~4.1s",
-          after: "~1.5s",
+          label: "Chart dashboard load",
+          before: "Uncontrolled redraws",
+          after: "Memoized chart updates",
           note: "Memoization, controlled re-renders, and optimized chart update paths.",
         },
         {
-          label: "Filter-driven refresh cycle",
-          before: "~2.3s",
-          after: "~850ms",
-          note: "Efficient state updates and reduced unnecessary component re-rendering.",
+          label: "Filter-driven refresh",
+          before: "Full tree refresh",
+          after: "Targeted state updates",
+          note: "Efficient state updates and fewer unnecessary component re-renders.",
         },
         {
-          label: "Large table interaction smoothness",
+          label: "Large table interaction",
           before: "Janky scroll",
           after: "Stable UX",
           note: "Structured rendering patterns for high-volume financial datasets.",
@@ -240,9 +240,9 @@ export const projects: Project[] = [
       ],
       performance: [
         {
-          label: "SonarQube compliance score",
-          before: "Baseline",
-          after: "+25%",
+          label: "SonarQube compliance",
+          before: "Review debt",
+          after: "Cleaner modules",
           note: "Code quality uplift through structured reviews and remediation across modules.",
         },
         {
@@ -304,9 +304,9 @@ export const projects: Project[] = [
       ],
       performance: [
         {
-          label: "Large telemetry dataset render",
-          before: "~3.8s",
-          after: "~1.4s",
+          label: "Large telemetry dataset",
+          before: "Heavy chart payload",
+          after: "Optimized Highcharts path",
           note: "Optimized chart rendering and state handling for high-volume monitoring data.",
         },
         {
@@ -436,63 +436,6 @@ export const projects: Project[] = [
         "Budget and category tracking",
         "Live demo deployed",
         "Full-stack CRUD flows",
-      ],
-    },
-  },
-  {
-    name: "Portfolio Website",
-    company: "Personal Project",
-    category: "personal",
-    desc: "Personal portfolio site built with Vite and React to showcase enterprise experience, projects, skills, and recruiter-ready contact details.",
-    impact:
-      "Live portfolio at sushdream.in highlighting 8+ years of frontend leadership across US Bank, HSBC, and HPE engagements.",
-    techStack: ["Vite", "React", "TypeScript", "Tailwind CSS", "Canvas API"],
-    highlights: [
-      "Built a responsive single-page portfolio with Vite, React, and TypeScript.",
-      "Implemented mobile navigation, structured experience/projects sections, and SEO meta tags with Open Graph support.",
-      "Designed interactive UI with particle backgrounds, custom styling, and accessibility-focused section navigation.",
-    ],
-    github: "https://github.com/Sushantplive/portfolio",
-    live: "https://sushdream.in/",
-    personalShowcase: {
-      intro:
-        "This portfolio itself — built with Vite and React, optimized for recruiters and mobile navigation.",
-      screenshots: [
-        {
-          src: "/projects/portfolio/hero.png",
-          alt: "Portfolio website hero section",
-          caption: "Hero section with role positioning and call-to-action buttons.",
-        },
-        {
-          src: "/projects/portfolio/projects-section.png",
-          alt: "Portfolio projects section",
-          caption: "Projects section with enterprise and personal delivery proof.",
-        },
-        {
-          src: "/projects/portfolio/contact.png",
-          alt: "Portfolio contact section",
-          caption: "Contact section with email, phone, LinkedIn, and availability details.",
-        },
-      ],
-      architecture: [
-        {
-          title: "Vite + React + TypeScript",
-          detail: "Single-page portfolio with section navigation and responsive layouts.",
-        },
-        {
-          title: "Tailwind CSS + Custom CSS",
-          detail: "Component styling, animations, and recruiter-focused section design.",
-        },
-        {
-          title: "Static Deployment",
-          detail: "Production build deployed to sushdream.in with SEO and Open Graph metadata.",
-        },
-      ],
-      deliverySignals: [
-        "Mobile hamburger navigation",
-        "SEO + Open Graph tags",
-        "Enterprise delivery proof sections",
-        "Live at sushdream.in",
       ],
     },
   },

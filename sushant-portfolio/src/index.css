@@ -121,16 +121,16 @@
   --color-nav-bg-scrolled: rgba(255, 255, 255, 0.97);
   --color-nav-border: rgba(100, 116, 139, 0.22);
   --color-nav-mobile-bg: #ffffff;
-  --color-particle-bg: #d4e4f2;
-  --color-particle-bg-end: #e8f2fa;
-  --color-particle-dot: #0284c7;
-  --color-particle-line: rgba(2, 132, 199, 0.28);
-  --color-particle-glow: rgba(56, 189, 248, 0.4);
+  --color-particle-bg: #dceef6;
+  --color-particle-bg-end: #eef6fb;
+  --color-particle-dot: #0891b2;
+  --color-particle-line: rgba(8, 145, 178, 0.28);
+  --color-particle-glow: rgba(8, 145, 178, 0.32);
   --color-particle-accent: #6366f1;
-  --color-particle-pulse: #38bdf8;
-  --color-particle-hub: #7c3aed;
-  --color-particle-hex: rgba(8, 145, 178, 0.09);
-  --color-particle-aurora: rgba(99, 102, 241, 0.1);
+  --color-particle-pulse: #22d3ee;
+  --color-particle-hub: #0e7490;
+  --color-particle-hex: rgba(8, 145, 178, 0.08);
+  --color-particle-aurora: rgba(99, 102, 241, 0.08);
   --color-scrollbar-track: #e2e8f0;
   --color-selection-bg: rgba(8, 145, 178, 0.22);
   --color-btn-primary-text: #ffffff;
@@ -157,7 +157,6 @@
 #tech-stack,
 #experience,
 #projects,
-#blog,
 #contact {
   scroll-margin-top: 5.5rem;
 }
