@@ -54,7 +54,7 @@ src/
 
 ## Resume Download
 
-Place your resume at `public/Sushant_Paikarao_Frontend_dev.pdf`.
+Place your resume at `public/Sushant_Paikarao_Lead_Frontend_Engineer.pdf`.
 The **Hire Me** button (navbar + hero) will trigger a direct browser download.
 
 ## License

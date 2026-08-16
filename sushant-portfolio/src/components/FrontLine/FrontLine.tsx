@@ -92,8 +92,8 @@ const FrontLine: React.FC = () => {
 
             <div className="hero-actions">
               <a
-                href="/Sushant_Paikarao_Frontend_dev.pdf"
-                download="Sushant_Paikarao_Frontend_dev.pdf"
+                href="/Sushant_Paikarao_Lead_Frontend_Engineer.pdf"
+                download="Sushant_Paikarao_Lead_Frontend_Engineer.pdf"
                 className="hero-btn hero-btn--primary"
               >
                 Download Resume
