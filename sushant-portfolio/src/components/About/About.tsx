@@ -29,11 +29,11 @@ const About: React.FC = () => {
             <figure className="about-portrait">
               <div className="about-image-wrap">
                 <img
-                  src="/profile3.jpeg"
+                  src="/profile.png"
                   alt="Sushant Paikarao, Technology Lead"
                   className="about-image"
-                  width={560}
-                  height={700}
+                  width={1024}
+                  height={1024}
                   decoding="async"
                   fetchPriority="low"
                 />

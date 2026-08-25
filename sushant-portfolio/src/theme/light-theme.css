@@ -101,6 +101,8 @@
 [data-theme="light"] #hero .hero-bg__shine {
   display: block;
   position: absolute;
+  opacity: 1;
+  visibility: visible;
   pointer-events: none;
 }
 

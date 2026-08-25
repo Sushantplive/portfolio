@@ -19,7 +19,9 @@
 
 #hero .hero-bg__orbs,
 #hero .hero-bg__shine {
-  display: none;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 
