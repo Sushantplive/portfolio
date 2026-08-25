@@ -49,6 +49,31 @@ interface PointerState {
 
 const GRID_STEP = 28;
 
+const THEME_PALETTES: Record<"light" | "dark", ThemePalette> = {
+  dark: {
+    particleBg: "#0a0f1a",
+    particleBgEnd: "#111827",
+    particleDot: "#22d3ee",
+    particleLine: "rgba(34, 211, 238, 0.28)",
+    particleAccent: "#818cf8",
+    particlePulse: "#67e8f9",
+    particleHub: "#c4b5fd",
+    particleHex: "rgba(34, 211, 238, 0.07)",
+    particleAurora: "rgba(99, 102, 241, 0.12)",
+  },
+  light: {
+    particleBg: "#dceef6",
+    particleBgEnd: "#eef6fb",
+    particleDot: "#0891b2",
+    particleLine: "rgba(8, 145, 178, 0.28)",
+    particleAccent: "#6366f1",
+    particlePulse: "#22d3ee",
+    particleHub: "#0e7490",
+    particleHex: "rgba(8, 145, 178, 0.08)",
+    particleAurora: "rgba(99, 102, 241, 0.08)",
+  },
+};
+
 const CONFIG = {
   light: {
     network: 32,
@@ -92,22 +117,8 @@ function getParticleSettings(theme: keyof typeof CONFIG, width: number): Particl
   };
 }
 
-function readThemeColors(): ThemePalette {
-  const styles = getComputedStyle(document.documentElement);
-  const pick = (name: string, fallback: string) =>
-    styles.getPropertyValue(name).trim() || fallback;
-
-  return {
-    particleBg: pick("--color-particle-bg", "#111827"),
-    particleBgEnd: pick("--color-particle-bg-end", "#111827"),
-    particleDot: pick("--color-particle-dot", "#22d3ee"),
-    particleLine: pick("--color-particle-line", "rgba(34, 211, 238, 0.3)"),
-    particleAccent: pick("--color-particle-accent", "#818cf8"),
-    particlePulse: pick("--color-particle-pulse", "#67e8f9"),
-    particleHub: pick("--color-particle-hub", "#c4b5fd"),
-    particleHex: pick("--color-particle-hex", "rgba(34, 211, 238, 0.07)"),
-    particleAurora: pick("--color-particle-aurora", "rgba(99, 102, 241, 0.12)"),
-  };
+function readThemeColors(theme: keyof typeof THEME_PALETTES): ThemePalette {
+  return THEME_PALETTES[theme];
 }
 
 function cellKey(col: number, row: number) {
@@ -370,7 +381,7 @@ const ParticleBackground: React.FC = () => {
     let connectionDistanceSq = connectionDistance * connectionDistance;
     const isLight = theme === "light";
 
-    let colors = readThemeColors();
+    let colors = readThemeColors(theme);
     let backgroundGradient = ctx.createLinearGradient(0, 0, 0, 1);
     const gridCanvas = document.createElement("canvas");
     const gridCtx = gridCanvas.getContext("2d");
@@ -454,7 +465,7 @@ const ParticleBackground: React.FC = () => {
       settings = getParticleSettings(theme, newWidth);
       connectionDistance = settings.connectionDistance;
       connectionDistanceSq = connectionDistance * connectionDistance;
-      colors = readThemeColors();
+      colors = readThemeColors(theme);
       rebuildBackgroundGradient(newHeight);
       rebuildGridCache(newWidth, newHeight);
       seedParticles(newWidth, newHeight);

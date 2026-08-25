@@ -13,8 +13,8 @@ const navLinks = [
 const sectionIds = ["hero", ...navLinks.map((link) => link.id)];
 
 const resumeLink = {
-  href: "/Sushant_Paikarao_Lead_Frontend_Engineer.pdf",
-  download: "Sushant_Paikarao_Lead_Frontend_Engineer.pdf",
+  href: "/Sushant_Paikarao_Frontend_Engineer.pdf",
+  download: "Sushant_Paikarao_Frontend_Engineer.pdf",
   label: "Resume",
 };
 

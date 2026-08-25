@@ -17,6 +17,15 @@ html.theme-transitioning *::after {
     stroke 0.35s ease !important;
 }
 
+/* Gradients cannot interpolate; transitioning `background` leaves the dark hero wash stuck. */
+html.theme-transitioning #hero.hero-section,
+html.theme-transitioning #hero .hero-bg,
+html.theme-transitioning #hero .hero-bg *,
+html.theme-transitioning #hero .hero-bg *::before,
+html.theme-transitioning #hero .hero-bg *::after {
+  transition: none !important;
+}
+
 body::before {
   content: "";
   position: fixed;
