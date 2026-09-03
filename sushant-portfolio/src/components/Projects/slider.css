@@ -766,18 +766,14 @@
   }
 
   #projects .projects-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
-    overflow-x: auto;
-    padding-bottom: 0.35rem;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    overflow-x: visible;
   }
 
   #projects .project-list-item {
-    flex: 0 0 min(78vw, 16.5rem);
-    scroll-snap-align: start;
+    width: 100%;
   }
 
   #projects .project-list-item__name {

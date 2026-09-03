@@ -5,7 +5,7 @@ import "./frontLine.css";
 
 const heroStats = [
   { value: "8+", label: "Years Experience" },
-  { value: "8", label: "Engineers Led" },
+  { value: "7", label: "Engineers Led" },
   { value: "3", label: "Global Clients" },
 ];
 

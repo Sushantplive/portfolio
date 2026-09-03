@@ -205,6 +205,33 @@ th,
   cursor: text;
 }
 
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  a,
+  button,
+  [role="button"],
+  label,
+  select,
+  input,
+  textarea,
+  [contenteditable="true"],
+  p,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  code,
+  pre,
+  blockquote,
+  td,
+  th,
+  .selectable-text {
+    cursor: auto;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Mono', monospace;
 }

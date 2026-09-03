@@ -134,6 +134,10 @@
   transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
+#contact .availability-card .grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 #contact .availability-card:hover {
   border-color: rgba(52, 211, 153, 0.6);
   box-shadow: 0 16px 28px rgba(6, 78, 59, 0.22);

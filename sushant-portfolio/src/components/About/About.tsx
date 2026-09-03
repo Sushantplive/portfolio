@@ -2,6 +2,7 @@ import React from "react";
 import "./about.css";
 
 const focusAreas = [
+  "Microfrontend Architecture",
   "Enterprise Dashboards",
   "Data Visualization",
   "Product & SaaS UIs",
@@ -50,24 +51,31 @@ const About: React.FC = () => {
 
           <div className="about-copy-panel">
             <p className="about-lede">
-              I build with{" "}
-              <span className="about-highlight">React</span> and{" "}
-              <span className="about-highlight">TypeScript</span>: analytics dashboards,
-              chart-driven UIs, and reusable component systems that scale across product, SaaS, and
-              enterprise teams.
+              I architect{" "}
+              <span className="about-highlight">microfrontend systems</span> (Module Federation)
+              and build with <span className="about-highlight">React</span> and{" "}
+              <span className="about-highlight">TypeScript</span>: real-time, WebSocket-driven
+              analytics dashboards, chart-driven UIs, and reusable component systems that scale
+              across product, SaaS, and enterprise teams.
             </p>
 
             <p className="about-paragraph">
-              Across 8+ years at{" "}
+              Across 8+ years in concurrent multi-client BFSI engagements at{" "}
               <span className="about-highlight">US Bank</span>,{" "}
               <span className="about-highlight">HSBC</span>, and{" "}
-              <span className="about-highlight">HPE</span>, I&apos;ve shipped teller workflows, GPS
-              Insights analytics (led a team of 8), and Highcharts telemetry dashboards. That
-              experience transfers cleanly to any team that needs performant, reliable frontends.
+              <span className="about-highlight">HPE</span> — within a global onsite-offshore
+              delivery model — I&apos;ve shipped teller workflows, GPS Insights analytics (led a
+              team of 7), and Highcharts telemetry dashboards.
+            </p>
+
+            <p className="about-paragraph">
+              I manage end-to-end release cycles — CI/CD, SIT/UAT sign-off, rollback planning —
+              improving code-quality compliance by 25% while sustaining zero critical
+              post-release defects.
             </p>
 
             <p className="about-paragraph about-paragraph--muted">
-              I use AI coding tools (Copilot, Cursor, Windsurf) to move faster — architecture and
+              I use AI coding tools (Copilot, Cursor, Claude) to move faster — architecture and
               code review stay human-led.
             </p>
 

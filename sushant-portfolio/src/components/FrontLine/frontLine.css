@@ -516,10 +516,6 @@
 }
 
 @media (max-width: 1023px) {
-  #hero .hero-panel {
-    order: -1;
-  }
-
   #hero .hero-panel__stats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

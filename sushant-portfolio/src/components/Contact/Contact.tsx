@@ -27,10 +27,6 @@ const Contact: React.FC = () => {
               <p className="text-white font-semibold">Remote, hybrid, or on-site</p>
             </div>
             <div>
-              <p className="text-gray-400 mb-1">Notice Period</p>
-              <p className="text-white font-semibold">3 months · negotiable</p>
-            </div>
-            <div>
               <p className="text-gray-400 mb-1">Open to</p>
               <p className="text-white font-semibold">Product · SaaS · Enterprise</p>
             </div>
