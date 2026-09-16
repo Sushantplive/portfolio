@@ -12,12 +12,6 @@ const navLinks = [
 
 const sectionIds = ["hero", ...navLinks.map((link) => link.id)];
 
-const resumeLink = {
-  href: "/Sushant_Paikarao_Frontend_Engineer.pdf",
-  download: "Sushant_Paikarao_Frontend_Engineer.pdf",
-  label: "Resume",
-};
-
 const socialLinks = [
   {
     href: "mailto:sushant.paikarao.dev@gmail.com",
@@ -160,18 +154,6 @@ const Navigation: React.FC = () => {
     </button>
   );
 
-  const renderResumeLink = (mobile = false) => (
-    <a
-      key="resume"
-      href={resumeLink.href}
-      download={resumeLink.download}
-      className={`nav-link nav-link--resume ${mobile ? "nav-link--mobile" : ""}`}
-      onClick={() => setIsMobileMenuOpen(false)}
-    >
-      {resumeLink.label}
-    </a>
-  );
-
   return (
     <nav
       className={`custom-nav fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
@@ -202,7 +184,6 @@ const Navigation: React.FC = () => {
 
         <div className="custom-nav-links">
           {navLinks.map((link) => renderNavLink(link))}
-          {renderResumeLink()}
         </div>
 
         <div className="custom-nav-actions flex items-center gap-4">
@@ -249,7 +230,6 @@ const Navigation: React.FC = () => {
           <div className="mobile-nav-panel__inner">
             <div className="mobile-nav-panel__links">
               {navLinks.map((link) => renderNavLink(link, true))}
-              {renderResumeLink(true)}
             </div>
 
             <div className="mobile-nav-panel__theme">
