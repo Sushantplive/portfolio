@@ -95,14 +95,7 @@ const FrontLine: React.FC = () => {
             </div>
 
             <div className="hero-actions">
-              <a
-                href="/Sushant_Paikarao_Frontend_Engineer.pdf"
-                download="Sushant_Paikarao_Frontend_Engineer.pdf"
-                className="hero-btn hero-btn--primary"
-              >
-                Download Resume
-              </a>
-              <a href="#experience" className="hero-btn hero-btn--secondary">
+              <a href="#experience" className="hero-btn hero-btn--primary">
                 View Experience
               </a>
               <a href="#contact" className="hero-btn hero-btn--ghost">
